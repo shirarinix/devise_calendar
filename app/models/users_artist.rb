@@ -1,2 +1,0 @@
-class UsersArtist < ApplicationRecord
-end
