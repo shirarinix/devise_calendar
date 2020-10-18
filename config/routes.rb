@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'events#index'
+  resources :events
   devise_for :artists, controllers: {
     sessions:      'artists/sessions',
     passwords:     'artists/passwords',
