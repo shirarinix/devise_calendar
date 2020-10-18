@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   root to: 'events#index'
   resources :events
+
+  resources :users, only: [:show, :edit, :update] do
+    get :users_artists, on: :collection
+  end
+  resources :artists, expect: [:index] do
+    resource :users_artists, only: [:create, :destroy]
+  end
+  
   devise_for :artists, controllers: {
     sessions:      'artists/sessions',
     passwords:     'artists/passwords',
