@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   root to: 'events#index'
+
   resources :events
+
+  resources :artists, shallow: true do
+    resource :bookmarks, only: %i[create destroy]
+    get :bookmarks, on: :collection
+  end
+
   devise_for :artists, controllers: {
     sessions:      'artists/sessions',
     passwords:     'artists/passwords',
