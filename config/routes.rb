@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'bookmarks/destroy'
   root to: 'events#index'
 
-  resources :events
+  # resources :events
 
   resources :artists, shallow: true do
     resource :bookmarks, only: %i[create destroy]
