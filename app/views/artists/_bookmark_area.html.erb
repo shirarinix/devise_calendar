@@ -1,5 +1,0 @@
-<% if artist.bookmark_by?(current_user) %>
-  <%= render 'artist/bookmark', artist: artist %>
-<% else %>
-  <%= render 'artist/unbookmark', artist: artist %>
-<% end %>

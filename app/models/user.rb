@@ -4,7 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :artists, dependent: :destroy
-  has_many :bookmarks, dependent: :destroy
-  has_many :bookmarks_artists, through: :bookmarks, source: :artist
+  has_many :artist_bookmarks, foreign_key: "user_id", class_name: "Bookmarks", dependent: :destroy
 end
