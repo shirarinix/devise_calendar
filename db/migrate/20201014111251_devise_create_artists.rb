@@ -4,7 +4,7 @@ class DeviseCreateArtists < ActiveRecord::Migration[6.0]
   def change
     create_table :artists do |t|
       ## Database authenticatable
-      t.string  :artist,             null: false
+      t.string  :artistname,        null: false
       t.string  :twitter,            null: false
       t.string  :facebook,           null: false
       t.string  :instagram,          null: false
