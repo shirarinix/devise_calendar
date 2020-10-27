@@ -32,11 +32,13 @@ ActiveRecord::Schema.define(version: 2020_10_20_102544) do
   end
 
   create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "artist_id"
+    t.integer "follower_id"
+    t.integer "following_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id", "artist_id"], name: "index_bookmarks_on_user_id_and_artist_id", unique: true
+    t.index ["follower_id", "following_id"], name: "index_bookmarks_on_follower_id_and_following_id", unique: true
+    t.index ["follower_id"], name: "index_bookmarks_on_follower_id"
+    t.index ["following_id"], name: "index_bookmarks_on_following_id"
   end
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

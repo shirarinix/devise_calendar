@@ -1,0 +1,10 @@
+<p>フォロー画面</p>
+<% @user.followers.each do |user| %>
+<table>
+<tr>
+  <td>  <%= user.nickname %> </td>
+  <td><%= link_to '詳細', user_path(user) %></td>
+</tr>
+
+</table>
+<% end %>

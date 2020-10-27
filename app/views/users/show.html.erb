@@ -1,0 +1,20 @@
+<%= @user.nickname %>のページ
+
+<div id="follow_form">
+  <% unless current_user?(@user) %>
+    <% if current_user.following?(@user) %>
+      <%= render 'unfollow' %>
+    <% else %>
+      <%= render 'follow' %>
+    <% end %>
+  <% end %>
+</div>
+
+<a href="<%= following_user_path(@user) %>">
+  <%= @user.following.count %>
+フォロー
+</a>
+<a href="<%= followers_user_path(@user) %>">
+  <%= @user.followers.count %>
+フォロワー
+</a>
