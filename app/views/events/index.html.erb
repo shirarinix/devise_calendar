@@ -1,5 +1,34 @@
 <h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<p>メイン画面</p>
 
-<%= link_to "User-sign-up", new_user_registration_path %>
-<%= link_to "Artist-sign-up", new_artist_registration_path %>
+<ul class='user-ver'>
+<p>●ユーザー</p>
+<% if user_signed_in? %>
+  <li><%= link_to current_user.nickname, '#', class: "user-nickname" %></li>
+  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+<% else %>
+  <li><%= link_to "User-sign-up", new_user_registration_path, class: "login" %></li>
+<% end %>
+<p>●アーティスト</p>
+<% if artist_signed_in? %>
+  <li><%= link_to current_artist.artistname, '#', class: "artistname" %></li>
+  <li><%= link_to 'ログアウト', destroy_artist_session_path, method: :delete, class: "logout" %></li>
+<% else %>
+  <li><%= link_to "Artist-sign-up", new_artist_registration_path, class: "sign-up" %></li>
+<% end %>
+</ul>
+
+<p>ユーザー一覧</p>
+<ul class='user-list'>
+  <% @user.each do |user| %>
+    <li><%= user.nickname %><br>
+    <%= link_to("#{user.nickname}のページ！！", user_path(user.id)) %></li>
+  <% end %>
+</ul>
+
+<p>アーティスト一覧</p>
+<ul class='artist-list'>
+  <% @artist.each do |artist| %>
+    <li><%= artist.artistname %><%#= render "bookmarks/follow_button", artist: @artist %></li>
+  <% end %>
+</ul>
