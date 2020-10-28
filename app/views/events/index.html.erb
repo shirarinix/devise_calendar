@@ -1,5 +1,4 @@
-<h1>Events#index</h1>
-<p>メイン画面</p>
+<h1>トップページ</h1>
 
 <ul class='user-ver'>
 <p>●ユーザー</p>
@@ -18,17 +17,57 @@
 <% end %>
 </ul>
 
-<p>ユーザー一覧</p>
+<p>[ユーザー一覧]</p>
 <ul class='user-list'>
-  <% @user.each do |user| %>
+  <% @users.each do |user| %>
     <li><%= user.nickname %><br>
     <%= link_to("#{user.nickname}のページ！！", user_path(user.id)) %></li>
   <% end %>
 </ul>
 
-<p>アーティスト一覧</p>
+<p>[アーティスト一覧]</p>
 <ul class='artist-list'>
-  <% @artist.each do |artist| %>
+  <% @artists.each do |artist| %>
     <li><%= artist.artistname %><%#= render "bookmarks/follow_button", artist: @artist %></li>
   <% end %>
 </ul>
+
+
+
+<h1>メイン画面</h1>
+<p>スケジュール管理</p>
+<p id="notice"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>更新時間</th>
+      <th colspan="3">項目</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= link_to '編集する', event_path(event.id) %></td>
+        <td><%= link_to '削除する', event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '★イベント入力★', new_event_path %>
+
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= link_to event.title, event %>
+    </div>
+  <% end %>
+<% end %>

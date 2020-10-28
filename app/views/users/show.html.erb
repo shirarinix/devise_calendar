@@ -1,3 +1,5 @@
+ログイン者→<%= current_user.nickname %><br>
+
 <%= @user.nickname %>のページ
 
 <div id="follow_form">
@@ -11,7 +13,7 @@
 </div>
 
 <a href="<%= following_user_path(@user) %>">
-  <%= @user.following.count %>
+  <%= @user.followings.count %>
 フォロー
 </a>
 <a href="<%= followers_user_path(@user) %>">
