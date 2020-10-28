@@ -7,8 +7,10 @@ class User < ApplicationRecord
   has_many :active_bookmarks,class_name:  "Bookmark", foreign_key: "follower_id", dependent: :destroy
   has_many :active_bookmarks, class_name: "Bookmark", foreign_key: "following_id", dependent: :destroy
 
-  has_many :following, through: :active_bookmarks, source: :following
+  has_many :followings, through: :active_bookmarks, source: :following
   has_many :followers, through: :active_bookmarks, source: :follower
+
+  # has_many :events
 
   # ユーザーをフォローする
   def follow(other_user)

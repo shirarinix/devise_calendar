@@ -20,7 +20,7 @@
 
 <p>ユーザー一覧</p>
 <ul class='user-list'>
-  <% @user.each do |user| %>
+  <% @users.each do |user| %>
     <li><%= user.nickname %><br>
     <%= link_to("#{user.nickname}のページ！！", user_path(user.id)) %></li>
   <% end %>
@@ -28,7 +28,48 @@
 
 <p>アーティスト一覧</p>
 <ul class='artist-list'>
-  <% @artist.each do |artist| %>
+  <% @artists.each do |artist| %>
     <li><%= artist.artistname %><%#= render "bookmarks/follow_button", artist: @artist %></li>
   <% end %>
 </ul>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>自分の日記</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>時間</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
+        <td><%= link_to 'Destroy',event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '日記をかく', new_event_path %>
+
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% @events.each do |event| %>
+    <div>
+      <%= link_to event.title, event %>
+    </div>
+  <% end %>
+<% end %>
