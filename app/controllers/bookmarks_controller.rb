@@ -23,10 +23,10 @@ class BookmarksController < ApplicationController
   #   following = current_user.follow(@user)
   #   if following.save
   #     flash[:success] = 'ユーザーをフォローしました'
-  #   　redirect_to @user
+  #     redirect_to @user
   #   else
   #     flash.now[:alert] = 'ユーザーをフォローに失敗しました'
-  #   　redirect_to @user
+  #     redirect_to @user
   #   end
   # end
 
@@ -34,7 +34,7 @@ class BookmarksController < ApplicationController
   #   following = current_user.unfollow(@user)
   #   if followimg.destroy
   #     flash[:success] = 'ユーザーのフォロを解除しました'
-  #   　redirect_to @user
+  #     redirect_to @user
   #   else
   #     flash.now[:alert] = 'ユーザーのフォロ解除に失敗しました'
   #     redirect_to @user

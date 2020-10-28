@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   def index
     @users = User.all
     @artists = Artist.all
@@ -15,7 +16,7 @@ class EventsController < ApplicationController
 
   def create
     Event.create(event_parameter)
-    redirect_to event_path
+    redirect_to root_path
   end
 
   def destroy

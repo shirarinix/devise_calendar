@@ -34,10 +34,10 @@
 </ul>
 
 
+
+
+<h1>スケジュール管理</h1>
 <p id="notice"><%= notice %></p>
-
-<h1>自分の日記</h1>
-
 <table>
   <thead>
     <tr>
@@ -52,9 +52,9 @@
       <tr>
         <td><%= event.title %></td>
         <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
-        <td><%= link_to 'Destroy',event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '一覧', event %></td>
+        <td><%= link_to '編集', edit_event_path(event.id) %></td>
+        <td><%= link_to '削除', event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -62,12 +62,12 @@
 
 <br>
 
-<%= link_to '日記をかく', new_event_path %>
+<%= link_to 'イベント入力', new_event_path %>
 
 <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
 
-  <% @events.each do |event| %>
+  <% events.each do |event| %>
     <div>
       <%= link_to event.title, event %>
     </div>
