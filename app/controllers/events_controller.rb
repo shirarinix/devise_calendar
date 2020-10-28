@@ -22,11 +22,12 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to event_path, notice:"削除しました"
+    redirect_to root_path, notice:"削除しました"
   end
 
   def edit
     @event = Event.find(params[:id])
+    render 'show'
   end
 
   def update

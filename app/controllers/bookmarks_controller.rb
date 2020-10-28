@@ -2,13 +2,13 @@ class BookmarksController < ApplicationController
 
   def create
     bookmark = Bookmark.create(create_params)
-    redirect_to controller: 'events', action: 'index'
+    redirect_to controller: 'users', action: 'show'
   end
 
   def destroy
     bookmark = Bookmark.find(params[:id])
     bookmark.destroy
-    redirect_to controller: 'events', action: 'index'
+    redirect_to controller: 'users', action: 'show'
   end
 
   private

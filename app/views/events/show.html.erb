@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1>編集画面</h1>
+<h1>詳細画面</h1>
 <p>
   <strong>タイトル</strong>
   <%= @event.title %>
@@ -15,5 +15,5 @@
   <%= @event.content %>
 </p>
 
-<%= link_to '編集', edit_event_path(@event) %>
-<%= link_to '戻る', root_path(@event) %>
+<%= link_to '削除する', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'トップへ戻る', root_path(@event) %>
