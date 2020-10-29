@@ -10,8 +10,6 @@ class User < ApplicationRecord
   has_many :followings, through: :active_bookmarks, source: :following
   has_many :followers, through: :passive_bookmarks, source: :follower
 
-  # has_many :events
-
   # ユーザーをフォローする
   def follow(other_user)
     active_bookmarks.create(following_id: other_user.id)
@@ -26,20 +24,4 @@ class User < ApplicationRecord
   def following?(other_user)
     followings.include?(other_user)
   end
-  # has_many :bookmarks
-  # has_many :followings, through: :bookmarks, source: :follow
-
-  # has_many :reverse_of_bookmarks, class_name: "Bookmark", foreign_key: "follow_id"
-  # has_many :followers, through: :reverse_of_bookmarks, source: :user
-
-  # def follow(other_user)
-  #   unless self == other_user
-  #     self.bookmarks.find_or_create_by(follow_id: other_user.id)
-  #   end
-  # end
-
-  # def unfollow(other_user)
-  #   bookmark = self.bookmarks.find_by(follow_id: other_user.id)
-  #   bookmark.destroy if bookmark
-  # end
 end

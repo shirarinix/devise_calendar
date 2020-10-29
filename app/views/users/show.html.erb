@@ -1,6 +1,8 @@
 ログイン者→<%= current_user.nickname %><br>
 
-<%= @user.nickname %>のページ
+<% @user.followers.each do |user| %>
+  <%= user.nickname %>のページ
+<% end %>
 
 <div id="follow_form">
   <% unless current_user?(@user) %>
