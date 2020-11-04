@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @events = Event.includes(:user)
+    @users = @user.followings.order("create_at DESC")
+    @events = @user.events
   end
   
     def following

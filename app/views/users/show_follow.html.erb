@@ -1,9 +1,9 @@
 <p>フォロー画面</p>
-<% @user.followers.each do |user| %>
+<% @user.followings.each do |user| %>
 <table>
 <tr>
   <td> <%= user.nickname %> </td>
-  <td><%= link_to 'イベント詳細', user_path(@user.id) %></td>
+  <td><%= link_to '詳細', user_path(user) %></td>
 </tr>
 
 </table>

@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :followings, through: :active_bookmarks, source: :following
   has_many :followers, through: :passive_bookmarks, source: :follower
 
+  has_many :events
+
   # ユーザーをフォローする
   def follow(other_user)
     active_bookmarks.create(following_id: other_user.id)
@@ -24,4 +26,8 @@ class User < ApplicationRecord
   def following?(other_user)
     followings.include?(other_user)
   end
+
+  # def events
+  #   return Event.where(user_id: self.id)
+  # end
 end
