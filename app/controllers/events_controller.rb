@@ -37,7 +37,6 @@ class EventsController < ApplicationController
   def edit
     @user = User.find_by(id: @event.user_id)
     @events = @user.events
-    render 'show'
   end
 
   def update
