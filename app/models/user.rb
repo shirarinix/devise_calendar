@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :followings, through: :active_bookmarks, source: :following
   has_many :followers, through: :passive_bookmarks, source: :follower
 
-  has_many :events
+  has_many :events, dependent: :destroy
 
   # ユーザーをフォローする
   def follow(other_user)

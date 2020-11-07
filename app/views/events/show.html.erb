@@ -1,35 +1,32 @@
-<p id="notice"><%= notice %></p>
 <h1>詳細画面</h1>
 
-<%= @event.user.nickname %>さん
+<p id="notice"><%= notice %></p>
+
+💫<%= @event.user.nickname %>さんの情報💫
 
 <p>
-  <strong>タイトル</strong>
+  <strong>【タイトル】</strong>
   <%= @event.title %>
 </p>
 
 <p>
-  <strong>更新日時</strong>
-  <%= @event.start_time.strftime("%Y-%m-%d %H:%M") %>
+  <strong>【更新日時】</strong>
+  <%= @event.start_time.strftime ("%Y-%m-%d %H:%M") %>
 </p>
 
 <p>
-  <strong>イベント内容</strong>
+  <strong>【イベント内容】</strong>
   <%= @event.content %>
 </p>
 
-<%= link_to '★イベントを追加する★', new_event_path %>
-<%= link_to '削除する', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'トップへ戻る', root_path %><br>
-<br>
-<% if @event.user_id == @user.id && current_user %>
- <%= month_calendar events: @events do |date, event| %>
-  <%= date.day %>
-
-  <% event.each do |event| %>
-    <div>
-      <%= link_to event.title, event %>
-    </div>
-  <% end %>
- <% end %>
+<% if user_signed_in? && current_user.id == @event.user.id %>
+  <%= link_to '★現在のイベントを編集する★', edit_event_path(@event) %><br>
+  <%= link_to '★新しくイベントを作成する★', new_event_path(@event) %><br>
+  <%= link_to '★このイベントを削除する★', event_path(@event), method: :delete, data: { confirm: '本当に削除してよろしいですか？？' } %><br>
+  <%= link_to '⬅️ トップへ戻る', root_path %>
+  <br>
+  <%= render 'events/event-calender' %>
+<% else %>
+  <strong><p>※※※ このイベントの変更は本人しか参照出来ません！！ ※※※</p></strong>
+  <%= link_to '⬅️ トップへ戻る', root_path %>
 <% end %>

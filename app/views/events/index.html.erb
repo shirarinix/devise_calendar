@@ -13,7 +13,7 @@
 <% end %>
 
 <p>●アーティスト登録●</p>
-<% if artist_signed_in? %>
+<% if artist_signed_in? && current_artist.id %>
   <li><%= link_to current_artist.artistname, '#', class: "artistname" %></li>
   <li><%= link_to 'ログアウト', destroy_artist_session_path, method: :delete, class: "logout" %></li>
 <% else %>
@@ -27,13 +27,14 @@
 <ul class='user-list'>
   <% @users.each do |user| %>
     <li><%= user.nickname %><br>
-    <%= link_to("#{user.nickname}のページ！！", user_path(user)) %></li>
+    <%= link_to("※#{user.nickname}さんのページへ※", user_path(user)) %></li>
   <% end %>
 </ul>
 <% end %>
 
 <% if artist_signed_in? && current_artist.id %>
 <p>[アーティスト一覧]</p>
+
 <ul class='artist-list'>
   <% @artists.each do |artist| %>
     <li><%= artist.artistname %><%#= render "bookmarks/follow_button", artist: @artist %></li>
@@ -41,15 +42,14 @@
 </ul>
 <% end %>
 
-
 <h1>メイン画面</h1>
 
-<p>スケジュール管理</p>
-
+<p>🔻スケジュールの管理🔻</p>
 <% if user_signed_in? && current_user.id %>
-  <%= link_to '★イベントの入力★', new_event_path %>
+<%= link_to '➡️ 新規イベントの作成', new_event_path %><br>
 
- <table>
+<br>⭐️直近のイベント⭐️<br>
+  <table>
     <thead>
       <tr>
         <th>タイトル</th>
@@ -63,7 +63,7 @@
       <tr>
         <td><%= event.title %></td>
         <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= link_to '確認する', event_path(event) %></td>
+        <td><%= link_to 'スケジュール一覧へ', event_path(event) %></td>
         <td><%#= link_to '削除する', event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -71,11 +71,9 @@
 <% else %>
   <strong><p>※※※ イベントの入力には新規登録/ログインが必要です ※※※</p></strong>
 <% end %>
- </table>
+  </table>
 
-<br>
-<% if user_signed_in? && current_user.id %>
-  <%= month_calendar events: @events do |date, event| %>
-    <%= date.day %>
-  <% end %>
+<% if @events.present? %>
+  <br>⭐️今月の主なイベント⭐️<br>
+  <%= render 'events/event-calender' %>
 <% end %>
