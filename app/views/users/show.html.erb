@@ -1,8 +1,7 @@
-ログイン者→<%= current_user.nickname %><br>
-
-<% @user.followers.each do |user| %>
-  <%= user.nickname %>のページ
-<% end %>
+[ユーザー名] <%= current_user.nickname %><br>
+<br>
+  <%= @user.nickname %>さんのページ！！
+<br>
 
 <div id="follow_form">
   <% unless current_user?(@user) %>
@@ -22,3 +21,5 @@
   <%= @user.followers.count %>
 フォロワー
 </a>
+<br>
+<%= render 'events/event-calender' %>

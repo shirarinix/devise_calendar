@@ -1,9 +1,11 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, only: [:show]
+  before_action :event_info, only: [:show, :destroy, :edit, :update]
+
   def index
     @users = User.all
     @artists = Artist.all
-    @events = Event.all
+    @events = Event.includes(:user)
   end
 
   def new
@@ -11,38 +13,48 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @user = User.find_by(id: @event.user_id)
+    @events = @user.events
   end
 
   def create
-    Event.create(event_parameter)
-    redirect_to root_path
+    @event = current_user.events.create(event_parameter)
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      reder 'new'
+    end
   end
 
   def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to root_path, notice:"削除しました"
-  end
-
-  def edit
-    @event = Event.find(params[:id])
-    render 'show'
-  end
-
-  def update
-    @event = Event.find(params[:id])
-    if @event.update(event_parameter)
-      redirect_to event_path, notice: "編集しました"
+    if @event.destroy
+      redirect_to events_path(@event), notice: "イベント内容を削除しました"
     else
       render 'edit'
     end
   end
 
-    private
+  def edit
+    @user = User.find_by(id: @event.user_id)
+    @events = @user.events
+  end
 
-    def event_parameter
-      params.require(:event).permit(:title, :content, :start_time)
+  def update
+    if @event.update(event_parameter)
+      redirect_to events_path(@event), notice: "編集しました"
+    else
+      render 'edit'
     end
+  end
+
+  private
+
+  def event_parameter
+    params.require(:event).permit(:title, :content, :start_time).merge(user_id: current_user.id)
+  end
+
+  def event_info
+    @event = Event.find(params[:id])
+  end
 
 end

@@ -1,73 +1,81 @@
 <h1>トップページ</h1>
 
+<p id="notice"><%= notice %></p>
+
 <ul class='user-ver'>
-<p>●ユーザー</p>
-<% if user_signed_in? %>
+<p>●ユーザー登録●</p>
+<% if user_signed_in? && current_user.id %>
   <li><%= link_to current_user.nickname, '#', class: "user-nickname" %></li>
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
 <% else %>
-  <li><%= link_to "User-sign-up", new_user_registration_path, class: "login" %></li>
+  <li><%= link_to "User-sign-up", new_user_registration_path, class: "signup" %></li>
+  <li><%= link_to 'log-in', new_user_session_path, class: "login" %></li>
 <% end %>
-<p>●アーティスト</p>
-<% if artist_signed_in? %>
+
+<p>●アーティスト登録●</p>
+<% if artist_signed_in? && current_artist.id %>
   <li><%= link_to current_artist.artistname, '#', class: "artistname" %></li>
   <li><%= link_to 'ログアウト', destroy_artist_session_path, method: :delete, class: "logout" %></li>
 <% else %>
-  <li><%= link_to "Artist-sign-up", new_artist_registration_path, class: "sign-up" %></li>
+  <li><%= link_to "Artist-sign-up", new_artist_registration_path, class: "signup" %></li>
+  <li><%= link_to 'log-in', new_artist_session_path, class: "login" %></li>
 <% end %>
 </ul>
 
+<% if user_signed_in? && current_user.id %>
 <p>[ユーザー一覧]</p>
 <ul class='user-list'>
   <% @users.each do |user| %>
     <li><%= user.nickname %><br>
-    <%= link_to("#{user.nickname}のページ！！", user_path(user.id)) %></li>
+    <%= link_to("※#{user.nickname}さんのページへ※", user_path(user)) %></li>
   <% end %>
 </ul>
+<% end %>
 
+<% if artist_signed_in? && current_artist.id %>
 <p>[アーティスト一覧]</p>
+
 <ul class='artist-list'>
   <% @artists.each do |artist| %>
     <li><%= artist.artistname %><%#= render "bookmarks/follow_button", artist: @artist %></li>
   <% end %>
 </ul>
-
-
+<% end %>
 
 <h1>メイン画面</h1>
-<p>スケジュール管理</p>
-<p id="notice"><%= notice %></p>
-<table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>更新時間</th>
-      <th colspan="3">項目</th>
-    </tr>
+
+<p>🔻スケジュールの管理🔻</p>
+<% if user_signed_in? && current_user.id %>
+<%= link_to '➡️ 新規イベントの作成', new_event_path %><br>
+
+<br>⭐️直近のイベント⭐️<br>
+  <table>
+    <thead>
+      <tr>
+        <th>『ユーザー名』</th>
+        <th>『イベントタイトル』</th>
+        <th>『開催日（時間）』</th>
+        <th colspan="3">『詳細一覧』</th>
+      </tr>
   </thead>
 
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.title %></td>
-        <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= link_to '編集する', event_path(event.id) %></td>
-        <td><%= link_to '削除する', event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= event.user.nickname %>さん</td>
+        <td>🚩<%= event.title %></td>
+        <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
+        <td><%= link_to '→詳細ページへ', event_path(event) %></td>
+        <td><%#= link_to '削除する', event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
+<% else %>
+  <strong><p>※※※ イベントの入力には新規登録/ログインが必要です ※※※</p></strong>
+<% end %>
+  </table>
 
-<br>
-
-<%= link_to '★イベント入力★', new_event_path %>
-
-<%= month_calendar events: @events do |date, events| %>
-  <%= date.day %>
-
-  <% events.each do |event| %>
-    <div>
-      <%= link_to event.title, event %>
-    </div>
-  <% end %>
+<% if @events.present? %>
+  <br>⭐️今月の主なイベント⭐️<br>
+  <%= render 'events/event-calender' %>
 <% end %>
