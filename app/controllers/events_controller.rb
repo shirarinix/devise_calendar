@@ -28,7 +28,7 @@ class EventsController < ApplicationController
 
   def destroy
     if @event.destroy
-      redirect_to events_path(@event), notice: "イベント内容を削除しました"
+      redirect_to event_path(@event), notice: "イベント内容を削除しました"
     else
       render 'edit'
     end
