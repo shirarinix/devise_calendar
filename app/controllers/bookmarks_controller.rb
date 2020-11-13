@@ -17,9 +17,10 @@ class BookmarksController < ApplicationController
   private
 
   def create_params
-    params.permit(:following_id).merge(follower_id: current_user.id)
     # binding.pry
-    params.permit(:artist_follow_id).merge(artist_followed_id: current_artist.id)
+    params.permit(:following_id, :artist_follow_id).merge(follower_id: current_user.id, artist_follow_id: current_artist.id)
+    # binding.pry
+    # params.permit(:artist_follow_id).merge(artist_followed_id: current_artist.id, follower_id: current_user.id)
   end
 
 end

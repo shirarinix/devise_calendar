@@ -4,8 +4,8 @@
 <br>
 
 <div id="follow_form">
-  <% unless current_user?(@user) %>
-    <% if current_user.following?(@user) %>
+  <% unless current_user?(@user) || current_artist?(@artist) %>
+    <% if current_user.following?(@user) || cerrent_artist.artist_follow?(@srtist) %>
       <%= render 'unfollow' %>
     <% else %>
       <%= render 'follow' %>
@@ -22,4 +22,6 @@
 フォロワー
 </a>
 <br>
+
+<%#= render 'artists/show' %>
 <%= render 'events/event-calender' %>
