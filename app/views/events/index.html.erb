@@ -37,7 +37,8 @@
 
 <ul class='artist-list'>
   <% @artists.each do |artist| %>
-    <li><%= artist.artistname %><%#= render "bookmarks/follow_button", artist: @artist %></li>
+    <li><%= artist.artistname %><br>
+    <%= link_to("※#{artist.artistname}さんのページへ※", artist_path(artist)) %></li>
   <% end %>
 </ul>
 <% end %>

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :active_bookmarks,class_name:  "Bookmark", foreign_key: "follower_id", dependent: :destroy
+  has_many :active_bookmarks, class_name: "Bookmark", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_bookmarks, class_name: "Bookmark", foreign_key: "following_id", dependent: :destroy
 
   has_many :followings, through: :active_bookmarks, source: :following

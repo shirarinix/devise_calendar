@@ -5,12 +5,12 @@ class DeviseCreateArtists < ActiveRecord::Migration[6.0]
     create_table :artists do |t|
       ## Database authenticatable
       t.string  :artistname,        null: false
-      t.string  :twitter,            null: false
-      t.string  :facebook,           null: false
-      t.string  :instagram,          null: false
       t.integer :sex,                null: false
       t.date    :birthday,           null: false
       t.string  :discography
+      t.string  :twitter
+      t.string  :facebook
+      t.string  :instagram
       t.string  :email,              null: false, default: ""
       t.string  :encrypted_password, null: false, default: ""
 
