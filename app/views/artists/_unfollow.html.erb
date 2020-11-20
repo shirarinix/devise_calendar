@@ -1,3 +1,9 @@
-<%= form_for(current_artist.active_artist_bookmarks.find_by(artist_follow_id: @artist.id), html: { method: :delete }) do |f| %>
-  <%= f.submit "フォロー解除", class: "btn" %>
+<% if current_artist.present? %>
+  <%= form_for(current_artist.active_artist_bookmarks.find_by(artist_follow_id: @artist.id), html: { method: :delete }) do |f| %>
+    <%= f.submit "フォロー解除", class: "btn" %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.active_bookmarks.find_by(following_id: @user.id), html: { method: :delete }) do |f| %>
+    <%= f.submit "フォロー解除!!", class: "btn" %>
+  <% end %>
 <% end %>

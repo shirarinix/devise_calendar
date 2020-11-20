@@ -22,8 +22,9 @@ class Artist < ApplicationRecord
     active_artist_bookmarks.find_by(artist_follow_id: other_artist.id).destroy
   end
 
-  # 現在のアーティストがフォローしてたらtrueを返す  
-  def artist_follow?(other_artist)
+  # 現在のアーティストがフォローしてたらtrueを返す
+  def artist_following?(other_artist)
     artist_follow_ids.include?(other_artist)
   end
+
 end

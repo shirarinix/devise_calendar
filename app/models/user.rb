@@ -4,13 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :active_bookmarks, class_name: "Bookmark", foreign_key: "follower_id", dependent: :destroy
-  has_many :passive_bookmarks, class_name: "Bookmark", foreign_key: "following_id", dependent: :destroy
+  has_many :active_bookmarks, class_name: "Bookmark", foreign_key: "follower_id", dependent: :destroy # フォローしている人取得(Userのfollowerから見た関係)
+  has_many :passive_bookmarks, class_name: "Bookmark", foreign_key: "following_id", dependent: :destroy # フォローされている人取得(Userのfolowedから見た関係)
 
-  has_many :followings, through: :active_bookmarks, source: :following
-  has_many :followers, through: :passive_bookmarks, source: :follower
+  has_many :followings, through: :active_bookmarks, source: :following # 自分がフォローしている人
+  has_many :followers, through: :passive_bookmarks, source: :follower # 自分をフォローしている人(自分がフォローされている人)
 
   has_many :events, dependent: :destroy
+
+  # validates :user_nickname, uniqueness: { scope: :artist_artistname }
 
   # ユーザーをフォローする
   def follow(other_user)

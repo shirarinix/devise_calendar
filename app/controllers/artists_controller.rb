@@ -6,7 +6,10 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    @artists = @artist.artist_follow_ids
+    @user = User.find(params[:id])
+    @artists = @artist.artist_follow_ids.order("create_at DESC")
+    @users = @user.followings.order("create_at DESC")
+    # @artists = @artist.followings.order("create_at DESC"
     # @events = @artist.events
   end
 

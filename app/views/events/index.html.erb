@@ -4,25 +4,25 @@
 
 <ul class='user-ver'>
 <p>●ユーザー登録●</p>
-<% if user_signed_in? && current_user.id %>
-  <li><%= link_to current_user.nickname, '#', class: "user-nickname" %></li>
-  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+<% if user_signed_in? && current_user.id || artist_signed_in? && current_artist.id %>
+  <% if current_user.present? %>
+    <li><%= link_to current_user.nickname, '#', class: "user-nickname" %></li>
+    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+  <% end %>
+  <% if current_artist.present? %>
+    <li><%= link_to current_artist.artistname, '#', class: "artistname" %></li>
+    <li><%= link_to 'ログアウト', destroy_artist_session_path, method: :delete, class: "logout" %></li>
+  <% end %>
 <% else %>
   <li><%= link_to "User-sign-up", new_user_registration_path, class: "signup" %></li>
-  <li><%= link_to 'log-in', new_user_session_path, class: "login" %></li>
-<% end %>
-
+  <li><%= link_to 'user-log-in', new_user_session_path, class: "login" %></li>
 <p>●アーティスト登録●</p>
-<% if artist_signed_in? && current_artist.id %>
-  <li><%= link_to current_artist.artistname, '#', class: "artistname" %></li>
-  <li><%= link_to 'ログアウト', destroy_artist_session_path, method: :delete, class: "logout" %></li>
-<% else %>
   <li><%= link_to "Artist-sign-up", new_artist_registration_path, class: "signup" %></li>
-  <li><%= link_to 'log-in', new_artist_session_path, class: "login" %></li>
+  <li><%= link_to 'artist-log-in', new_artist_session_path, class: "login" %></li>
 <% end %>
 </ul>
 
-<% if user_signed_in? && current_user.id %>
+<% if signed_in? %>
 <p>[ユーザー一覧]</p>
 <ul class='user-list'>
   <% @users.each do |user| %>
@@ -30,11 +30,7 @@
     <%= link_to("※#{user.nickname}さんのページへ※", user_path(user)) %></li>
   <% end %>
 </ul>
-<% end %>
-
-<% if artist_signed_in? && current_artist.id %>
 <p>[アーティスト一覧]</p>
-
 <ul class='artist-list'>
   <% @artists.each do |artist| %>
     <li><%= artist.artistname %><br>
