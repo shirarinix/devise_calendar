@@ -13,13 +13,14 @@
 ActiveRecord::Schema.define(version: 2020_10_20_102544) do
 
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "artistname", null: false
-    t.string "twitter", null: false
-    t.string "facebook", null: false
-    t.string "instagram", null: false
     t.integer "sex", null: false
     t.date "birthday", null: false
     t.string "discography"
+    t.string "twitter"
+    t.string "facebook"
+    t.string "instagram"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -29,14 +30,19 @@ ActiveRecord::Schema.define(version: 2020_10_20_102544) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_artists_on_email", unique: true
     t.index ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true
+    t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
   create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "following_id"
+    t.integer "artist_follow_id"
+    t.integer "artist_followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["follower_id", "following_id"], name: "index_bookmarks_on_follower_id_and_following_id", unique: true
+    t.index ["artist_follow_id"], name: "index_bookmarks_on_artist_follow_id"
+    t.index ["artist_followed_id"], name: "index_bookmarks_on_artist_followed_id"
+    t.index ["follower_id", "following_id", "artist_follow_id", "artist_followed_id"], name: "bookmarks_index", unique: true
     t.index ["follower_id"], name: "index_bookmarks_on_follower_id"
     t.index ["following_id"], name: "index_bookmarks_on_following_id"
   end
@@ -45,9 +51,10 @@ ActiveRecord::Schema.define(version: 2020_10_20_102544) do
     t.string "title"
     t.text "content"
     t.datetime "start_time"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,11 +72,6 @@ ActiveRecord::Schema.define(version: 2020_10_20_102544) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "users_artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "artist_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
+  add_foreign_key "artists", "users"
+  add_foreign_key "events", "users"
 end

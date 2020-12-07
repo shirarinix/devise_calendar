@@ -19,7 +19,12 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-     get :following, :followers
+     get :following, :follower
+    end
+  end
+  resources :artists do
+    member do
+     get :follow, :followed
     end
   end
 end

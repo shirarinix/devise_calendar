@@ -19,7 +19,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.create(event_parameter)
-    if @event.save
+    if @event.save!
       redirect_to event_path(@event)
     else
       reder 'new'
@@ -27,8 +27,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    if @event.destroy
-      redirect_to events_path(@event), notice: "イベント内容を削除しました"
+    if @event.destroy!
+      redirect_to root_path(@event), notice: "イベント内容を削除しました"
     else
       render 'edit'
     end
