@@ -1,11 +1,11 @@
 <% if current_user.present? %>
-  <%= form_for(current_user.active_bookmarks.build, ) do |f| %>
+  <%= form_for(current_user.active_bookmarks.build) do |f| %>
     <div><%= hidden_field_tag :following_id, @user.id %></div>
     <%= f.submit "フォローする", class: "btn btn-primary" %>
   <% end %>
 <% else %>
   <%= form_for(current_artist.active_artist_bookmarks.build) do |f| %>
-    <div><%= hidden_field_tag :artist_follow_id, @artist.id %></div>
+    <div><%= hidden_field_tag :following_id, @user.id %></div>
     <%= f.submit "フォローする!!", class: "btn btn-primary" %>
   <% end %>
 <% end %>

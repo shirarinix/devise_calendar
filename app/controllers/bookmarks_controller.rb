@@ -22,12 +22,11 @@ class BookmarksController < ApplicationController
 
   def create_params
     if current_user.present?
-      params.permit(:following_id).merge(follower_id: current_user.id)
+      # binding.pry
+      params.permit(:following_id, :artist_follow_id).merge(follower_id: current_user.id)
     else
-      params.permit(:artist_follow_id).merge(artist_followed_id: current_artist.id)
+      params.permit(:artist_follow_id, :following_id).merge(artist_followed_id: current_artist.id)
     end
-    # binding.pry
-    # params.permit(:artist_follow_id).merge(artist_followed_id: current_artist.id, follower_id: current_user.id)
   end
 
 end

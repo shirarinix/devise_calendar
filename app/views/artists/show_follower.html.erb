@@ -1,19 +1,16 @@
 <p>フォロワー一覧</p>
 
 <table>
-<% if current_artist.present? %>
   <% @artist.artist_followed_ids.each do |artist| %>
     <tr>
       <td> <%= artist.artistname %> </td>
       <td><%= link_to '情報一覧へ', artist_path(artist) %></td>
     </tr>
   <% end %>
-<% else %>
-  <% @user.followers.each do |user| %>
+  <% @user.artist_followers.each do |user| %>
     <tr>
       <td> <%= user.nickname %> </td>
       <td><%= link_to '情報一覧へ', user_path(user) %></td>
     </tr>
   <% end %>
-<% end %>
 </table>

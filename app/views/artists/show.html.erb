@@ -4,13 +4,14 @@
 <% else %>
   <%= current_user.nickname %>
 <% end %><br>
+<br>
   ☆<%= @artist.artistname %>さんのMyページ！！
 <br>
 
 <% if current_artist.present? %>
 <div id="follow_form">
   <% unless current_artist?(@artist) %>
-    <% if current_artist.artist_following?(@artist) %>
+    <% if current_artist.artist_follow_id?(@artist) %>
       <%= render 'unfollow' %>
     <% else %>
       <%= render 'follow' %>
@@ -18,33 +19,41 @@
   <% end %>
 </div>
   <a href="<%= follow_artist_path(@artist) %>">
-    <%= @artist.artist_follow_ids.count %>
-  フォロー
+    <%= (@artist.artist_follow_ids.count + @artist.user_followings.count) %>
+  フォロー(artist)/
   </a>
   <a href="<%= followed_artist_path(@artist) %>">
-    <%= @artist.artist_followed_ids.count %>
-  フォロワー
+    <%= (@artist.artist_followed_ids.count + @user.artist_followers.count) %>
+  フォロワー(artist)
   </a>
 <br>
+  ⑴.<%= @artist.artist_follow_ids.count %>
+  ⑵.<%= @artist.user_followings.select("following_id").count %>
+  ⑶.<%= @artist.artist_followed_ids.count %>
+  ⑷.<%= @user.artist_followers.select("artist_follow_id").count %>
 <% else %>
 <div id="follow_form">
-  <% unless current_user?(@user) %>
-    <% if current_user.following?(@user) %>
+  <% unless current_artist?(@artist) %>
+    <% if current_user.artist_following?(@artist) %>
       <%= render 'unfollow' %>
     <% else %>
       <%= render 'follow' %>
     <% end %>
   <% end %>
 </div>
-  <a href="<%= following_user_path(@user) %>">
-    <%= @user.followings.count %>
-  フォロー
+  <a href="<%= follow_artist_path(@artist) %>">
+    <%= (@artist.artist_follow_ids.count + @artist.user_followings.count) %>
+  フォロー(artist)/
   </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <%= @user.followers.count %>
-  フォロワー
+  <a href="<%= followed_artist_path(@artist) %>">
+    <%= (@artist.artist_followed_ids.count + @user.artist_followers.count) %>
+  フォロワー(artist)
   </a>
 <br>
+  ⑴.<%= @artist.artist_follow_ids.count %>
+  ⑵.<%= @artist.user_followings.select("following_id").count %>
+  ⑶.<%= @artist.artist_followed_ids.count %>
+  ⑷.<%= @user.artist_followers.select("artist_follow_id").count %>
 <% end %>
 
 <%#= render 'events/event-calender' %>
