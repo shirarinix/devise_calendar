@@ -6,8 +6,9 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    bookmark = Bookmark.create(create_params)
+    bookmark = Bookmark.new(create_params)
     binding.pry
+    bookmark.save
     # bookmark = Bookmark.create(artist_create_params)
     redirect_to controller: 'events', action: 'index'
   end
@@ -23,9 +24,9 @@ class BookmarksController < ApplicationController
   def create_params
     if current_user.present?
       # binding.pry
-      params.permit(:following_id, :artist_follow_id).merge(follower_id: current_user.id)
+      params.permit(:following_id, :follow_id).merge(follower_id: current_user.id)
     else
-      params.permit(:artist_follow_id, :following_id).merge(artist_followed_id: current_artist.id)
+      params.permit(:follow_id, :following_id).merge(followed_id: current_artist.id)
     end
   end
 

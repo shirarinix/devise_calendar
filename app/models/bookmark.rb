@@ -1,10 +1,10 @@
 class Bookmark < ApplicationRecord
-  belongs_to :following, optional: true, class_name: "User"
-  belongs_to :follower, optional: true, class_name: "User"
+  belongs_to :following, class_name: "User", optional: true
+  belongs_to :follower, class_name: "User", optional: true
 
-  belongs_to :artist_follow, optional: true, class_name: "Artist"
-  belongs_to :artist_followed, optional: true, class_name: "Artist"
+  belongs_to :follow, class_name: "Artist", optional: true
+  belongs_to :followed, class_name: "Artist", optional: true
 
-  # validates :follower, uniqueness: { scope: :following }
-  # validates :artist_followed, uniqueness: { scope: :artist_follow }
+  # validates :following_id, uniqueness: { scope: :follower_id }
+  # validates :followed, uniqueness: { scope: :follow }
 end

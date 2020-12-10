@@ -32,16 +32,16 @@ ActiveRecord::Schema.define(version: 2020_10_20_102544) do
   end
 
   create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "follower_id"
     t.integer "following_id"
-    t.integer "artist_follow_id"
-    t.integer "artist_followed_id"
+    t.integer "follower_id"
+    t.integer "follow_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["artist_follow_id"], name: "index_bookmarks_on_artist_follow_id"
-    t.index ["artist_followed_id"], name: "index_bookmarks_on_artist_followed_id"
-    t.index ["follower_id", "following_id", "artist_follow_id", "artist_followed_id"], name: "bookmarks_index", unique: true
+    t.index ["follow_id"], name: "index_bookmarks_on_follow_id"
+    t.index ["followed_id"], name: "index_bookmarks_on_followed_id"
     t.index ["follower_id"], name: "index_bookmarks_on_follower_id"
+    t.index ["following_id", "follower_id", "follow_id", "followed_id"], name: "bookmarks_index", unique: true
     t.index ["following_id"], name: "index_bookmarks_on_following_id"
   end
 

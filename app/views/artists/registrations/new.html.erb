@@ -13,14 +13,14 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-<% if @sns_id.present? %>
-    <%= hidden_field_tag :sns_auth, true %>
-<% else %>
+<%# if @sns_id.present? %>
+    <%#= hidden_field_tag :sns_auth, true %>
+<%# else %>
   <div class="field">
     <%= f.label :password %>
-    <% @minimum_password_length %>
+    <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <br />
+    <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
@@ -28,7 +28,6 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-<% end %>
 
   <div class="field">
     <%= f.label :discography %><br />

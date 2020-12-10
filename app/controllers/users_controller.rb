@@ -19,15 +19,15 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @users = @user.followings.order("create_at DESC")
     @users = @user.artist_followings.order("create_at DESC")
-    render 'show_follow'
+    render 'show_user_follow'
   end
   
   def follower
     @user  = User.find(params[:id])
     @artist = Artist.find(params[:id])
-    @users = @user.artist_followers.order("create_at DESC")
+    @users = @user.followers.order("create_at DESC")
     @artists = @artist.user_followed_ids.order("create_at DESC")
-    render 'show_follower'
+    render 'show_user_follower'
   end
 
 end
