@@ -15,11 +15,10 @@ class UsersController < ApplicationController
   end
   
   def following
-    binding.pry
     @user  = User.find(params[:id])
     @users = @user.followings.order("create_at DESC")
     @users = @user.artist_followings.order("create_at DESC")
-    render 'show_user_follow'
+    render 'user_following'
   end
   
   def follower
@@ -27,7 +26,7 @@ class UsersController < ApplicationController
     @artist = Artist.find(params[:id])
     @users = @user.followers.order("create_at DESC")
     @artists = @artist.user_followed_ids.order("create_at DESC")
-    render 'show_user_follower'
+    render 'user_follower'
   end
 
 end

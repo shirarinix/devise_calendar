@@ -1,0 +1,40 @@
+<% if current_artist.present? %>
+<div id="follow_form">
+  <% unless current_artist?(@artist) %> <%# current_artistと@artistが一致しなかったらtrueを返す %>
+    <% if current_artist.follow_id?(@artist) %>
+      <%= form_for(current_artist.active_artist_bookmarks.find_by(follow_id: @artist.id), html: { method: :delete }) do |f| %>
+        <%= f.submit "フォロー解除", class: "btn" %>
+      <% end %>
+    <% else %>
+      <%= form_for(current_artist.active_artist_bookmarks.build) do |f| %>
+        <div><%= hidden_field_tag :follow_id, @artist.id %></div>
+        <%= f.submit "フォローする", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<% else %>
+<div id="follow_form">
+  <% unless current_user?(@artist) %>
+    <% if current_user.artist_following?(@artist) %>
+      <%= form_for(current_user.front_user_bookmarks.find_by(follow_id: @artist.id), html: { method: :delete }) do |f| %>
+        <%= f.submit "フォロー解除", class: "btn" %>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.front_user_bookmarks.build) do |f| %>
+        <div><%= hidden_field_tag :follow_id, @artist.id %></div>
+        <%= f.submit "フォローする", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<% end %>
+  <a href="<%= follow_artist_path(@artist) %>">
+    <%= (@artist.follow_ids.count + @artist.user_follow_ids.count) %>
+  フォロー(artist)/
+  </a>
+  <a href="<%= followed_artist_path(@artist) %>">
+    <%= (@artist.followed_ids.count + @user.artist_followers.count) %>
+  フォロワー(artist)
+  </a>
+<br>

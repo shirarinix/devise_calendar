@@ -6,54 +6,13 @@
 <% end %><br>
 <br>
   ☆<%= @artist.artistname %>さんのMyページ！！
-<br>
+<p id="flash"><%= flash[:notice] %></p>
 
-<% if current_artist.present? %>
-<div id="follow_form">
-  <% unless current_artist?(@artist) %>
-    <% if current_artist.follow_id?(@artist) %>
-      <%= render 'artist_unfollow' %>
-    <% else %>
-      <%= render 'artist_follow' %>
-    <% end %>
-  <% end %>
-</div>
-  <a href="<%= follow_artist_path(@artist) %>">
-    <%= (@artist.follow_ids.count + @artist.user_follow_ids.count) %>
-  フォロー(artist)/
-  </a>
-  <a href="<%= followed_artist_path(@artist) %>">
-    <%= (@artist.followed_ids.count + @user.artist_followers.count) %>
-  フォロワー(artist)
-  </a>
-<br>
+<%= render 'bookmarks/artist_follow_form', artist: @artist %>
+
   ⑴.<%= @artist.follow_ids.count %>
   ⑵.<%= @artist.user_follow_ids.select("following_id").count %>
   ⑶.<%= @artist.followed_ids.count %>
   ⑷.<%= @user.artist_followers.select("follow_id").count %>
-<% else %>
-<div id="follow_form">
-  <% unless current_artist?(@artist) %>
-    <% if current_user.artist_following?(@artist) %>
-      <%= render 'artist_unfollow' %>
-    <% else %>
-      <%= render 'artist_follow' %>
-    <% end %>
-  <% end %>
-</div>
-  <a href="<%= follow_artist_path(@artist) %>">
-    <%= (@artist.follow_ids.count + @artist.user_follow_ids.count) %>
-  フォロー(artist)/
-  </a>
-  <a href="<%= followed_artist_path(@artist) %>">
-    <%= (@artist.followed_ids.count + @user.artist_followers.count) %>
-  フォロワー(artist)
-  </a>
-<br>
-  ⑴.<%= @artist.follow_ids.count %>
-  ⑵.<%= @artist.user_follow_ids.select("following_id").count %>
-  ⑶.<%= @artist.followed_ids.count %>
-  ⑷.<%= @user.artist_followers.select("follow_id").count %>
-<% end %>
 
 <%#= render 'events/event-calender' %>
