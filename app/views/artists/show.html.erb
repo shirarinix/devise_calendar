@@ -10,9 +10,11 @@
 
 <%= render 'bookmarks/artist_follow_form', artist: @artist %>
 
+<%= link_to '⬅︎ トップへ戻る', root_path %>
   ⑴.<%= @artist.follow_ids.count %>
   ⑵.<%= @artist.user_follow_ids.select("following_id").count %>
   ⑶.<%= @artist.followed_ids.count %>
   ⑷.<%= @user.artist_followers.select("follow_id").count %>
+
 
 <%#= render 'events/event-calender' %>

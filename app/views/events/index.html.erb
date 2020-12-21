@@ -42,7 +42,7 @@
 <h1>メイン画面</h1>
 
 <p>🔻スケジュールの管理🔻</p>
-<% if user_signed_in? && current_user.id %>
+<% if user_signed_in? && current_user.id || artist_signed_in? && current_artist.id %>
 <%= link_to '➡️ 新規イベントの作成', new_event_path %><br>
 
 <br>⭐️直近のイベント⭐️<br>

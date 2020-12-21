@@ -10,6 +10,7 @@
 
 <%= render 'bookmarks/user_follow_form', user: @user %>
 
+<%= link_to '⬅︎ トップへ戻る', root_path %>
   ⑴.<%= @user.followings.count %>
   ⑵.<%= @user.artist_followings.select("follow_id").count %>
   ⑶.<%= @user.followers.count %>
