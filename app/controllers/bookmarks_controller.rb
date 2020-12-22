@@ -4,13 +4,13 @@ class BookmarksController < ApplicationController
     if current_user.present?
       binding.pry
       if bookmark_user.save
-        flash[:notice] = "フォローしました"
+        flash[:notice] = "↓フォローしました"
         redirect_to [@user, @artist]
       end
     else
       binding.pry
       if bookmark_artist.save
-        flash[:notice] = "フォローしました"
+        flash[:notice] = "↓フォローしました"
         redirect_to [@artist, @user]
       end
     end
@@ -20,12 +20,12 @@ class BookmarksController < ApplicationController
     if current_user.present?
       binding.pry
       bookmark_user_release.destroy
-      flash[:notice] = "フォローを解除しました"
+      flash[:notice] = "↓フォローを解除しました"
       redirect_to [@user, @artist]
     else
       binding.pry
       bookmark_artist_release.destroy
-      flash[:notice] = "フォローを解除しました"
+      flash[:notice] = "↓フォローを解除しました"
       redirect_to [@user, @artist]
     end
   end

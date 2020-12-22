@@ -5,12 +5,12 @@
   <%= current_artist.artistname %>
 <% end %><br>
 <br>
-  ☆<%= @user.nickname %>さんのMyページ！！
+  ☆<%= @user.nickname %>さんのページ！！
 <p id="flash"><%= flash[:notice] %></p>
 
 <%= render 'bookmarks/user_follow_form', user: @user %>
 
-<%= link_to '⬅︎ トップへ戻る', root_path %>
+<%= link_to '← トップへ戻る', root_path %>
   ⑴.<%= @user.followings.count %>
   ⑵.<%= @user.artist_followings.select("follow_id").count %>
   ⑶.<%= @user.followers.count %>
