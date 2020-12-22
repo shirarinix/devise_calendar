@@ -50,8 +50,10 @@ ActiveRecord::Schema.define(version: 2020_10_20_102544) do
     t.text "content"
     t.datetime "start_time"
     t.bigint "user_id"
+    t.bigint "artist_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_events_on_artist_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -70,5 +72,6 @@ ActiveRecord::Schema.define(version: 2020_10_20_102544) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "artists"
   add_foreign_key "events", "users"
 end
