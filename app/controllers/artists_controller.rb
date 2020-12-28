@@ -1,17 +1,14 @@
 class ArtistsController < ApplicationController
-  # before_action :authenticate_artist!
+  before_action :authenticate_artist!
 
   def index
     @artists = Artist.all
   end
 
   def show
-    binding.pry
-  #  if current_artist.present?
     @artist = Artist.find(params[:id])
     @user = User.find(params[:id])
-    # @events = @artist.events
-    # @events = Event.includes(:artist).order("create_at DESC")
+    @artist_events = @artist.events
   end
 
   def follow

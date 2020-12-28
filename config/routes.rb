@@ -27,4 +27,5 @@ Rails.application.routes.draw do
      get :follow, :followed
     end
   end
+
 end
