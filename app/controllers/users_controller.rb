@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -7,11 +7,9 @@ class UsersController < ApplicationController
   
   def show
     binding.pry
-  #  if current_user.present?
     @user = User.find(params[:id])
     @artist = Artist.find(params[:id])
-    @events = @user.events
-    # @events = Event.includes(:user).order("create_at DESC")
+    @user_events = @user.events
   end
   
   def following
