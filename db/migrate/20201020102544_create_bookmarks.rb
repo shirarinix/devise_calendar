@@ -1,10 +1,10 @@
 class CreateBookmarks < ActiveRecord::Migration[6.0]
   def change
     create_table :bookmarks do |t|
-      t.integer :following_id
-      t.integer :follower_id
-      t.integer :follow_id
-      t.integer :followed_id
+      t.integer :following_id, default: 0
+      t.integer :follower_id,  default: 0
+      t.integer :follow_id,    default: 0
+      t.integer :followed_id,  default: 0
 
       t.timestamps null: false
     end
