@@ -2,15 +2,15 @@
 
 <p id="notice"><%= notice %></p>
 
-<ul class='user-ver'>
+<ul class="user-ver">
 <% if signed_in? %>
 [ログイン者]
   <% if current_user %>
-    <li><%= link_to current_user.nickname, '#', class: "user-nickname" %></li>
-    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+    <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %></li>
   <% else %>
-    <li><%= link_to current_artist.artistname, '#', class: "artistname" %></li>
-    <li><%= link_to 'ログアウト', destroy_artist_session_path, method: :delete, class: "logout" %></li>
+    <li><%= link_to current_artist.artistname, "#", class: "artistname" %></li>
+    <li><%= link_to "ログアウト", destroy_artist_session_path, method: :delete, class: "logout" %></li>
   <% end %>
 <% else %>
 <p>●ユーザー登録●</p>
@@ -18,30 +18,36 @@
   <li><%= link_to 'user-log-in', new_user_session_path, class: "login" %></li>
 <p>●アーティスト登録●</p>
   <li><%= link_to "Artist-sign-up", new_artist_registration_path, class: "signup" %></li>
-  <li><%= link_to 'artist-log-in', new_artist_session_path, class: "login" %></li>
+  <li><%= link_to "artist-log-in", new_artist_session_path, class: "login" %></li>
 <% end %>
 </ul>
 
 <% if signed_in? %>
 <p>[ユーザー一覧]</p>
-<ul class='user-list'>
+<ul class="user-list">
   <% @users.each do |user| %>
-    <li><%= user.nickname %><br>
-    <%= link_to("※#{user.nickname}さんのページ※", user_path(user)) %></li>
+    <% if user.user_image.attached? %>
+      <li><%= user.nickname %><br>
+      <%= image_tag user.user_image, size:"50", class:"user-icon" %>
+      <%= link_to "※#{user.nickname}さんのページ※", user_path(user) %></li>
+    <% end %>
   <% end %>
 </ul>
 <p>[アーティスト一覧]</p>
-<ul class='artist-list'>
+<ul class="artist-list">
   <% @artists.each do |artist| %>
-    <li><%= artist.artistname %><br>
-    <%= link_to("※#{artist.artistname}さんのページ※", artist_path(artist)) %></li>
+    <% if artist.artist_image.attached? %>
+      <li><%= artist.artistname %><br>
+      <%= image_tag artist.artist_image, size:'50', class:"artist-icon" %>
+      <%= link_to "※#{artist.artistname}さんのページ※", artist_path(artist) %></li>
+    <% end %>
   <% end %>
 </ul>
 <% end %>
 
 <h3>🔻スケジュールの管理🔻</h3>
 <% if signed_in? %>
-<%= link_to '→ 新規イベントの作成', new_event_path %><br>
+<%= link_to "→ 新規イベントの作成", new_event_path %><br>
 
 <br>⭐️直近のイベント⭐️<br>
 <table>
@@ -57,10 +63,10 @@
     <tbody>
       <tr>
         <% @user_events.each do |event| %>
-        <td><%= current_user.nickname %>さん</td>
+        <td><%= event.user.nickname %>さん</td>
         <td>🚩<%= event.title %></td>
         <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
-        <td><%= link_to '→詳細ページへ', event_path(event) %></td>
+        <td><%= link_to "→詳細ページへ", event_path(event) %></td>
         <% end %>
       </tr>
     </tbody>
@@ -68,10 +74,10 @@
     <tbody>
       <tr>
         <% @artist_events.each do |event| %>
-        <td><%= current_artist.artistname %>さん</td>
+        <td><%= event.artistname %>さん</td>
         <td>🚩<%= event.title %></td>
         <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
-        <td><%= link_to '→詳細ページへ', event_path(event) %></td>
+        <td><%= link_to "→詳細ページへ", event_path(event) %></td>
         <% end %>
       </tr>
     </tbody>

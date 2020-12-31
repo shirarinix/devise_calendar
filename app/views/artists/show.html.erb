@@ -5,10 +5,46 @@
   <%= current_user.nickname %>
 <% end %><br>
 <br>
-  ☆<%= @artist.artistname %>さんのページ！！
-<p id="flash"><%= flash[:notice] %></p>
 
-<%= render 'bookmarks/artist_follow_form', artist: @artist %>
+<ul class="artist-form">
+  <li>
+    <% if @artist.artist_image.attached? %>
+      <%= image_tag @artist.artist_image, size:'50', class:"artist-icon" %>
+    <% end %>
+    <%= @artist.artistname %>さんのページ！！
+  </li>
+  <li>
+    <p id="flash"><%= flash[:notice] %></p>
+    <%= render 'bookmarks/artist_follow_form', artist: @artist %>
+  </li>
+</ul>
+
+<ul class= "artist-profile">
+  <li class="discography">
+    ★<%= @artist.discography %>
+  </li>
+  <li class="sns-list">
+      <% if @artist.twitter.present? %>
+        <%= link_to @artist.twitter, target: :_blank do %>
+        <i class="fab fa-twitter fa-2x faa-wrench animated"></i>
+      <% end %><br>
+    <% end %><%= "twitter" %>
+  </li>
+  <li class="sns-list">
+    <% if @artist.facebook.present? %>
+      <%= link_to @artist.facebook, target: :_blank do %>
+        <i class="fab fa-facebook-square fa-2x faa-horizontal animated"></i>
+      <% end %><br>
+    <% end %><%= "facebook" %>
+  </li>
+  <li class="sns-list">
+    <% if @artist.instagram.present? %>
+      <%= link_to @artist.instagram, target: :_blank do %>
+        <i class="fab fa-instagram fa-2x faa-pulse animated"></i>
+      <% end %><br>
+    <% end %><%= "instagram" %>
+  </li>
+</ul>
 
 <%= link_to '← トップへ戻る', root_path %>
   ⑴.<%= @artist.follow_ids.count %>

@@ -1,0 +1,21 @@
+<% if @event.user_id? %>
+  <% if current_user == @user_events %>
+    <%= link_to '★このイベントを編集する★', edit_event_path(@event) %><br>
+    <%= link_to '★新しくイベントを作成する★', new_event_path(@event) %><br>
+    <%= link_to '★このイベントを削除する★', event_path(@event), method: :delete, data: { confirm: '本当に削除してよろしいですか？？' } %><br>
+    <%= link_to '← トップへ戻る', root_path %><br>
+  <% else %>
+    <strong><p>※※※ このイベントの編集は本人しか変更出来ません！！ ※※※</p></strong>
+    <%= link_to '← トップへ戻る', root_path %>
+  <% end %>
+<% else %>
+  <% if current_artist == @artist_events %>
+    <%= link_to '★このイベントを編集する★', edit_event_path(@event) %><br>
+    <%= link_to '★新しくイベントを作成する★', new_event_path(@event) %><br>
+    <%= link_to '★このイベントを削除する★', event_path(@event), method: :delete, data: { confirm: '本当に削除してよろしいですか？？' } %><br>
+    <%= link_to '← トップへ戻る', root_path %><br>
+  <% else %>
+    <strong><p>※※※ このイベントの編集は本人しか変更出来ません！！ ※※※</p></strong>
+    <%= link_to '← トップへ戻る', root_path %>
+  <% end %>
+<% end %>

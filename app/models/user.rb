@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one_attached :user_image
+
   has_many :active_user_bookmarks, class_name: "Bookmark", foreign_key: "follower_id", dependent: :destroy #関連のあるモデルを指す外部キー(foreign_key)のカラム名を設定。
   has_many :passive_user_bookmarks, class_name: "Bookmark", foreign_key: "following_id", dependent: :destroy #following_idの外部キー(follower_id)
 

@@ -1,0 +1,11 @@
+.follow-var{
+  display: flex;
+  align-items: flex-end;
+  background-color: violet;
+}
+.btn{
+  background-color: turquoise;
+}
+.count-form{
+  background-color: wheat;
+}

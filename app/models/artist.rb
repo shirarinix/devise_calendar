@@ -4,6 +4,8 @@ class Artist < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one_attached :artist_image
+
   has_many :active_artist_bookmarks, class_name: "Bookmark", foreign_key: "followed_id", dependent: :destroy #関連のあるモデルを指す外部キー(foreign_key)のカラム名を設定。
   has_many :passive_artist_bookmarks, class_name: "Bookmark", foreign_key: "follow_id", dependent: :destroy #follow_idの外部キー(followed_id)
 
