@@ -6,6 +6,8 @@
 <% end %><br>
 <br>
 
+<p id="flash"><%= flash[:notice] %></p>
+
 <ul class="artist-form">
   <li>
     <% if @artist.artist_image.attached? %>
@@ -14,7 +16,6 @@
     <%= @artist.artistname %>さんのページ！！
   </li>
   <li>
-    <p id="flash"><%= flash[:notice] %></p>
     <%= render 'bookmarks/artist_follow_form', artist: @artist %>
   </li>
 </ul>
@@ -46,7 +47,7 @@
   </li>
 </ul>
 
-<%= link_to '← トップへ戻る', root_path %>
+<%= link_to "← トップへ戻る", root_path %>
   ⑴.<%= @artist.follow_ids.count %>
   ⑵.<%= @artist.user_follow_ids.select("following_id").count %>
   ⑶.<%= @artist.followed_ids.count %>

@@ -26,21 +26,23 @@
 <p>[ユーザー一覧]</p>
 <ul class="user-list">
   <% @users.each do |user| %>
-    <% if user.user_image.attached? %>
-      <li><%= user.nickname %><br>
-      <%= image_tag user.user_image, size:"50", class:"user-icon" %>
-      <%= link_to "※#{user.nickname}さんのページ※", user_path(user) %></li>
-    <% end %>
+    <li>
+      <% if user.user_image.attached? %>
+        <%= image_tag user.user_image, size:"50", class:"user-icon" %>
+      <% end %>
+      <%= link_to "※#{user.nickname}さんのページ※", user_path(user) %>
+    </li>
   <% end %>
 </ul>
 <p>[アーティスト一覧]</p>
 <ul class="artist-list">
   <% @artists.each do |artist| %>
+  <li>
     <% if artist.artist_image.attached? %>
-      <li><%= artist.artistname %><br>
-      <%= image_tag artist.artist_image, size:'50', class:"artist-icon" %>
-      <%= link_to "※#{artist.artistname}さんのページ※", artist_path(artist) %></li>
+        <%= image_tag artist.artist_image, size:'50', class:"artist-icon" %>
     <% end %>
+    <%= link_to "※#{artist.artistname}さんのページ※", artist_path(artist) %>
+  </li>
   <% end %>
 </ul>
 <% end %>
@@ -74,7 +76,7 @@
     <tbody>
       <tr>
         <% @artist_events.each do |event| %>
-        <td><%= event.artistname %>さん</td>
+        <td><%= event.artist.artistname %>さん</td>
         <td>🚩<%= event.title %></td>
         <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
         <td><%= link_to "→詳細ページへ", event_path(event) %></td>

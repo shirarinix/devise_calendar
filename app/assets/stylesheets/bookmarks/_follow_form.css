@@ -1,9 +1,10 @@
-.follow-var{
+/* .follow-form{
   display: flex;
   align-items: flex-end;
   background-color: violet;
-}
+} */
 .btn{
+  border-radius: 100px;
   background-color: turquoise;
 }
 .count-form{

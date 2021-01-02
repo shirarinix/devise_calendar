@@ -3,6 +3,7 @@ class Artist < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  enum sex: { man: 1, woman: 2}
 
   has_one_attached :artist_image
 
@@ -13,11 +14,11 @@ class Artist < ApplicationRecord
   has_many :back_artist_bookmarks, class_name: "Bookmark", foreign_key: "following_id", dependent: :destroy #following_idの外部キー(followed_id)
   #activeとpassive、frontとbackは対を表すもの。架空の中間テーブル(入口)を定義付け。class_nameを使ってBookmarkモデルという事を示す。
 
-  has_many :followed_ids, through: :passive_artist_bookmarks, source: :followed # フォローする人
-  has_many :follow_ids, through: :active_artist_bookmarks, source: :follow # フォローされる人
+  has_many :followed_ids, through: :passive_artist_bookmarks, source: :followed # フォローした人
+  has_many :follow_ids, through: :active_artist_bookmarks, source: :follow # フォローされた人
 
-  has_many :user_followed_ids, through: :back_artist_bookmarks, source: :followed # フォローする人
-  has_many :user_follow_ids, through: :front_artist_bookmarks, source: :following # フォローされる人
+  has_many :user_followed_ids, through: :back_artist_bookmarks, source: :followed # フォローした人
+  has_many :user_follow_ids, through: :front_artist_bookmarks, source: :following # フォローされた人
   #架空のフォロー、フォロワーモデルを定義(出口)付け。throughを使用して中間テーブルを経由している事を示す。sourceで指定してアクセスできるようにする。
 
   has_many :events, dependent: :destroy

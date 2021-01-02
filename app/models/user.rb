@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  enum sex: { man: 1, woman: 2}
 
   has_one_attached :user_image
 
@@ -13,11 +14,11 @@ class User < ApplicationRecord
   has_many :back_user_bookmarks, class_name: "Bookmark", foreign_key: "follow_id", dependent: :destroy #follow_idの外部キー(follower_id)
   #activeとpassive、frontとbackは対を表すもの。架空の中間テーブル(入口)を定義付け。class_nameを使ってBookmarkモデルという事を示す。
 
-  has_many :followers, through: :passive_user_bookmarks, source: :follower # フォローする人
-  has_many :followings, through: :active_user_bookmarks, source: :following # フォローされる人
+  has_many :followers, through: :passive_user_bookmarks, source: :follower # フォローした人
+  has_many :followings, through: :active_user_bookmarks, source: :following # フォローされた人
 
-  has_many :artist_followers, through: :back_user_bookmarks, source: :follower # フォローする人
-  has_many :artist_followings, through: :front_user_bookmarks, source: :follow # フォローされる人
+  has_many :artist_followers, through: :back_user_bookmarks, source: :follower # フォローした人
+  has_many :artist_followings, through: :front_user_bookmarks, source: :follow # フォローされた人
   #架空のフォロー、フォロワーモデルを定義(出口)付け。throughを使用して中間テーブルを経由している事を示す。sourceで指定してアクセスできるようにする。
 
   has_many :events, dependent: :destroy

@@ -1,0 +1,16 @@
+.user-icon {
+  border-radius: 100px;
+}
+.user-form{
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+.user-profile {
+  display: flex;
+  /* padding: 10px; */
+  list-style: none;
+  text-align: center;
+  justify-content: space-around;
+}
