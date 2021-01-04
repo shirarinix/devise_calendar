@@ -51,6 +51,7 @@
   ⑴.<%= @artist.follow_ids.count %>
   ⑵.<%= @artist.user_follow_ids.select("following_id").count %>
   ⑶.<%= @artist.followed_ids.count %>
-  ⑷.<%= @user.artist_followers.select("follow_id").count %>
+  ⑷.<%= @artist.user_followed_ids.select("follow_id").count %>
+  ⑷.<%#= @user.artist_followers.select("follow_id").count %>
 
 <%= render 'events/artist_events_calender' %>

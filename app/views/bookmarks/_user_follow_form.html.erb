@@ -33,8 +33,8 @@
     <%= link_to 'フォロー', following_user_path(@user) %>
     <%= "#{@user.followings.count + @user.artist_followings.count}人(user)/" %>
     <%= link_to 'フォロワー',follower_user_path(@user) %>
-    <%= "#{@user.followers.count + @artist.user_followed_ids.count}人(user)" %>
-    <%#= "#{@user.followers.count + @user.artist_followers.count}人(user)" %>
+    <%#= "#{@user.followers.count + @artist.user_followed_ids.count}人(user)" %>
+    <%= "#{@user.followers.count + @user.artist_followers.count}人(user)" %>
   </li>
 <%#= @user.user_followed_ids.count %>
 <%# hidden_field_tag: following_id(第一引数)というパラメータに@user.id(第二引数)の情報を渡している %>

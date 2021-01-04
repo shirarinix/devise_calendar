@@ -47,43 +47,42 @@
 </ul>
 <% end %>
 
-<h3>🔻スケジュールの管理🔻</h3>
-<% if signed_in? %>
-<%= link_to "→ 新規イベントの作成", new_event_path %><br>
-
 <br>⭐️直近のイベント⭐️<br>
 <table>
-    <thead>
-      <tr>
-        <th>『ユーザー名』</th>
-        <th>『イベントタイトル』</th>
-        <th>『開催日（時間）』</th>
-        <th colspan="3">『詳細一覧』</th>
-      </tr>
+  <thead>
+    <tr>
+      <th>『ユーザー名』</th>
+      <th>『イベントタイトル』</th>
+      <th>『開催日（時間）』</th>
+      <th colspan="3">『詳細一覧』</th>
+    </tr>
   </thead>
-  <% if current_user %>
-    <tbody>
-      <tr>
-        <% @user_events.each do |event| %>
-        <td><%= event.user.nickname %>さん</td>
-        <td>🚩<%= event.title %></td>
-        <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
-        <td><%= link_to "→詳細ページへ", event_path(event) %></td>
-        <% end %>
-      </tr>
-    </tbody>
-  <% else %>
-    <tbody>
-      <tr>
-        <% @artist_events.each do |event| %>
-        <td><%= event.artist.artistname %>さん</td>
-        <td>🚩<%= event.title %></td>
-        <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
-        <td><%= link_to "→詳細ページへ", event_path(event) %></td>
-        <% end %>
-      </tr>
-    </tbody>
-  <% end %>
+<% if signed_in? %>
+<h3>🔻スケジュールの管理🔻</h3>
+  <%= link_to "→ 新規イベントの作成", new_event_path %><br>
+    <% if current_user %>
+      <% @user_events.each do |event| %>
+        <tbody>
+          <tr>
+            <td><%= event.user.nickname %>さん</td>
+            <td>🚩<%= event.title %></td>
+            <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
+            <td><%= link_to "→詳細ページへ", event_path(event) %></td>
+          </tr>
+        </tbody>
+      <% end %>]
+    <% else %>
+      <% @artist_events.each do |event| %>
+        <tbody>
+          <tr>
+            <td><%= event.artist.artistname %>さん</td>
+            <td><%= "🚩 #{event.title}" %></td>
+            <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
+            <td><%= link_to "→詳細ページへ", event_path(event) %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    <% end %>
 <% else %>
   <strong><p>※※※ イベントの入力には新規登録/ログインが必要です ※※※</p></strong>
 <% end %>

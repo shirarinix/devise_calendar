@@ -7,8 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    binding.pry
-    @artist = Artist.find(params[:id])
+    # @artist = Artist.find(params[:id])
     @user_events = @user.events
   end
 
@@ -22,9 +21,10 @@ class UsersController < ApplicationController
   def follower
     binding.pry
     @user  = User.find(params[:id])
-    @artist = Artist.find(params[:id])
+    # @artist = Artist.find(params[:id])
     @users = @user.followers.order("create_at DESC")
-    @artists = @artist.user_followed_ids.order("create_at DESC")
+    @users = @user.artist_followers.order("create_at DESC")
+    # @artists = @artist.user_followed_ids.order("create_at DESC")
     render 'user_follower'
   end
 
