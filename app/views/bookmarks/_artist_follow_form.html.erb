@@ -1,5 +1,5 @@
 <% if current_artist.present? %>
-<div id="follow_form">
+<li class="follow-form">
   <% unless current_artist?(@artist) %> <%# current_artistと@artistが一致しなかったらtrueを返す %>
     <% if current_artist.follow_id?(@artist) %>
       <%= form_for(current_artist.active_artist_bookmarks.find_by(follow_id: @artist.id), html: { method: :delete }) do |f| %>
@@ -12,9 +12,9 @@
       <% end %>
     <% end %>
   <% end %>
-</div>
+</li>
 <% else %>
-<div id="follow_form">
+<li class="follow-form">
   <% unless current_user?(@artist) %>
     <% if current_user.artist_following?(@artist) %>
       <%= form_for(current_user.front_user_bookmarks.find_by(follow_id: @artist.id), html: { method: :delete }) do |f| %>
@@ -27,13 +27,14 @@
       <% end %>
     <% end %>
   <% end %>
-</div>
+</li>
 <% end %>
-  <div>
+  <li class="count-form">
     <%= link_to 'フォロー', follow_artist_path(@artist) %>
     <%= "#{@artist.follow_ids.count + @artist.user_follow_ids.count}人(artist)/" %>
     <%= link_to 'フォロワー', followed_artist_path(@artist) %>
-    <%= "#{@artist.followed_ids.count + @user.artist_followers.count}人(artist)" %>
-  </div>
+    <%#= "#{@artist.followed_ids.count + @user.artist_followers.count}人(artist)" %>
+    <%= "#{@artist.followed_ids.count + @artist.user_followed_ids.count}人(artist)" %>
+  </li>
 
 <%# hidden_field_tag: follow_id(第一引数)というパラメータに@artist.id(第二引数)の情報を渡している %>

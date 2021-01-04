@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Artsist_Sign_up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "artists/shared/error_messages", resource: resource %>
@@ -9,13 +9,15 @@
   </div>
 
   <div class="field">
+    <%= f.label :artist_image %><br />
+    <%= f.file_field :artist_image %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-<%# if @sns_id.present? %>
-    <%#= hidden_field_tag :sns_auth, true %>
-<%# else %>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -47,24 +49,21 @@
     <%= f.radio_button :sex, :woman %>
   </div>
 
-<%# 基本情報(ユーザー名やメールアドレス)の更新は長いので、割愛 %>
+<%# SNS登録は任意登録 %>
 <div class = "sns-link">
-  <h2> SNS url </h2>
-  <%# <h4>(Optional)</h4> %>
+  <h2> SNS_Link </h2>
   <div class="form-group">
     <%= f.label :twitter, 'twitter url', class: 'form-control' %>
-    <%= f.text_field :twitter, placeholder: "Optional", class: "form-control" %>
+    <%= f.text_field :twitter, placeholder: "任意", class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :facebook, 'facebook url', class: 'form-control' %>
-    <%= f.text_field :facebook, placeholder: "Optional", class: "form-control" %>
+    <%= f.text_field :facebook, placeholder: "任意", class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :instagram, 'instagram url', class: 'form-control' %>
-    <%= f.text_field :instagram, placeholder: "Optional", class: "form-control" %>
+    <%= f.text_field :instagram, placeholder: "任意", class: "form-control" %>
   </div>
-    <%#= f.submit 'Update', class:'btn-block btn-primary btn-lg ' %>
-  </div><br>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

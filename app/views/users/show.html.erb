@@ -5,15 +5,32 @@
   <%= current_artist.artistname %>
 <% end %><br>
 <br>
-  ☆<%= @user.nickname %>さんのページ！！
+
 <p id="flash"><%= flash[:notice] %></p>
 
-<%= render 'bookmarks/user_follow_form', user: @user %>
+<ul class="user-form">
+  <li>
+    <% if @user.user_image.attached? %>
+      <%= image_tag @user.user_image, size:'50', class:"user-icon" %>
+    <% end %>
+    <%= @user.nickname %>さんのページ！！
+  </li>
+  <li>
+    <%= render 'bookmarks/user_follow_form', artist: @artist %>
+  </li>
+</ul>
 
-<%= link_to '← トップへ戻る', root_path %>
+<ul class= "user-profile">
+  <li>◉profile◉</li>
+  <li><%= @user.birthday %></li>
+  <li><%= @user.email %></li>
+</ul>
+
+<%= link_to "← トップへ戻る", root_path %>
   ⑴.<%= @user.followings.count %>
   ⑵.<%= @user.artist_followings.select("follow_id").count %>
   ⑶.<%= @user.followers.count %>
-  ⑷.<%= @artist.user_followed_ids.select("followed_id").count %>
+  ⑷.<%= @user.artist_followers.select("followed_id").count %>
+  ⑷.<%#= @artist.user_followed_ids.select("followed_id").count %>
 
 <%= render 'events/user_events_calender' %>
