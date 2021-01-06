@@ -30,34 +30,34 @@ class User < ApplicationRecord
 
   # ログインしているユーザーがユーザーをフォローしているとtrueを返す
   def following?(other_user)
-    binding.pry
+    # binding.pry
     followings.include?(other_user)
   end
   # ログインしているユーザーがアーティストをフォローしているとtrueを返す
   def artist_following?(other_user)
-    binding.pry
+    # binding.pry
     artist_followings.include?(other_user)
   end
 
   # ユーザーがユーザーをフォローする時に実行
   def follow(other_user)
-    binding.pry
+    # binding.pry
     active_user_bookmarks.create(following_id: other_user.id)
   end
   # ユーザーがアーティストをフォローする時に実行
   def artist_follow(other_user)
-    binding.pry
+    # binding.pry
     front_user_bookmarks.create(follow_id: other_user.id)
   end
 
   # ユーザーがユーザーをアンフォローする時に実行
   def unfollow(other_user)
-    binding.pry
+    # binding.pry
     active_user_bookmarks.find_by(following_id: other_user.id)
   end
   # ユーザーがアーティストをアンフォローする時に実行
   def artist_unfollow(other_user)
-    binding.pry
+    # binding.pry
     front_user_bookmarks.find_by(follow_id: other_user.id)
   end
 

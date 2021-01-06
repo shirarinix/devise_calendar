@@ -30,34 +30,34 @@ class Artist < ApplicationRecord
 
   # ログインしているアーティストがアーティストをフォローしているとtrueを返す
   def follow_id?(other_artist)
-    binding.pry
+    # binding.pry
     follow_ids.include?(other_artist)
   end
   # ログインしているアーティストがユーザーをフォローしているとtrueを返す
   def user_follow_id?(other_artist)
-    binding.pry
+    # binding.pry
     user_follow_ids.include?(other_artist)
   end
 
   # アーティストがアーティストをフォローする時に実行
   def follow(other_artist)
-    binding.pry
+    # binding.pry
     active_artist_bookmarks.create(follow_id: other_artist.id)
   end
   # アーティストがユーザーをフォローする時に実行
   def user_follow(other_artist)
-    binding.pry
+    # binding.pry
     front_artist_bookmarks.create(following_id: other_artist.id)
   end
 
   # アーティストがアーティストをアンフォローする時に実行
   def unfollow(other_artist)
-    binding.pry
+    # binding.pry
     active_artist_bookmarks.find_by(follow_id: other_artist.id)
   end
   # アーティストがユーザーをアンフォローする時に実行
   def user_unfollow(other_artist)
-    binding.pry
+    # binding.pry
     front_artist_bookmarks.find_by(following_id: other_artist.id)
   end
 
