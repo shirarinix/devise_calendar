@@ -1,5 +1,5 @@
 [ログイン者]
-<% if current_artist.present? %>
+<% if current_artist %>
   <%= current_artist.artistname %>
 <% else %>
   <%= current_user.nickname %>
@@ -12,6 +12,8 @@
   <li>
     <% if @artist.artist_image.attached? %>
       <%= image_tag @artist.artist_image, size:'50', class:"artist-icon" %>
+    <% else %>
+      <i class="far fa-grin-alt fa-3x"></i>
     <% end %>
     <%= @artist.artistname %>さんのページ！！
   </li>
@@ -21,8 +23,9 @@
 </ul>
 
 <ul class= "artist-profile">
+  <li>★discography★</li>
   <li class="discography">
-    ★<%= @artist.discography %>
+    <%= @artist.discography %>
   </li>
   <li class="sns-list">
       <% if @artist.twitter.present? %>

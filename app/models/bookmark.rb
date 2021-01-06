@@ -5,6 +5,5 @@ class Bookmark < ApplicationRecord
   belongs_to :follow, class_name: "Artist", optional: true
   belongs_to :followed, class_name: "Artist", optional: true
 
-  # validates :following_id, uniqueness: { scope: :follower_id }
-  # validates :followed, uniqueness: { scope: :follow }
+  validates :following_id, uniqueness: { scope: [:follower_id, :follow_id, :followed_id], message: "エラー発生" }
 end

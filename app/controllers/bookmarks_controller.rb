@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
 
   def create
-    if current_user.present?
+    if current_user
       if bookmark_user.save
         flash[:notice] = "↓フォローしました"
         redirect_to [@user, @artist]
@@ -15,7 +15,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    if current_user.present?
+    if current_user
       bookmark_user_release.destroy
       flash[:notice] = "↓フォローを解除しました"
       redirect_to [@user, @artist]

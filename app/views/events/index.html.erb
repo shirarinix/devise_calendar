@@ -29,6 +29,8 @@
     <li>
       <% if user.user_image.attached? %>
         <%= image_tag user.user_image, size:"50", class:"user-icon" %>
+      <% else %>
+        <i class="far fa-grin-alt fa-3x"></i>
       <% end %>
       <%= link_to "※#{user.nickname}さんのページ※", user_path(user) %>
     </li>
@@ -39,7 +41,9 @@
   <% @artists.each do |artist| %>
   <li>
     <% if artist.artist_image.attached? %>
-        <%= image_tag artist.artist_image, size:'50', class:"artist-icon" %>
+      <%= image_tag artist.artist_image, size:'50', class:"artist-icon" %>
+    <% else %>
+      <i class="far fa-grin-alt fa-3x"></i>
     <% end %>
     <%= link_to "※#{artist.artistname}さんのページ※", artist_path(artist) %>
   </li>
@@ -47,8 +51,11 @@
 </ul>
 <% end %>
 
-<br>⭐️直近のイベント⭐️<br>
+<% if signed_in? %>
+  <h3>🔻スケジュールの管理🔻</h3>
+  <%= link_to "→ 新規イベントの作成", new_event_path %><br>
 <table>
+  <p>⭐️直近のイベント⭐️</p>
   <thead>
     <tr>
       <th>『ユーザー名』</th>
@@ -57,20 +64,17 @@
       <th colspan="3">『詳細一覧』</th>
     </tr>
   </thead>
-<% if signed_in? %>
-<h3>🔻スケジュールの管理🔻</h3>
-  <%= link_to "→ 新規イベントの作成", new_event_path %><br>
     <% if current_user %>
       <% @user_events.each do |event| %>
         <tbody>
           <tr>
             <td><%= event.user.nickname %>さん</td>
-            <td>🚩<%= event.title %></td>
+            <td><%= "🚩 #{event.title}" %></td>
             <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
             <td><%= link_to "→詳細ページへ", event_path(event) %></td>
           </tr>
         </tbody>
-      <% end %>]
+      <% end %>
     <% else %>
       <% @artist_events.each do |event| %>
         <tbody>
