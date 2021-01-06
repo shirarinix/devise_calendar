@@ -1,4 +1,4 @@
-<% if current_artist.present? %>
+<% if current_artist %>
 <li class="follow-form">
   <% unless current_artist?(@artist) %> <%# current_artistと@artistが一致しなかったらtrueを返す %>
     <% if current_artist.follow_id?(@artist) %>
@@ -33,7 +33,6 @@
     <%= link_to 'フォロー', follow_artist_path(@artist) %>
     <%= "#{@artist.follow_ids.count + @artist.user_follow_ids.count}人(artist)/" %>
     <%= link_to 'フォロワー', followed_artist_path(@artist) %>
-    <%#= "#{@artist.followed_ids.count + @user.artist_followers.count}人(artist)" %>
     <%= "#{@artist.followed_ids.count + @artist.user_followed_ids.count}人(artist)" %>
   </li>
 

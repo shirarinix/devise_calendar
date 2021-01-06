@@ -1,5 +1,8 @@
 <h1>イベント入力画面</h1>
 
+<%= render 'events/error_messages' %>
+<p id="notice"><%= notice %></p>
+
 <%= form_with(model: @event, local: true) do |f| %>
 
   <div class="title">
@@ -8,8 +11,8 @@
   </div>
 
   <div class="time">
-    <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
+    <%= f.label :time %>
+    <%= f.datetime_select :time %>
   </div>
 
   <div class="content">
@@ -22,4 +25,3 @@
   </div>
   <%= link_to '← トップへ戻る', root_path %>
 <% end %>
-

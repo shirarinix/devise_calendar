@@ -1,5 +1,5 @@
 [ログイン者]
-<% if current_user.present? %>
+<% if current_user %>
   <%= current_user.nickname %>
 <% else %>
   <%= current_artist.artistname %>
@@ -12,6 +12,8 @@
   <li>
     <% if @user.user_image.attached? %>
       <%= image_tag @user.user_image, size:'50', class:"user-icon" %>
+    <% else %>
+      <i class="far fa-grin-alt fa-3x"></i>
     <% end %>
     <%= @user.nickname %>さんのページ！！
   </li>
@@ -21,9 +23,9 @@
 </ul>
 
 <ul class= "user-profile">
-  <li>◉profile◉</li>
-  <li><%= @user.birthday %></li>
-  <li><%= @user.email %></li>
+  <li>★profile★</li>
+  <li> 誕生日🎂 <%= @user.birthday %></li>
+  <li> E-mail✉️ <%= @user.email %></li>
 </ul>
 
 <%= link_to "← トップへ戻る", root_path %>

@@ -14,7 +14,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    if @event.save
+    if @event.valid? && @event.save
       flash[:notice] = "イベントを作成しました"
       redirect_to event_path(@event)
     else
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
-    if @event.save
+    if @event.valid? && @event.save
       flash[:notice] = "イベントを編集しました"
       redirect_to events_path(@event)
     else
