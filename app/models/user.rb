@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   has_many :events, dependent: :destroy
 
-  validates :nickname, :birthday, :sex, presence: true
+  validates :nickname, :birthday, :sex, :email, presence: true
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
 
   # フォローしているとtrue、してなければfalseを返す
