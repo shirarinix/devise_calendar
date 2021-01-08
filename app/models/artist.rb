@@ -22,7 +22,7 @@ class Artist < ApplicationRecord
 
   has_many :events, dependent: :destroy
 
-  validates :artistname, :birthday, :sex, presence: true
+  validates :artistname, :birthday, :sex, :email, presence: true
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
 
   # フォローしているとtrue、してなければfalseを返す
