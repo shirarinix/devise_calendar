@@ -1,27 +1,24 @@
 class BookmarksController < ApplicationController
-
   def create
     if current_user
       if bookmark_user.save
-        flash[:notice] = "↓フォローしました"
+        flash[:notice] = '↓フォローしました'
         redirect_to [@user, @artist]
       end
-    else
-      if bookmark_artist.save
-        flash[:notice] = "↓フォローしました"
-        redirect_to [@artist, @user]
-      end
+    elsif bookmark_artist.save
+      flash[:notice] = '↓フォローしました'
+      redirect_to [@artist, @user]
     end
   end
 
   def destroy
     if current_user
       bookmark_user_release.destroy
-      flash[:notice] = "↓フォローを解除しました"
+      flash[:notice] = '↓フォローを解除しました'
       redirect_to [@user, @artist]
     else
       bookmark_artist_release.destroy
-      flash[:notice] = "↓フォローを解除しました"
+      flash[:notice] = '↓フォローを解除しました'
       redirect_to [@user, @artist]
     end
   end
@@ -44,7 +41,8 @@ class BookmarksController < ApplicationController
   #   @artist = Artist.find(params[:follow_id])
   # end
 
-  def bookmark_user # ログイン者がユーザー側をお気に入り登録(フォロー)する時のメッソド
+  # ログイン者がユーザー側をお気に入り登録(フォロー)する時のメッソド
+  def bookmark_user
     if params[:following_id].present?
       @user = User.find(params[:following_id])
       current_user.follow(@user)
@@ -54,7 +52,8 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def bookmark_artist # ログイン者がアーティスト側をお気に入り登録(フォロー)する時のメソッド
+  # ログイン者がアーティスト側をお気に入り登録(フォロー)する時のメソッド
+  def bookmark_artist
     if params[:follow_id].present?
       @artist = Artist.find(params[:follow_id])
       current_artist.follow(@artist)
@@ -64,7 +63,8 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def bookmark_user_release # ログイン者がユーザー側をお気に入り(フォロー)解除する時のメソッド
+  # ログイン者がユーザー側をお気に入り(フォロー)解除する時のメソッド
+  def bookmark_user_release
     if Bookmark.find(params[:id]).following_id?
       @user = Bookmark.find(params[:id]).following
       current_user.unfollow(@user)
@@ -74,7 +74,8 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def bookmark_artist_release # ログイン者がアーティスト側をお気に入り(フォロー)解除する時のメソッド
+  # ログイン者がアーティスト側をお気に入り(フォロー)解除する時のメソッド
+  def bookmark_artist_release
     if Bookmark.find(params[:id]).follow_id?
       @artist = Bookmark.find(params[:id]).follow
       current_artist.unfollow(@artist)
@@ -83,5 +84,4 @@ class BookmarksController < ApplicationController
       current_artist.user_unfollow(@user)
     end
   end
-
 end
