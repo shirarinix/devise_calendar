@@ -5,3 +5,4 @@ RSpec.describe Bookmark, type: :model do
     it { should validate_uniqueness_of(:following_id).scoped_to(:follower_id, :follow_id, :followed_id).with_message("エラー発生") }
   end
 end
+
