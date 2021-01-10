@@ -28,25 +28,37 @@
     <%= @artist.discography %>
   </li>
   <li class="sns-list">
-      <% if @artist.twitter.present? %>
-        <%= link_to @artist.twitter, target: :_blank do %>
+    <% if @artist.twitter.present? %>
+      <%= link_to @artist.twitter, target: :_blank do %>
         <i class="fab fa-twitter fa-2x faa-wrench animated"></i>
-      <% end %><br>
-    <% end %><%= "twitter" %>
+      <% end %>
+        <br><%= "twitter" %>
+    <% else %>
+      <i class="fab fa-twitter-square fa-2x"></i>
+        <br><%= "↑未登録" %>
+    <% end %>
   </li>
   <li class="sns-list">
     <% if @artist.facebook.present? %>
       <%= link_to @artist.facebook, target: :_blank do %>
         <i class="fab fa-facebook-square fa-2x faa-horizontal animated"></i>
-      <% end %><br>
-    <% end %><%= "facebook" %>
+      <% end %>
+        <br><%= "facebook" %>
+    <% else %>
+      <i class="fab fa-facebook fa-2x"></i>
+        <br><%= "↑未登録" %>
+    <% end %>
   </li>
   <li class="sns-list">
     <% if @artist.instagram.present? %>
       <%= link_to @artist.instagram, target: :_blank do %>
         <i class="fab fa-instagram fa-2x faa-pulse animated"></i>
-      <% end %><br>
-    <% end %><%= "instagram" %>
+      <% end %>
+        <br><%= "instagram" %>
+    <% else %>
+      <i class="fab fa-instagram-square fa-2x"></i>
+        <br><%= "↑未登録" %>
+    <% end %>
   </li>
 </ul>
 
