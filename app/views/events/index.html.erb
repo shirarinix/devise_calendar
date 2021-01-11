@@ -95,9 +95,9 @@
 <br>⭐️今月の主なイベント⭐️<br>
 <% if signed_in? %>
   <% if current_user %>
-    <%= render 'events/user_events_calender' %>
+    <%= render 'events/user_events_calendar' %>
   <% else %>
-    <%= render 'events/artist_events_calender' %>
+    <%= render 'events/artist_events_calendar' %>
   <% end %>
 <% else %>
   <strong><p>※※※ カレンダーの表示には新規登録/ログインが必要です ※※※</p></strong>

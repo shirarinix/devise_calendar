@@ -21,8 +21,8 @@
 
 <% if @event.user_id? %>
   <%= render 'event_footer' %>
-  <%= render 'events/user_events_calender' %>
+  <%= render 'events/user_events_calendar' %>
 <% else %>
   <%= render 'event_footer' %>
-  <%= render 'events/artist_events_calender' %>
+  <%= render 'events/artist_events_calendar' %>
 <% end %>

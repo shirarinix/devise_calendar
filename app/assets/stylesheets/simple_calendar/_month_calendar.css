@@ -1,0 +1,38 @@
+.simple-calendar {
+  margin: 10px;
+  border-style: double;
+}
+
+.calendar-heading {
+  display: flex;
+  padding: 10px;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.calendar-title {
+  font-size: larger;
+  color: rgb(255, 127, 187);
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.table th {
+  color: dodgerblue;
+  text-align: center;
+  background-color: rgb(170, 238, 221);
+}
+
+.table td {
+  font-size: large;
+}
+
+.event-user-title {
+  text-decoration: none;
+}
+
+.event-artist-title {
+  text-decoration: none;
+}
