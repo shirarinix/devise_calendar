@@ -1,0 +1,33 @@
+.app-title {
+  margin: 10px;
+  font-size: x-large;
+  text-align: center;
+}
+
+/* .event-header {
+} */
+
+.sign-in-var {
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-sign-in {
+  padding: 20px;
+  text-align: center;
+  background-color: lawngreen;
+}
+
+.artist-sign-in {
+  padding: 20px;
+  text-align: center;
+  background-color: lawngreen;
+}
+
+.sign-up {
+  text-decoration: none;
+}
+
+.log-in {
+  text-decoration: none;
+}

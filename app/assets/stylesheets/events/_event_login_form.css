@@ -1,0 +1,33 @@
+.log-in-var {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  background-color: khaki;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: large;
+  color: brown;
+  margin-left: 5vw;
+  margin-right: 15vw;
+}
+
+.notice {
+  color: crimson;
+}
+
+.user-name {
+  padding: 10px;
+  text-decoration: none;
+}
+
+.artist-name {
+  padding: 10px;
+  text-decoration: none;
+}
+
+.log-out {
+  padding: 10px;
+  text-decoration: none;
+}

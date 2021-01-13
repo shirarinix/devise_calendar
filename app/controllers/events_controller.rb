@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   def index
     @users = User.all
     @artists = Artist.all
+    @events = Event.all
   end
 
   def new

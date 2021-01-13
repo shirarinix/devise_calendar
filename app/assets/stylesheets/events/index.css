@@ -5,3 +5,19 @@
 .artist-icon {
   border-radius: 100px;
 }
+
+/* .attention {
+  text-align: center;
+} */
+
+.attention_var {
+  text-align: center;
+  align-items: center;
+  margin: 10px;
+  background-color: rgb(241, 165, 13);
+}
+
+.attention_point {
+  color: crimson;
+  font-size: large;
+}
