@@ -6,9 +6,10 @@
   border-radius: 100px;
 }
 
-/* .attention {
-  text-align: center;
-} */
+.event-lists {
+  display: flex;
+  justify-content: space-around;
+}
 
 .attention_var {
   text-align: center;

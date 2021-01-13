@@ -1,3 +1,5 @@
+<%#= ユーザーのカレンダーを表示 %>
+<div>⭐️今月のカレンダー⭐️</div>
 <%= month_calendar events: @user_events do |date, event| %>
 <%= date.day %>
   <% event.each do |event| %>

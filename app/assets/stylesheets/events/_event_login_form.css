@@ -1,7 +1,7 @@
 .log-in-var {
   display: flex;
   margin: 10px;
-  padding: 10px;
+  align-items: center;
   background-color: khaki;
   justify-content: space-between;
 }
@@ -9,12 +9,13 @@
 .title {
   font-size: large;
   color: brown;
-  margin-left: 5vw;
-  margin-right: 15vw;
+  padding: 10px;
 }
 
 .notice {
   color: crimson;
+  width: 20vw;
+  padding: 10px;
 }
 
 .user-name {
