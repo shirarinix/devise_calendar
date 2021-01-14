@@ -1,9 +1,50 @@
-.user-icon {
-  border-radius: 100px;
+.lists-var {
+  display: flex;
+  margin: 10px;
+  /* background-color: darkseagreen; */
+  justify-content: space-around;
 }
 
-.artist-icon {
-  border-radius: 100px;
+.list{
+  background-color: cornflowerblue;
+}
+
+.schedule-title {
+  font-size: large;
+  text-align: center;
+  background-color: bisque;
+}
+
+.month-event {
+  font-size: large;
+}
+
+.event-info {
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+}
+
+.fa-flag-checkered {
+  color: black;
+  padding: 10px;
+  border-radius: 10%;
+  text-decoration: none;
+  background-color: darkgrey;
+}
+
+.event-btn-text {
+  position: absolute;
+  font-weight: bold;
+  color: crimson;
+}
+
+.push-btn {
+  top: 35px;
+  left: 25px;
+  color: azure;
+  font-weight: bold;
+  position: absolute;
 }
 
 .event-lists {

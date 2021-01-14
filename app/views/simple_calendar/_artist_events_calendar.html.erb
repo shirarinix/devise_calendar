@@ -1,5 +1,5 @@
 <%#= アーティストのカレンダーを表示 %>
-<div>⭐️今月のカレンダー⭐️</div>
+<div class="calendar-title">🔻 今月のカレンダー 🔻</div>
 <%= month_calendar events: @artist_events do |date, event| %>
 <%= date.day %>
   <% event.each do |event| %>

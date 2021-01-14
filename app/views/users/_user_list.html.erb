@@ -1,0 +1,13 @@
+<%#= ユーザーリストを表示 %>
+<ul class="user-lists">【ユーザー一覧】
+  <% @users.each do |user| %>
+    <li class="user-list" >
+      <% if user.user_image.attached? %>
+        <%= image_tag user.user_image, size:"50", class:"user-icon" %>
+      <% else %>
+        <i class="far fa-grin-alt fa-3x"></i>
+      <% end %>
+      <%= link_to "※#{user.nickname}さんのページ※", user_path(user) %>
+    </li>
+  <% end %>
+</ul>

@@ -1,11 +1,15 @@
 <ul class="log-in-var">
   <% if current_user %>
-    <li class="title">bookmark_calendar</li>
+    <li class="title">
+      <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
+    </li>
     <li class="notice"><%= notice %></li>
     <li><%= link_to current_user.nickname, "#", class: "user-name" %></li>
     <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log-out" %></li>
   <% else %>
-    <li class="title">bookmark_calendar</li>
+    <li class="title">
+      <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
+    </li>
     <li class="notice"><%= notice %></li>
     <li><%= link_to current_artist.artistname, "#", class: "artist-name" %></li>
     <li><%= link_to "ログアウト", destroy_artist_session_path, method: :delete, class: "log-out" %></li>

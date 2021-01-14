@@ -1,0 +1,13 @@
+<%#= アーティストリストを表示 %>
+<ul class="artist-lists">【アーティスト一覧】
+  <% @artists.each do |artist| %>
+  <li class="artist-list">
+    <% if artist.artist_image.attached? %>
+      <%= image_tag artist.artist_image, size:'50', class:"artist-icon" %>
+    <% else %>
+      <i class="far fa-grin-alt fa-3x"></i>
+    <% end %>
+    <%= link_to "※#{artist.artistname}さんのページ※", artist_path(artist) %>
+  </li>
+  <% end %>
+</ul>
