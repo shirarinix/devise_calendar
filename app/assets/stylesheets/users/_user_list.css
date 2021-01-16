@@ -6,6 +6,11 @@
   padding: 10px;
 }
 
+.user-path {
+  color: black;
+  text-decoration: none;
+}
+
 .user-icon {
   border-radius: 100px;
 }

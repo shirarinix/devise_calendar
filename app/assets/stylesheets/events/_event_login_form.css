@@ -1,21 +1,22 @@
 .log-in-var {
   display: flex;
-  margin: 10px;
   align-items: center;
   background-color: khaki;
   justify-content: space-between;
 }
 
 .title {
-  font-size: large;
   color: brown;
+  font-size: large;
   padding: 10px;
+  margin-left: 35px;
+  margin-right: 35px;
+
 }
 
 .notice {
-  color: crimson;
-  width: 20vw;
   padding: 10px;
+  color: crimson;
 }
 
 .user-name {

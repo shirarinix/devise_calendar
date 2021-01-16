@@ -9,40 +9,113 @@
   background-color: cornflowerblue;
 }
 
-.schedule-title {
+.event-content {
   font-size: large;
   text-align: center;
   background-color: bisque;
 }
 
-.month-event {
-  font-size: large;
-}
-
 .event-info {
   display: flex;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.month-event {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ↓テーブル枠のCSS */
+.event-table {
+  margin: 5px;
+  text-align: center;
+/* 枠を丸くする */
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+
+/*テーブルヘッダー*/
+.event-table th {
+  width: 20vw;
+  text-align: center;
+  background-color: palegreen;
+/* ヘッダー部分(左，上，下) */
+  border-left: 1px solid #a8b7c5;
+  border-top: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+}
+
+.event-table td {
+  width: 20vw;
+/* ボディー部分(左，下，上) */
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top: none;
+}
+
+/* テーブルヘッダー(擬似クラス) */
+.event-table th:first-child{
+  border-radius: 10px 0 0 0;
+}
+
+.event-table th:last-child{
+  border-radius: 0 10px 0 0;
+  border-left: 1px solid #a8b7c5;
+  border-right: 1px solid #a8b7c5;
+}
+/* テーブルボディー(擬似クラス) */
+.event-table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+.event-table tr:last-child td:first-child {
+  border-radius: 0 0 0 10px;
+}
+
+.event-table tr:last-child td:last-child {
+  border-radius: 0 0 10px 0;
+}
+/* ↑ここまで */
+
+.event-path {
+  color: black;
+  text-decoration: none;
+}
+
+.event-new-btn {
+  color: aqua;
   position: relative;
-  align-items: flex-end;
+}
+
+.text-event {
+  top: 10px;
+  left: 15px;
+  font-size: 15px;
+  color: crimson;
+  font-weight: bold;
+  position: absolute;
 }
 
 .fa-flag-checkered {
   color: black;
+  margin: 10px;
   padding: 10px;
+  padding-top: 20px;
   border-radius: 10%;
   text-decoration: none;
-  background-color: darkgrey;
+  background-color: lightgrey;
 }
 
-.event-btn-text {
-  position: absolute;
-  font-weight: bold;
+.text-push {
+  top: 90px;
+  left: 35px;
   color: crimson;
-}
-
-.push-btn {
-  top: 35px;
-  left: 25px;
-  color: azure;
   font-weight: bold;
   position: absolute;
 }
@@ -53,9 +126,9 @@
 }
 
 .attention_var {
+  margin: 10px;
   text-align: center;
   align-items: center;
-  margin: 10px;
   background-color: rgb(241, 165, 13);
 }
 

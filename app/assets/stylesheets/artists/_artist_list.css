@@ -6,6 +6,11 @@
   padding: 10px;
 }
 
+.artist-path {
+  color: black;
+  text-decoration: none;
+}
+
 .artist-icon {
   border-radius: 100px;
 }

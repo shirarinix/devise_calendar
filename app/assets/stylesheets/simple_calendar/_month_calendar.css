@@ -38,9 +38,13 @@
 }
 
 .event-user-title {
+  color: black;
+  font-size: 15px;
   text-decoration: none;
 }
 
 .event-artist-title {
+  color: black;
+  font-size: 15px;
   text-decoration: none;
 }
