@@ -1,5 +1,5 @@
 <%#= アーティストリストを表示 %>
-<ul class="artist-lists">【アーティスト一覧】
+<ul class="artist-lists">【アーティスト】
   <% @artists.each do |artist| %>
   <li class="artist-list">
     <% if artist.artist_image.attached? %>
@@ -7,7 +7,7 @@
     <% else %>
       <i class="far fa-grin-alt fa-3x"></i>
     <% end %>
-    <%= link_to "※#{artist.artistname}さんのページへ※", artist_path(artist), class: "artist-path" %>
+    <%= button_to "#{artist.artistname}さんのページ", artist_path(artist), method: :get, class: "artist-path" %>
   </li>
   <% end %>
 </ul>

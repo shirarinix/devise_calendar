@@ -1,8 +1,8 @@
 <div class="simple-calendar">
   <ul class="calendar-heading">
-    <li><%= link_to t('simple_calendar.previous', default: '←Back'), calendar.url_for_previous_view %></li>
-    <li class="calendar"><%= "《#{start_date.year}年》" %> <%= t('date.month_names')[start_date.month] %></li>
-    <li><%= link_to t('simple_calendar.next', default: 'Next→'), calendar.url_for_next_view %></li>
+    <li><%= link_to t('simple_calendar.previous', default: '≪≪≪ Back'), calendar.url_for_previous_view, class: "calendar-back" %></li>
+    <li class="calendar"><%= "【#{start_date.year}年】" %> <%= t('date.month_names')[start_date.month] %></li>
+    <li><%= link_to t('simple_calendar.next', default: 'Next ≫≫≫'), calendar.url_for_next_view, class: "calendar-next" %></li>
   </ul>
 
   <table class="table table-striped">

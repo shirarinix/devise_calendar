@@ -1,12 +1,16 @@
 .lists-var {
   display: flex;
   margin: 10px;
-  /* background-color: darkseagreen; */
   justify-content: space-around;
 }
 
-.list{
-  background-color: cornflowerblue;
+.icon-lists {
+  height: 35vh;
+  min-width: 35vw;
+  overflow: scroll;
+  border-radius: 10px;
+  border-style: ridge;
+  /* background-color: cornflowerblue; */
 }
 
 .event-content {
@@ -29,7 +33,7 @@
 
 /* ↓テーブル枠のCSS */
 .event-table {
-  margin: 5px;
+  font-size: smaller;
   text-align: center;
 /* 枠を丸くする */
   margin-left: auto;
@@ -52,11 +56,12 @@
 
 .event-table td {
   width: 20vw;
-/* ボディー部分(左，下，上) */
+  padding: 3px;
   text-align: center;
+/* ボディー部分(左，下，上) */
+  border-top: none;
   border-left: 1px solid #a8b7c5;
   border-bottom: 1px solid #a8b7c5;
-  border-top: none;
 }
 
 /* テーブルヘッダー(擬似クラス) */
@@ -84,7 +89,13 @@
 /* ↑ここまで */
 
 .event-path {
-  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  color: crimson;
+  font-size: smaller;
+  font-weight: bold;
+  background-color: lightcyan;
   text-decoration: none;
 }
 
@@ -126,10 +137,12 @@
 }
 
 .attention_var {
-  margin: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   align-items: center;
-  background-color: rgb(241, 165, 13);
+  background-color: bisque;
 }
 
 .attention_point {

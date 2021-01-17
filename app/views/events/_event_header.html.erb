@@ -1,18 +1,16 @@
 <header class="event-header">
-<% if signed_in? %>
-  <%= render "event_login_form" %>
-<% else %>
-  <ul class="sign-in-var">
-    <div class="user-sign-in">
-      <p>● ユーザー サインイン ●</p>
-      <li><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "log-in" %></li>
-    </div>
-    <div class="artist-sign-in">
-      <p>● アーティスト サインイン ●</p>
-      <li><%= link_to "新規登録", new_artist_registration_path, class: "sign-up" %></li>
-      <li><%= link_to "ログイン", new_artist_session_path, class: "log-in" %></li>
-    </div>
-  </ul>
-<% end %>
+  <% if signed_in? %>
+    <%= render "event_login_form" %>
+  <% else %>
+    <ul class="sign-in-var">
+      <div class="sign-in-form">☆ユーザー サインイン☆
+        <li class="signup-btn"><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
+        <li class="login-btn"><%= link_to 'ログイン', new_user_session_path, class: "log-in" %></li>
+      </div>
+      <div class="sign-in-form">☆アーティスト サインイン☆
+        <li class="signup-btn"><%= link_to "新規登録", new_artist_registration_path, class: "sign-up" %></li>
+        <li class="login-btn"><%= link_to "ログイン", new_artist_session_path, class: "log-in" %></li>
+      </div>
+    </ul>
+  <% end %>
 </header>

@@ -20,7 +20,18 @@
 
 .calendar {
   font-size: larger;
+  font-weight: bolder;
   color: rgb(255, 127, 187);
+}
+
+.calendar-back {
+  color: black;
+  text-decoration: none;
+}
+
+.calendar-next {
+  color: black;
+  text-decoration: none;
 }
 
 .table {

@@ -2,10 +2,10 @@
   <%#= ヘッダーを表示 %>
   <%= render 'event_header' %>
   <ul class="lists-var">
-    <li class="list"><%#= ユーザーのリストを表示 %>
+    <li class="icon-lists"><%#= ユーザーのリストを表示 %>
       <%= render 'users/user_list' %>
     </li>
-    <li class="list"><%#= アーティストのリストを表示 %>
+    <li class="icon-lists"><%#= アーティストのリストを表示 %>
       <%= render 'artists/artist_list' %>
     </li>
   </ul>
@@ -15,27 +15,27 @@
   <table class="event-table">
     <caption class="month-event">⭐️ 今月のイベント ⭐️</caption>
       <tr>
-        <th>『ユーザー名』</th>
-        <th>『イベント名』</th>
-        <th>『開催日(時間)』</th>
-        <th>『詳細一覧』</th>
+        <th>【 neme 】</th>
+        <th>【 title 】</th>
+        <th>【 date/time 】</th>
+        <th>【 link-page 】</th>
       </tr>
     <% if current_user %>
       <% @user_events.each do |event| %>
         <tr><%#= ユーザーのイベントを表示 %>
           <td><%= "#{event.user.nickname}さん" %></td>
-          <td><%= "🚩#{event.title}" %></td>
-          <td><%= event.start_time.strftime("%m-%d %H:%M ~ ") %></td>
-          <td><%= link_to "→詳細ページへ", event_path(event), class: "event-path" %></td>
+          <td><%= "🚩 #{event.title}" %></td>
+          <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
+          <td><%= button_to "詳細一覧", event_path(event), method: :get, class: "event-path" %></td>
         </tr>
       <% end %>
     <% elsif current_artist %>
       <% @artist_events.each do |event| %>
         <tr><%#= アーティストのイベントを表示 %>
           <td><%= "#{event.artist.artistname}さん" %></td>
-          <td><%= "🚩#{event.title}" %></td>
-          <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
-          <td><%= link_to "→詳細ページへ", event_path(event), class: "event-path" %></td>
+          <td><%= "🚩 #{event.title}" %></td>
+          <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
+          <td><%= link_to "詳細一覧", event_path(event), class: "event-path" %></td>
         </tr>
       <% end %>
     <% else %>
@@ -43,7 +43,7 @@
         <td><%= placeholder="例) 名無しさん" %></td>
         <td><%= placeholder="例) イベント内容" %></td>
         <td><%= placeholder="例) 01-01 0:00 〜" %></td>
-        <td><%= placeholder="例) 詳細一覧へ" %></td>
+        <td><%= placeholder="例) 詳細ページへ" %></td>
       </tr>
     <% end %>
   </table>
@@ -61,7 +61,9 @@
 <% elsif current_artist %>
   <%= render 'simple_calendar/artist_events_calendar' %>
 <% else %>
-  <div class="app-title"> ☆ bookmark_calendar ☆ </div>
+  <div class="app-title">
+    <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
+  </div>
   <%= render 'event_header' %>
   <div class="attention_var">※※※ イベント・カレンダーの作成には<span class="attention_point">新規登録/ログイン</span>が必要です ※※※</div>
   <%= render 'simple_calendar/top_calendar' %>
