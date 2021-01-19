@@ -13,29 +13,29 @@
 <div class="event-content">🔻 イベント内容 🔻</div>
 <li class="event-info">
   <table class="event-table">
-    <caption class="month-event">⭐️ 今月のイベント ⭐️</caption>
+    <caption class="month-event">⭐️ あなたのイベント予定 ⭐️</caption>
       <tr>
         <th>【 neme 】</th>
         <th>【 title 】</th>
         <th>【 date/time 】</th>
         <th>【 link-page 】</th>
       </tr>
-    <% if current_user %>
-      <% @user_events.each do |event| %>
+    <% if current_user && current_user.events.present? %>
+      <% current_user.events.each do |event| %>
         <tr><%#= ユーザーのイベントを表示 %>
           <td><%= "#{event.user.nickname}さん" %></td>
           <td><%= "🚩 #{event.title}" %></td>
           <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
-          <td><%= button_to "詳細一覧", event_path(event), method: :get, class: "event-path" %></td>
+          <td><%= button_to "編集する", edit_event_path(event), method: :get, class: "event-path" %></td>
         </tr>
       <% end %>
-    <% elsif current_artist %>
-      <% @artist_events.each do |event| %>
+    <% elsif current_artist && current_artist.events.present? %>
+      <% current_artist.events.each do |event| %>
         <tr><%#= アーティストのイベントを表示 %>
           <td><%= "#{event.artist.artistname}さん" %></td>
           <td><%= "🚩 #{event.title}" %></td>
           <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
-          <td><%= link_to "詳細一覧", event_path(event), class: "event-path" %></td>
+          <td><%= button_to "編集する", edit_event_path(event.id), method: :get, class: "event-path" %></td>
         </tr>
       <% end %>
     <% else %>
@@ -56,15 +56,8 @@
 </li>
 <% end %>
 <%#= カレンダーの表示 %>
-<% if signed_in? && current_user %>
-  <%= render 'simple_calendar/user_events_calendar' %>
-<% elsif current_artist %>
-  <%= render 'simple_calendar/artist_events_calendar' %>
-<% else %>
-  <div class="app-title">
-    <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
-  </div>
-  <%= render 'event_header' %>
-  <div class="attention_var">※※※ イベント・カレンダーの作成には<span class="attention_point">新規登録/ログイン</span>が必要です ※※※</div>
-  <%= render 'simple_calendar/top_calendar' %>
-<% end %>
+<%# if signed_in? %>
+  <%= render 'simple_calendar/toppage_calendar' %>
+<%# else %>
+  <%#= render 'simple_calendar/top_calendar' %>
+<%# end %>

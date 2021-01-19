@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   before_action :move_to_index, except: [:index]
   before_action :event_info, only: [:show, :destroy, :edit, :update]
-  before_action :user_info, :artist_info, only: [:index, :show, :edit]
 
   def index
     @users = User.all
@@ -24,6 +23,11 @@ class EventsController < ApplicationController
   end
 
   def show
+    if @event.user.present?
+      user_info
+    else
+      artist_info
+    end
   end
 
   def destroy
@@ -36,6 +40,11 @@ class EventsController < ApplicationController
   end
 
   def edit
+    if @event.user.present?
+      user_info
+    else
+      artist_info
+    end
   end
 
   def update
@@ -64,11 +73,13 @@ class EventsController < ApplicationController
   end
 
   def user_info
-    @user_events = Event.where('user_id')
+    @user = @event.user
+    @events = @user.events
   end
 
   def artist_info
-    @artist_events = Event.where('artist_id')
+    @artist = @event.artist
+    @events = @artist.events
   end
 
   def move_to_index

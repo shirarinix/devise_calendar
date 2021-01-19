@@ -1,0 +1,10 @@
+<%#= 各アカウントのカレンダーを表示 %>
+<div class="calendar-title">🔻 今月のカレンダー 🔻</div>
+<%= month_calendar events: @events do |date, event| %>
+<%= date.day %>
+  <% event.each do |event| %>
+    <div>
+      <%= link_to "🚩 #{event.title}", event, class: "events-title" %><br>
+    </div>
+  <% end %>
+<% end %>

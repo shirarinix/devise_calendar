@@ -12,17 +12,15 @@
 </p>
 <p>
   <strong>【開催日（時間）】</strong>
-  <%= @event.start_time.strftime ("%Y-%m-%d %H:%M ~") %>
+  <%= @event.start_time.strftime ("%m/%d %H:%M ~") %>
 </p>
 <p>
   <strong>【イベント内容】</strong>
   <%= @event.content %>
 </p>
 
-<% if @event.user_id? %>
+<%# if @event.user_id? %>
   <%= render 'event_footer' %>
-  <%= render 'simple_calendar/user_events_calendar' %>
-<% else %>
-  <%= render 'event_footer' %>
-  <%= render 'simple_calendar/artist_events_calendar' %>
-<% end %>
+<%# else %>
+  <%#= render 'event_footer' %>
+<%# end %>
