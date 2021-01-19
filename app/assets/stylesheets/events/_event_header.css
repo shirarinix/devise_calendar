@@ -1,0 +1,49 @@
+.app-title {
+  margin: 10px;
+  padding: 10px;
+  font-size: x-large;
+  text-align: center;
+}
+
+.event-header {
+  margin-bottom: 5px;
+}
+
+.sign-in-var {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sign-in-form {
+  padding: 10px;
+  width: 35vw;
+  font-size: large;
+  text-align: center;
+  border: ridge;
+  border-radius: 5px;
+  background-color: palegreen;
+}
+
+.sign-up {
+  color: crimson;
+  text-decoration: none;
+}
+
+.log-in {
+  color: crimson;
+  text-decoration: none;
+}
+
+.signup-btn {
+  /* border: ridge; */
+  margin: 15px;
+  border-radius: 5px;
+  background-color: lightblue;
+}
+
+.login-btn {
+  /* border: ridge; */
+  margin: 15px;
+  border-radius: 5px;
+  background-color: lightblue;
+}

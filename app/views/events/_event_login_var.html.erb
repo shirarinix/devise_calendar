@@ -1,0 +1,17 @@
+<ul class="log-in-var">
+  <% if current_user %>
+    <li class="title">
+      <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
+    </li>
+    <li class="notice"><%= notice %></li>
+    <li class="user-name"><%= link_to current_user.nickname, "#", class: "login-name" %></li>
+    <li class="log-out"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn" %></li>
+  <% else %>
+    <li class="title">
+      <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
+    </li>
+    <li class="notice"><%= notice %></li>
+    <li class="artist-name"><%= link_to current_artist.artistname, "#", class: "login-name" %></li>
+    <li class="log-out"><%= link_to "ログアウト", destroy_artist_session_path, method: :delete, class: "logout-btn" %></li>
+  <% end %>
+<ul>

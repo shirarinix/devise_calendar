@@ -1,0 +1,61 @@
+.log-in-var {
+  display: flex;
+  align-items: center;
+  background-color: #FFE4C4;
+  justify-content: space-around;
+}
+
+.title {
+  color: purple;
+  font-size: large;
+  font-weight: bold;
+  padding: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+}
+
+.notice {
+  padding: 10px;
+  color: crimson;
+}
+
+.login-name {
+  color: crimson;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logout-btn {
+  color: crimson;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+.user-name {
+  padding: 3px;
+  font-size: small;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: blue;
+  background-color: palegreen;
+}
+
+.artist-name {
+  padding: 3px;
+  font-size: small;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: blue;
+  background-color: palegreen;
+}
+
+.log-out {
+  padding: 3px;
+  font-size: small;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: blue;
+  background-color: palegreen;
+}

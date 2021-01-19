@@ -1,8 +1,0 @@
-<%= month_calendar events: @user_events do |date, event| %>
-<%= date.day %>
-  <% event.each do |event| %>
-    <div>
-      <%= link_to "🚩 #{event.title}", event %><br>
-    </div>
-  <% end %>
-<% end %>

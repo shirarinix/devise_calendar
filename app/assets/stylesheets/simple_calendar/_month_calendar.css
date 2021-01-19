@@ -1,0 +1,55 @@
+.simple-calendar {
+  margin: 10px;
+  margin-top: 0px;
+  border-style: double;
+}
+
+.calendar-title {
+  font-size: large;
+  text-align: center;
+  margin-bottom: 0px;
+  background-color: bisque;
+}
+
+.calendar-heading {
+  display: flex;
+  padding: 10px;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.calendar {
+  font-size: larger;
+  font-weight: bolder;
+  color: rgb(255, 127, 187);
+}
+
+.calendar-back {
+  color: black;
+  text-decoration: none;
+}
+
+.calendar-next {
+  color: black;
+  text-decoration: none;
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.table th {
+  color: dodgerblue;
+  text-align: center;
+  background-color: rgb(170, 238, 221);
+}
+
+.table td {
+  font-size: large;
+}
+
+.events-title {
+  color: black;
+  font-size: 15px;
+  text-decoration: none;
+}

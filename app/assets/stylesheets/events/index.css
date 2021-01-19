@@ -1,7 +1,151 @@
-.user-icon {
-  border-radius: 100px;
+.lists-var {
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
 }
 
-.artist-icon {
-  border-radius: 100px;
+.icon-lists {
+  height: 35vh;
+  min-width: 35vw;
+  overflow: scroll;
+  border-radius: 10px;
+  border-style: ridge;
+  /* background-color: cornflowerblue; */
+}
+
+.event-content {
+  font-size: large;
+  text-align: center;
+  background-color: bisque;
+}
+
+.event-info {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.month-event {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ↓テーブル枠のCSS */
+.event-table {
+  font-size: smaller;
+  text-align: center;
+/* 枠を丸くする */
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+
+/*テーブルヘッダー*/
+.event-table th {
+  width: 20vw;
+  text-align: center;
+  background-color: palegreen;
+/* ヘッダー部分(左，上，下) */
+  border-left: 1px solid #a8b7c5;
+  border-top: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+}
+
+.event-table td {
+  width: 20vw;
+  padding: 3px;
+  text-align: center;
+/* ボディー部分(左，下，上) */
+  border-top: none;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+}
+
+/* テーブルヘッダー(擬似クラス) */
+.event-table th:first-child{
+  border-radius: 10px 0 0 0;
+}
+
+.event-table th:last-child{
+  border-radius: 0 10px 0 0;
+  border-left: 1px solid #a8b7c5;
+  border-right: 1px solid #a8b7c5;
+}
+/* テーブルボディー(擬似クラス) */
+.event-table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+.event-table tr:last-child td:first-child {
+  border-radius: 0 0 0 10px;
+}
+
+.event-table tr:last-child td:last-child {
+  border-radius: 0 0 10px 0;
+}
+/* ↑ここまで */
+
+.event-path {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  color: crimson;
+  font-size: smaller;
+  font-weight: bold;
+  background-color: lightcyan;
+  text-decoration: none;
+}
+
+.event-new-btn {
+  color: aqua;
+  position: relative;
+}
+
+.text-event {
+  top: 10px;
+  left: 15px;
+  font-size: 15px;
+  color: crimson;
+  font-weight: bold;
+  position: absolute;
+}
+
+.fa-flag-checkered {
+  color: black;
+  margin: 10px;
+  padding: 10px;
+  padding-top: 20px;
+  border-radius: 10%;
+  text-decoration: none;
+  background-color: lightgrey;
+}
+
+.text-push {
+  top: 90px;
+  left: 35px;
+  color: crimson;
+  font-weight: bold;
+  position: absolute;
+}
+
+.event-lists {
+  display: flex;
+  justify-content: space-around;
+}
+
+.attention_var {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  align-items: center;
+  background-color: bisque;
+}
+
+.attention_point {
+  color: crimson;
+  font-size: large;
 }

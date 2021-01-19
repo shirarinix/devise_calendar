@@ -1,104 +1,63 @@
-<h3>◉devise_carender◉</h3>
-
-<p id="notice"><%= notice %></p>
-
-<ul class="user-ver">
 <% if signed_in? %>
-[ログイン者]
-  <% if current_user %>
-    <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
-    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %></li>
-  <% else %>
-    <li><%= link_to current_artist.artistname, "#", class: "artistname" %></li>
-    <li><%= link_to "ログアウト", destroy_artist_session_path, method: :delete, class: "logout" %></li>
-  <% end %>
-<% else %>
-<p>●ユーザー登録●</p>
-  <li><%= link_to "User-sign-up", new_user_registration_path, class: "signup" %></li>
-  <li><%= link_to 'user-log-in', new_user_session_path, class: "login" %></li>
-<p>●アーティスト登録●</p>
-  <li><%= link_to "Artist-sign-up", new_artist_registration_path, class: "signup" %></li>
-  <li><%= link_to "artist-log-in", new_artist_session_path, class: "login" %></li>
-<% end %>
-</ul>
-
-<% if signed_in? %>
-<p>[ユーザー一覧]</p>
-<ul class="user-list">
-  <% @users.each do |user| %>
-    <li>
-      <% if user.user_image.attached? %>
-        <%= image_tag user.user_image, size:"50", class:"user-icon" %>
-      <% else %>
-        <i class="far fa-grin-alt fa-3x"></i>
-      <% end %>
-      <%= link_to "※#{user.nickname}さんのページ※", user_path(user) %>
+  <%#= ヘッダーを表示 %>
+  <%= render 'event_header' %>
+  <ul class="lists-var">
+    <li class="icon-lists"><%#= ユーザーのリストを表示 %>
+      <%= render 'users/user_list' %>
     </li>
-  <% end %>
-</ul>
-<p>[アーティスト一覧]</p>
-<ul class="artist-list">
-  <% @artists.each do |artist| %>
-  <li>
-    <% if artist.artist_image.attached? %>
-      <%= image_tag artist.artist_image, size:'50', class:"artist-icon" %>
-    <% else %>
-      <i class="far fa-grin-alt fa-3x"></i>
-    <% end %>
-    <%= link_to "※#{artist.artistname}さんのページ※", artist_path(artist) %>
-  </li>
-  <% end %>
-</ul>
-<% end %>
-
-<% if signed_in? %>
-  <h3>🔻スケジュールの管理🔻</h3>
-  <%= link_to "→ 新規イベントの作成", new_event_path %><br>
-<table>
-  <p>⭐️直近のイベント⭐️</p>
-  <thead>
-    <tr>
-      <th>『ユーザー名』</th>
-      <th>『イベントタイトル』</th>
-      <th>『開催日（時間）』</th>
-      <th colspan="3">『詳細一覧』</th>
-    </tr>
-  </thead>
-    <% if current_user %>
-      <% @user_events.each do |event| %>
-        <tbody>
-          <tr>
-            <td><%= event.user.nickname %>さん</td>
-            <td><%= "🚩 #{event.title}" %></td>
-            <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
-            <td><%= link_to "→詳細ページへ", event_path(event) %></td>
-          </tr>
-        </tbody>
+    <li class="icon-lists"><%#= アーティストのリストを表示 %>
+      <%= render 'artists/artist_list' %>
+    </li>
+  </ul>
+<%#= イベントの表示 %>
+<div class="event-content">🔻 イベント内容 🔻</div>
+<li class="event-info">
+  <table class="event-table">
+    <caption class="month-event">⭐️ あなたのイベント予定 ⭐️</caption>
+      <tr>
+        <th>【 neme 】</th>
+        <th>【 title 】</th>
+        <th>【 date/time 】</th>
+        <th>【 link-page 】</th>
+      </tr>
+    <% if current_user && current_user.events.present? %>
+      <% current_user.events.each do |event| %>
+        <tr><%#= ユーザーのイベントを表示 %>
+          <td><%= "#{event.user.nickname}さん" %></td>
+          <td><%= "🚩 #{event.title}" %></td>
+          <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
+          <td><%= button_to "編集する", edit_event_path(event), method: :get, class: "event-path" %></td>
+        </tr>
+      <% end %>
+    <% elsif current_artist && current_artist.events.present? %>
+      <% current_artist.events.each do |event| %>
+        <tr><%#= アーティストのイベントを表示 %>
+          <td><%= "#{event.artist.artistname}さん" %></td>
+          <td><%= "🚩 #{event.title}" %></td>
+          <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
+          <td><%= button_to "編集する", edit_event_path(event.id), method: :get, class: "event-path" %></td>
+        </tr>
       <% end %>
     <% else %>
-      <% @artist_events.each do |event| %>
-        <tbody>
-          <tr>
-            <td><%= event.artist.artistname %>さん</td>
-            <td><%= "🚩 #{event.title}" %></td>
-            <td><%= event.start_time.strftime("%Y-%m-%d %H:%M ~ ") %></td>
-            <td><%= link_to "→詳細ページへ", event_path(event) %></td>
-          </tr>
-        </tbody>
-      <% end %>
+      <tr><%#= 入力例の表示 %>
+        <td><%= placeholder="例) 名無しさん" %></td>
+        <td><%= placeholder="例) イベント内容" %></td>
+        <td><%= placeholder="例) 01-01 0:00 〜" %></td>
+        <td><%= placeholder="例) 詳細ページへ" %></td>
+      </tr>
     <% end %>
-<% else %>
-  <strong><p>※※※ イベントの入力には新規登録/ログインが必要です ※※※</p></strong>
-<% end %>
-</table>
-
-<br>⭐️今月の主なイベント⭐️<br>
-<% if signed_in? %>
-  <% if current_user %>
-    <%= render 'events/user_events_calender' %>
-  <% else %>
-    <%= render 'events/artist_events_calender' %>
+  </table>
+<%#= イベント作成ボタンの表示 %>
+  <%= link_to "/events/new", class: "event-new-btn" do %>
+    <div class="text-event">イベント作成</div>
+      <i class="fas fa-flag-checkered fa-5x"></i>
+    <div class="text-push">PUSH</div>
   <% end %>
-<% else %>
-  <strong><p>※※※ カレンダーの表示には新規登録/ログインが必要です ※※※</p></strong>
+</li>
 <% end %>
+<%#= カレンダーの表示 %>
+<%# if signed_in? %>
+  <%= render 'simple_calendar/toppage_calendar' %>
+<%# else %>
+  <%#= render 'simple_calendar/top_calendar' %>
+<%# end %>
