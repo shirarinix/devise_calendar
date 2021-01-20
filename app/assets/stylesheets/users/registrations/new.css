@@ -1,0 +1,199 @@
+.user-account {
+  border: ridge;
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: auto;
+  width: 70vh;
+  height: 80vh;
+  padding: 10px;
+}
+
+.user-sign-up {
+  padding: 5px;
+  margin-top: 10px;
+  margin-left: 35px;
+  margin-right: 35px;
+  color: whitesmoke;
+  font-size: x-large;
+  font-weight: bold;
+  background-color: crimson;
+}
+
+.user-field {
+  display: flex;
+  margin-top: 0px;
+  justify-content: center;
+}
+
+.form-text {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.fa-user {
+  padding: 10px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.nickname {
+  height: 30px;
+  width: 50vw;
+  border: ridge;
+  border-color: black;
+  text-align: center;
+}
+
+.fa-image {
+  padding: 10px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-image {
+  height: 30px;
+  width: 50vw;
+  border: ridge;
+  border-color: black;
+}
+
+.fa-envelope-square {
+  padding: 10px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-email {
+  height: 30px;
+  width: 50vw;
+  text-align: center;
+  border: ridge;
+  border-color: black;
+}
+
+.fa-lock {
+  padding: 10px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-password {
+  height: 30px;
+  width: 50vw;
+  text-align: center;
+  border: ridge;
+  border-color: black;
+}
+
+.fa-birthday-cake {
+  padding: 10px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-birthday {
+  height: 30px;
+  width: 50vw;
+  text-align: center;
+  border: ridge;
+  border-color: black;
+}
+
+.fa-male {
+  padding: 10px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.fa-female {
+  padding: 9px;
+  margin-top: 1px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-gender {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  vertical-align: middle;
+  border: ridge;
+  border-radius: 100px;
+  border-color: black;
+}
+
+.user-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.user-submit {
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 5px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border: ridge;
+  border-color: black;
+  color: whitesmoke;
+  font-size: small;
+  font-weight: bold;
+  background-color: crimson;
+}
+
+.user-submit:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.return-btn {
+  margin-top: 5px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border: ridge;
+  border-color: black;
+  display: inline-block;
+  background-color: green;
+}
+
+.return-btn:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.user-return {
+  font-size: small;
+  font-weight: bold;
+  padding-left: 35px;
+  padding-right: 35px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.user-errors {
+  display: block;
+  margin: auto;
+  margin-top: auto;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  font-size: small;
+  color: crimson;
+}
+
+.user-explanation {
+  margin: 5px;
+  color: black;
+}
+
+.user-error-message {
+  font-weight: bold;
+  font-size: small;
+  color: crimson;
+}

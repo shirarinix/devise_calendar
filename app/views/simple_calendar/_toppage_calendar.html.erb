@@ -5,7 +5,7 @@
   <%= date.day %>
     <% event.each do |event| %>
       <div>
-        <%= link_to "🚩 #{event.title}", event, class: "event-top-title" %>
+        <%= link_to "🚩 #{event.title}", event, class: "events-title" %>
       </div>
     <% end %>
   <% end %>
@@ -24,7 +24,7 @@
   <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
 </div>
   <%= render 'event_header' %>
-    <div class="attention_var">※※※ イベント・カレンダーの作成には<span class="attention_point">新規登録/ログイン</span>が必要です ※※※</div>
+    <div class="attention-var">※※※ イベント・カレンダーの作成には<span class="attention_point">新規登録/ログイン</span>が必要です ※※※</div>
   <div class="calendar-title">🔻 今月のカレンダー 🔻</div>
 <%= month_calendar events: @events do |date, event| %>
   <%= date.day %>

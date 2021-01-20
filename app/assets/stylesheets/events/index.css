@@ -10,7 +10,6 @@
   overflow: scroll;
   border-radius: 10px;
   border-style: ridge;
-  /* background-color: cornflowerblue; */
 }
 
 .event-content {
@@ -99,6 +98,10 @@
   text-decoration: none;
 }
 
+.example {
+  color: gray;
+}
+
 .event-new-btn {
   color: aqua;
   position: relative;
@@ -136,13 +139,13 @@
   justify-content: space-around;
 }
 
-.attention_var {
+.attention-var {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
   align-items: center;
-  background-color: bisque;
+  background-color: lightskyblue;
 }
 
 .attention_point {

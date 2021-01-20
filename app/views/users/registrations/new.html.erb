@@ -1,53 +1,65 @@
-<h2>User_Sign_up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%# タイトル %>
+<div class="app-title">
+  <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
+</div>
+<%# エラーメッセージの出力 %>
   <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_image %><br />
-    <%= f.file_field :user_image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday, start_year: 1950, end_year: 2020 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :Sex %><br />
-    <%= f.label :man  %>
-    <%= f.radio_button :sex, :man %>
-    <%= f.label :woman  %>
-    <%= f.radio_button :sex, :woman %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
-<%= link_to '← トップへ戻る', root_path %>
+<%# ユーザーアカウントのフォーム %>
+<div class="user-account">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="user-sign-up">新規登録画面</div>
+<%# nickname %>
+  <div class="form-text">【nick-name】</div>
+  <ul class="user-field">
+    <li><i class="fa fa-user"></i></li>
+    <li><%= f.text_field :nickname, class:"nickname", placeholder:"【nicknameを入力して下さい】", autofocus: true %></li>
+  </ul>
+<%# pohto %>
+  <div class="form-text">【pohto】</div>
+  <ul class="user-field">
+    <li><i class="fas fa-image"></i></li>
+    <li><%= f.file_field :user_image, class:"user-image", autofocus: true %></li>
+  </ul>
+<%# e-mail %>
+  <div class="form-text">【e-mail】</div>
+  <ul class="user-field">
+    <li><i class="fas fa-envelope-square"></i></li>
+    <li><%= f.email_field :email, class:"user-email", placeholder:"【PC・携帯どちらかを入力して下さい】", autofocus: true %></li>
+  </ul>
+<%# password %>
+  <div class="form-text">【password】</div>
+  <ul class="user-field">
+    <li><i class="fa fa-lock"></i></li>
+      <% if @minimum_password_length %>
+      <% end %><br/>
+    <li><%= f.password_field :password, class:"user-password", placeholder:"【6文字以上・半角英数字で入力して下さい】", autofocus: true %></li>
+  </ul>
+<%# password-confirmation %>
+  <div class="form-text">【password-confirmation】</div>
+  <ul class="user-field">
+    <li><i class="fa fa-lock"></i></li>
+    <li><%= f.password_field :password_confirmation, class:"user-password", placeholder:"【もう一度同じpasswordを入力して下さい】", autofocus: true %></li>
+  </ul>
+<%# birthday %>
+  <div class="form-text">【birthday】</div>
+  <ul class="user-field">
+    <li><i class="fas fa-birthday-cake"></i></li>
+    <li><%= f.date_field :birthday, class:"user-birthday", placeholder:"【birthdayを入力して下さい】", autofocus: true %><li>
+  </ul>
+<%# gender %>
+<div class="form-text">【gender】</div>
+  <ul class="user-field">
+    <li><i class="fas fa-male"></i></li>
+    <li><%= f.radio_button :sex, :man, class:"user-gender" %></li>
+    <li><i class="fas fa-female"></i></li>
+    <li><%= f.radio_button :sex, :woman, class:"user-gender" %></li>
+  </ul>
+  <ul class="user-actions">
+    <li><%# 送信ボタン %>
+      <%= f.submit "送信する", class:"user-submit" %>
+    </li>
+<% end %><%# 戻るボタン %>
+    <li><% render "users/shared/links" %></li>
+    <li class="return-btn"><%= link_to '戻る', root_path, class:"user-return" %></li>
+  </ul>
+</div>

@@ -18,7 +18,7 @@
         <th>【 neme 】</th>
         <th>【 title 】</th>
         <th>【 date/time 】</th>
-        <th>【 link-page 】</th>
+        <th>【 edit-page 】</th>
       </tr>
     <% if current_user && current_user.events.present? %>
       <% current_user.events.each do |event| %>
@@ -40,10 +40,10 @@
       <% end %>
     <% else %>
       <tr><%#= 入力例の表示 %>
-        <td><%= placeholder="例) 名無しさん" %></td>
-        <td><%= placeholder="例) イベント内容" %></td>
-        <td><%= placeholder="例) 01-01 0:00 〜" %></td>
-        <td><%= placeholder="例) 詳細ページへ" %></td>
+        <td class="example"><%= placeholder="例) 名無しさん" %></td>
+        <td class="example"><%= placeholder="例) イベント名" %></td>
+        <td class="example"><%= placeholder="例) 01/01 0:00 〜" %></td>
+        <td class="example"><%= placeholder="例) 編集ページへ" %></td>
       </tr>
     <% end %>
   </table>
@@ -56,8 +56,5 @@
 </li>
 <% end %>
 <%#= カレンダーの表示 %>
-<%# if signed_in? %>
-  <%= render 'simple_calendar/toppage_calendar' %>
-<%# else %>
-  <%#= render 'simple_calendar/top_calendar' %>
-<%# end %>
+<%= render 'simple_calendar/toppage_calendar' %>
+
