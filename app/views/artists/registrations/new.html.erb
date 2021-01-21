@@ -1,74 +1,85 @@
-<h2>Artsist_Sign_up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%# タイトル %>
+<div class="app-title">
+  <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
+</div>
+<%# エラーメッセージの出力 %>
   <%= render "artists/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :artistname %><br />
-    <%= f.text_field :artistname, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :artist_image %><br />
-    <%= f.file_field :artist_image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
+<%# アーティストアカウントのフォーム %>
+<div class="artist-account-form">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="artist-sign-up">新規登録画面</div>
+<%# artistname %>
+  <div class="form-text">【artistname】</div>
+  <ul class="artist-field">
+    <li><i class="fa fa-user"></i></li>
+    <li><%= f.text_field :artistname, class:"artistname", placeholder:"【artistnameを入力】", autofocus: true %></li>
+  </ul>
+<%# pohto %>
+  <div class="form-text">【pohto】</div>
+  <ul class="artist-field">
+    <li><i class="fas fa-image"></i></li>
+    <li><%= f.file_field :artist_image, class:"artist-image", autofocus: true %></li>
+  </ul>
+<%# e-mail %>
+  <div class="form-text">【e-mail】</div>
+  <ul class="artist-field">
+    <li><i class="fas fa-envelope-square"></i></li>
+    <li><%= f.email_field :email, class:"artist-email", placeholder:"【PC・携帯どちらかを入力】", autofocus: true %></li>
+  </ul>
+<%# password %>
+  <div class="form-text">【password】</div>
+  <ul class="artist-field">
+    <li><i class="fa fa-lock"></i></li>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :discography %><br />
-    <%= f.text_field :discography, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday, start_year: 1950, end_year: 2020 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :Sex %><br />
-    <%= f.label :man  %>
-    <%= f.radio_button :sex, :man %>
-    <%= f.label :woman  %>
-    <%= f.radio_button :sex, :woman %>
-  </div>
-
-<%# SNS登録は任意登録 %>
-<div class = "sns-link">
-  <h2> SNS_Link </h2>
-  <div class="form-group">
-    <%= f.label :twitter, 'twitter url', class: 'form-control' %>
-    <%= f.text_field :twitter, placeholder: "optional", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :facebook, 'facebook url', class: 'form-control' %>
-    <%= f.text_field :facebook, placeholder: "optional", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :instagram, 'instagram url', class: 'form-control' %>
-    <%= f.text_field :instagram, placeholder: "optional", class: "form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <% end %><br/>
+    <li><%= f.password_field :password, class:"artist-password", placeholder:"【6文字以上・半角英数字で入力】", autofocus: true %></li>
+  </ul>
+<%# password-confirmation %>
+  <div class="form-text">【password-confirmation】</div>
+  <ul class="artist-field">
+    <li><i class="fa fa-lock"></i></li>
+    <li><%= f.password_field :password_confirmation, class:"artist-password", placeholder:"【もう一度同じpasswordを入力】", autofocus: true %></li>
+  </ul>
+<%# birthday %>
+  <div class="form-text">【birthday】</div>
+  <ul class="artist-field">
+    <li><i class="fas fa-birthday-cake"></i></li>
+    <li><%= f.date_field :birthday, class:"artist-birthday", placeholder:"【birthdayを入力】", autofocus: true %></li>
+  </ul>
+<%# gender %>
+  <div class="form-text">【gender】</div>
+  <ul class="artist-field">
+    <li><i class="fas fa-male"></i></li>
+    <li><%= f.radio_button :sex, :man, class:"artist-gender" %></li>
+    <li><i class="fas fa-female"></i></li>
+    <li><%= f.radio_button :sex, :woman, class:"artist-gender" %></li>
+  </ul>
+<%# discography %>
+  <div class="artist-optional">【discography】--- 任意入力 ---</div>
+  <ul class="discography-field">
+    <li><i class="fas fa-compact-disc"></i></li>
+    <li><%= f.text_area :discography, class:"artist-discography", placeholder:"【200字以内でdiscographyを入力】", autofocus: true %></li>
+  </ul>
+<%# sns-link %>
+  <div class="artist-optional">【sns-link】--- 任意入力 ---</div>
+    <ul class="sns-field">
+      <li><i class="fab fa-twitter-square"></i></li>
+      <li><%= f.text_field :twitter, placeholder: "--- twitter-url ---", class: "sns-link" %></li>
+    </ul>
+    <ul class="sns-field">
+      <li><i class="fab fa-facebook"></i><li>
+      <li><%= f.text_field :facebook, placeholder: "--- facebook-url ---", class: "sns-link" %></li>
+    </ul>
+    <ul class="sns-field">
+      <li><i class="fab fa-instagram-square"></i></li>
+      <li><%= f.text_field :instagram, placeholder: "--- instagram-url ---", class: "sns-link" %></li>
+    </ul>
+<%# 送信ボタン %>
+  <ul class="signup-actions">
+    <li><%= f.submit "送信", class:"signup-submit" %></li>
 <% end %>
-
-<%= render "artists/shared/links" %>
-<%= link_to '← トップへ戻る', root_path %>
+<%# 戻るボタン %>
+    <li><% render "artists/shared/links" %></li>
+    <li class="signup-return"><%= link_to '戻る', root_path, class:"signup-return-submit" %></li>
+  </ul>
+</div>

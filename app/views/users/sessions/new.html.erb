@@ -10,13 +10,13 @@
   <div class="form-text">【e-mail】</div>
   <ul class="user-field">
     <li><i class="fas fa-envelope-square"></i></li>
-    <li><%= f.email_field :email, class:"user-email", placeholder:"【PC・携帯どちらかを入力して下さい】", autofocus: true %></li>
+    <li><%= f.email_field :email, class:"user-email", placeholder:"【PC・携帯どちらかを入力】", autofocus: true %></li>
   </ul>
 <%# password %>
   <div class="form-text">【password】</div>
   <ul class="user-field">
     <li><i class="fa fa-lock"></i></li>
-    <li><%= f.password_field :password, class:"user-password", placeholder:"【6文字以上・半角英数字で入力して下さい】", autofocus: true %></li>
+    <li><%= f.password_field :password, class:"user-password", placeholder:"【6文字以上・半角英数字で入力】", autofocus: true %></li>
   </ul>
   <% if devise_mapping.rememberable? %>
     <div class="field">
@@ -24,12 +24,12 @@
       <% f.label :remember_me %>
     </div>
   <% end %>
-  <ul class="user-actions">
-    <li><%# 送信ボタン %>
-      <%= f.submit "ログイン", class:"user-submit" %>
-    </li>
-<% end %><%# 戻るボタン %>
+<%# 送信ボタン %>
+  <ul class="login-actions">
+    <li><%= f.submit "ログイン", class:"login-submit" %></li>
+<% end %>
+<%# 戻るボタン %>
     <li><% render "users/shared/links" %></li>
-    <li class="return-btn"><%= link_to '戻る', root_path, class:"user-return"%></li>
+    <li class="login-return"><%= link_to '戻る', root_path, class:"login-return-submit" %></li>
   </ul>
 </div>

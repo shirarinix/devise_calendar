@@ -1,0 +1,21 @@
+.artist-login-form {
+  border: ridge;
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-top: auto;
+  width: 50vh;
+  height: 35vh;
+  padding: 20px;
+}
+
+.artist-log-in {
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  color: whitesmoke;
+  font-size: large;
+  font-weight: bold;
+  background-color: crimson;
+}

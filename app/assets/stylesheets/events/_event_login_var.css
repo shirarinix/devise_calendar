@@ -9,14 +9,14 @@
   color: purple;
   font-size: large;
   font-weight: bold;
-  padding: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 
 }
 
 .notice {
-  padding: 10px;
+  margin: 10px;
   color: crimson;
 }
 
