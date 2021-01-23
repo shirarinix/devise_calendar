@@ -10,7 +10,6 @@
   overflow: scroll;
   border-radius: 10px;
   border-style: ridge;
-  /* background-color: cornflowerblue; */
 }
 
 .event-content {
@@ -22,6 +21,7 @@
 .event-info {
   display: flex;
   margin-left: 10px;
+  margin-bottom: 5px;
   align-items: center;
   justify-content: space-around;
 }
@@ -88,7 +88,7 @@
 }
 /* ↑ここまで */
 
-.event-path {
+.edit-path {
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 5px;
@@ -99,9 +99,25 @@
   text-decoration: none;
 }
 
+.edit-path:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.example {
+  color: gray;
+}
+
 .event-new-btn {
   color: aqua;
   position: relative;
+}
+
+.event-new-btn:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
 }
 
 .text-event {
@@ -136,16 +152,16 @@
   justify-content: space-around;
 }
 
-.attention_var {
+.attention-var {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
   align-items: center;
-  background-color: bisque;
+  background-color: lightskyblue;
 }
 
-.attention_point {
+.attention-point {
   color: crimson;
   font-size: large;
 }

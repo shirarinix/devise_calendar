@@ -1,0 +1,207 @@
+.user-account-form {
+  border: ridge;
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-top: auto;
+  width: 50vh;
+  height: 70vh;
+  padding: 20px;
+}
+
+.user-sign-up {
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  color: whitesmoke;
+  font-size: large;
+  font-weight: bold;
+  background-color: crimson;
+}
+
+.form-text {
+  margin-top: 5px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.user-field {
+  display: flex;
+  margin-top: 0px;
+  justify-content: center;
+}
+
+.fa-user {
+  padding: 5px;
+  margin-top: 1px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.nickname {
+  height: 20px;
+  width: 35vw;
+  border: ridge;
+  border-color: black;
+  text-align: center;
+  font-size: small;
+}
+
+.fa-image {
+  padding: 5px;
+  margin-top: 1px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-image {
+  height: 20px;
+  width: 35vw;
+  border: ridge;
+  border-color: black;
+  font-size: x-small;
+}
+
+.fa-envelope-square {
+  padding: 5px;
+  margin-top: 1px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-email {
+  height: 20px;
+  width: 35vw;
+  text-align: center;
+  border: ridge;
+  border-color: black;
+  font-size: small;
+}
+
+.fa-lock {
+  padding: 5px;
+  margin-top: 1px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-password {
+  height: 20px;
+  width: 35vw;
+  text-align: center;
+  border: ridge;
+  border-color: black;
+  font-size: small;
+}
+
+.fa-birthday-cake {
+  padding: 5px;
+  margin-top: 1px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-birthday {
+  height: 20px;
+  width: 35vw;
+  text-align: center;
+  border: ridge;
+  border-color: black;
+  font-size: small;
+}
+
+.fa-male {
+  padding: 10px;
+  margin-top: 1px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.fa-female {
+  padding: 9.5px;
+  margin-top: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #f7f3eb;
+  background: #676056;
+}
+
+.user-gender {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  vertical-align: middle;
+  border: ridge;
+  border-radius: 100px;
+  border-color: black;
+  font-size: small;
+}
+
+.signup-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-submit {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border: ridge;
+  border-color: black;
+  color: whitesmoke;
+  background-color: crimson;
+}
+
+.signup-submit:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.signup-return {
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border: ridge;
+  border-color: black;
+  display: inline-block;
+  background-color: green;
+}
+
+.signup-return:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.signup-return-submit {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.user-errors {
+  display: block;
+  margin: auto;
+  margin-top: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: small;
+  color: crimson;
+}
+
+.user-explanation {
+  margin: 5px;
+  color: black;
+}
+
+.user-error-message {
+  font-weight: bold;
+  font-size: small;
+  color: crimson;
+}

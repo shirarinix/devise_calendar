@@ -1,0 +1,190 @@
+.event-form {
+  border: ridge;
+  border-radius: 10px;
+  border-color: blue;
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.event-new {
+  margin: auto;
+  padding: 5px;
+  width: 60vw;
+  border-radius: 5px;
+  color: whitesmoke;
+  font-size: large;
+  font-weight: bold;
+  background-color: crimson;
+}
+
+.event-text {
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.event-field {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.fa-flag {
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  color: white;
+  background-color: black;
+}
+
+.event-title {
+  height: 30px;
+  width: 50vw;
+  padding-left: 40px;
+  padding-right: 10px;
+  border: ridge;
+  border-radius: 5px;
+  border-color: black;
+  text-align: center;
+}
+
+.event-title::placeholder {
+  color: grey;
+}
+
+.fa-calendar-check {
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  color: white;
+  background-color: black;
+}
+
+.datetime {
+  height: 30px;
+  width: 50vw;
+  padding-left: 40px;
+  padding-right: 10px;
+  border: ridge;
+  border-radius: 5px;
+  border-color: black;
+  text-align: center;
+}
+
+.event-datetime::placeholder {
+  color: grey;
+}
+
+.fa-pencil-alt {
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  color: white;
+  background-color: black;
+}
+
+.content {
+  height: 70px;
+  width: 50vw;
+  padding-left: 40px;
+  padding-right: 10px;
+  border: ridge;
+  border-radius: 5px;
+  border-color: black;
+  text-align: center;
+}
+
+.content::placeholder {
+  color: grey;
+}
+
+.event-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.create-btn {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: ridge;
+  border-radius: 5px;
+  border-color: black;
+  color: whitesmoke;
+  font-size: large;
+  background-color: crimson;
+}
+
+.create-btn:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.event-return {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: ridge;
+  border-radius: 5px;
+  border-color: black;
+  display: inline-block;
+  background-color: green;
+  text-decoration: none;
+}
+
+.event-return:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.event-return-submit {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.event-delete {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: ridge;
+  border-radius: 5px;
+  border-color: black;
+  display: inline-block;
+  background-color: blue;
+  text-decoration: none;
+}
+
+.event-delete:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.delete-btn {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.event-errors {
+  display: block;
+  margin: auto;
+  margin-top: auto;
+  text-align: center;
+  font-weight: bold;
+  color: crimson;
+}
+
+.event-error-message {
+  font-weight: bold;
+  color: crimson;
+}

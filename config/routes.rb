@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root to: 'events#index'
   post 'events/new'
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users, controllers: {
+    registrations: 'users/registrations',
     sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations'
+    passwords:     'users/passwords'
   }
   devise_for :artists, controllers: {
     registrations: 'artists/registrations',

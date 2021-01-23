@@ -1,11 +1,13 @@
 <% if signed_in? %>
-  <%#= ヘッダーを表示 %>
+<%#= ヘッダーを表示 %>
   <%= render 'event_header' %>
   <ul class="lists-var">
-    <li class="icon-lists"><%#= ユーザーのリストを表示 %>
+    <%#= ユーザーのリストを表示 %>
+    <li class="icon-lists">
       <%= render 'users/user_list' %>
     </li>
-    <li class="icon-lists"><%#= アーティストのリストを表示 %>
+    <%#= アーティストのリストを表示 %>
+    <li class="icon-lists">
       <%= render 'artists/artist_list' %>
     </li>
   </ul>
@@ -15,10 +17,10 @@
   <table class="event-table">
     <caption class="month-event">⭐️ あなたのイベント予定 ⭐️</caption>
       <tr>
-        <th>【 neme 】</th>
+        <th>【 author 】</th>
         <th>【 title 】</th>
         <th>【 date/time 】</th>
-        <th>【 link-page 】</th>
+        <th>【 edit-page 】</th>
       </tr>
     <% if current_user && current_user.events.present? %>
       <% current_user.events.each do |event| %>
@@ -26,7 +28,7 @@
           <td><%= "#{event.user.nickname}さん" %></td>
           <td><%= "🚩 #{event.title}" %></td>
           <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
-          <td><%= button_to "編集する", edit_event_path(event), method: :get, class: "event-path" %></td>
+          <td><%= button_to "編集する", edit_event_path(event), method: :get, class: "edit-path" %></td>
         </tr>
       <% end %>
     <% elsif current_artist && current_artist.events.present? %>
@@ -35,15 +37,15 @@
           <td><%= "#{event.artist.artistname}さん" %></td>
           <td><%= "🚩 #{event.title}" %></td>
           <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
-          <td><%= button_to "編集する", edit_event_path(event.id), method: :get, class: "event-path" %></td>
+          <td><%= button_to "編集する", edit_event_path(event.id), method: :get, class: "edit-path" %></td>
         </tr>
       <% end %>
     <% else %>
       <tr><%#= 入力例の表示 %>
-        <td><%= placeholder="例) 名無しさん" %></td>
-        <td><%= placeholder="例) イベント内容" %></td>
-        <td><%= placeholder="例) 01-01 0:00 〜" %></td>
-        <td><%= placeholder="例) 詳細ページへ" %></td>
+        <td class="example"><%= placeholder="例) 名無しさん" %></td>
+        <td class="example"><%= placeholder="例) イベント名" %></td>
+        <td class="example"><%= placeholder="例) 01/01 0:00 〜" %></td>
+        <td class="example"><%= placeholder="例) 編集ページへ" %></td>
       </tr>
     <% end %>
   </table>
@@ -56,8 +58,5 @@
 </li>
 <% end %>
 <%#= カレンダーの表示 %>
-<%# if signed_in? %>
-  <%= render 'simple_calendar/toppage_calendar' %>
-<%# else %>
-  <%#= render 'simple_calendar/top_calendar' %>
-<%# end %>
+<%= render 'simple_calendar/toppage_calendar' %>
+

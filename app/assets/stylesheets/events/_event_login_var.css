@@ -9,14 +9,14 @@
   color: purple;
   font-size: large;
   font-weight: bold;
-  padding: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 
 }
 
 .notice {
-  padding: 10px;
+  margin: 10px;
   color: crimson;
 }
 
@@ -40,6 +40,11 @@
   border-style: solid;
   border-color: blue;
   background-color: palegreen;
+  transition: 0.5s;
+}
+
+.user-name:hover {
+  background-color: lightblue;
 }
 
 .artist-name {
@@ -49,6 +54,11 @@
   border-style: solid;
   border-color: blue;
   background-color: palegreen;
+  transition: 0.5s;
+}
+
+.artist-name:hover {
+  background-color: lightblue;
 }
 
 .log-out {
@@ -58,4 +68,9 @@
   border-style: solid;
   border-color: blue;
   background-color: palegreen;
+  transition: 0.5s;
+}
+
+.log-out:hover {
+  background-color: lightblue;
 }

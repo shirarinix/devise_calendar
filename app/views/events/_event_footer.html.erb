@@ -1,25 +1,36 @@
-<% if current_user %>
-  <% if current_user.id == @event.user_id %>
-    <%= link_to '★このイベントを編集する★', edit_event_path(@event) %><br>
-    <%= link_to '★新しくイベントを作成する★', new_event_path(@event) %><br>
-    <%= link_to '★このイベントを削除する★', event_path(@event), method: :delete, data: { confirm: '本当に削除してよろしいですか？？' } %><br>
-    <%= link_to '← uトップへ戻る', root_path %><br>
-    <%= render 'simple_calendar/events_calendar' %>
-  <% else %>
-    <strong><p>※※※ このイベントの編集は本人しか変更出来ません！！ ※※※</p></strong>
-    <%= link_to '← uトップへ戻る', root_path %>
-    <%= render 'simple_calendar/events_calendar' %>
-  <% end %>
+<%# イベントのフッター部分 %>
+<ul class="event-path-lists">
+<% if current_user && current_user.id == @event.user_id %>
+  <li class="path-list">
+    <%= link_to '編集画面へ', edit_event_path(@event), class:"path-list-submit" %>
+  </li>
+  <li class="path-list">
+    <%= link_to '作成画面へ', new_event_path(@event), class:"path-list-submit" %>
+  </li>
+  <li class="event-delete">
+    <%= link_to '削除する', event_path(@event), class:"delete-btn", method: :delete, data: { confirm: '本当に削除してよろしいですか？？' } %>
+  </li>
+  <li class="event-return">
+    <%= link_to 'uトップへ戻る', root_path, class:"event-return-submit" %>
+  </li>
+<% elsif current_artist && current_artist.id == @event.artist_id %>
+  <li class="path-list">
+    <%= link_to '編集画面へ', edit_event_path(@event), class:"path-list-submit" %>
+  </li>
+  <li class="path-list">
+    <%= link_to '作成画面へ', new_event_path(@event), class:"path-list-submit" %>
+  </li>
+  <li class="event-delete">
+    <%= link_to '削除する', event_path(@event), class:"delete-btn", method: :delete, data: { confirm: '本当に削除してよろしいですか？？' } %>
+  </li>
+  <li class="event-return">
+    <%= link_to 'aトップへ戻る', root_path, class:"event-return-submit" %>
+  </li>
+</ul>
 <% else %>
-  <% if current_artist.id == @event.artist_id %>
-    <%= link_to '★このイベントを編集する★', edit_event_path(@event) %><br>
-    <%= link_to '★新しくイベントを作成する★', new_event_path(@event) %><br>
-    <%= link_to '★このイベントを削除する★', event_path(@event), method: :delete, data: { confirm: '本当に削除してよろしいですか？？' } %><br>
-    <%= link_to '← aトップへ戻る', root_path %><br>
-    <%= render 'simple_calendar/events_calendar' %>
-  <% else %>
-    <strong><p>※※※ このイベントの編集は本人しか変更出来ません！！ ※※※</p></strong>
-    <%= link_to '← aトップへ戻る', root_path %>
-    <%= render 'simple_calendar/events_calendar' %>
-  <% end %>
+<div class="caution-var">※※※ 編集は<span class="caution-point">ご本人様</span>にしか出来ません！！ ※※※
+  <li class="event-return">
+    <%= link_to 'vトップへ戻る', root_path, class:"event-return-submit" %>
+  </li>
+</div>
 <% end %>
