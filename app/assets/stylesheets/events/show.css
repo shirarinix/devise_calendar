@@ -44,7 +44,7 @@
 .text-title-contents {
   position: relative;
   width: 20vw;
-  height: 15vh;
+  height: 10vh;
   padding: 5px 0;
   color: white;
   background-color: #52c2d0;
@@ -63,14 +63,18 @@
 
 .show-contents {
   width: 35vw;
-  height: 15vh;
+  height: 10vh;
   padding: 5px 15px;
   background-color: whitesmoke;
   overflow: scroll;
   word-break: break-all;
 }
 
-.fa-font-awesome-flag{
+.fa-user-alt {
+  margin-right: 10px;
+}
+
+.fa-font-awesome-flag {
   margin-right: 10px;
 }
 
