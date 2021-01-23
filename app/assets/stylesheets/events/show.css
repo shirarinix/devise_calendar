@@ -1,0 +1,127 @@
+.show-title {
+  margin: auto;
+  padding: 5px;
+  width: 60vw;
+  border-radius: 5px;
+  color: whitesmoke;
+  font-size: large;
+  font-weight: bold;
+  background-color: crimson;
+}
+
+.show-text {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.text-title {
+  position: relative;
+  width: 20vw;
+  padding: 5px 0;
+  color: white;
+  background-color: #52c2d0;
+}
+
+.text-title:after {
+  position: absolute;
+  display: block;
+  content: "";
+  right:-10px;
+  top:calc(50% - 10px);
+  border-left: 10px solid #52c2d0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.show-content {
+  width: 35vw;
+  padding: 5px 15px;
+  background-color: whitesmoke;
+  overflow: scroll;
+}
+
+.text-title-contents {
+  position: relative;
+  width: 20vw;
+  height: 15vh;
+  padding: 5px 0;
+  color: white;
+  background-color: #52c2d0;
+}
+
+.text-title-contents:after {
+  position: absolute;
+  display: block;
+  content: "";
+  right:-10px;
+  top:calc(15% - 10px);
+  border-left: 10px solid #52c2d0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.show-contents {
+  width: 35vw;
+  height: 15vh;
+  padding: 5px 15px;
+  background-color: whitesmoke;
+  overflow: scroll;
+  word-break: break-all;
+}
+
+.fa-font-awesome-flag{
+  margin-right: 10px;
+}
+
+.fa-calendar-times {
+  margin-right: 10px;
+}
+
+.fa-sticky-note {
+  margin-right: 10px;
+}
+
+.event-path-lists {
+  display: flex;
+  justify-content: center;
+}
+
+.path-list {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: ridge;
+  border-radius: 5px;
+  border-color: black;
+  display: inline-block;
+  background-color: crimson;
+  text-decoration: none;
+}
+
+.path-list:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.path-list-submit {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.caution-var {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  align-items: center;
+  background-color: lightpink;
+}
+
+.caution-point {
+  color: crimson;
+  font-size: large;
+  font-weight: bold;
+}

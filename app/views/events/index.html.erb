@@ -1,11 +1,13 @@
 <% if signed_in? %>
-  <%#= ヘッダーを表示 %>
+<%#= ヘッダーを表示 %>
   <%= render 'event_header' %>
   <ul class="lists-var">
-    <li class="icon-lists"><%#= ユーザーのリストを表示 %>
+    <%#= ユーザーのリストを表示 %>
+    <li class="icon-lists">
       <%= render 'users/user_list' %>
     </li>
-    <li class="icon-lists"><%#= アーティストのリストを表示 %>
+    <%#= アーティストのリストを表示 %>
+    <li class="icon-lists">
       <%= render 'artists/artist_list' %>
     </li>
   </ul>
@@ -15,7 +17,7 @@
   <table class="event-table">
     <caption class="month-event">⭐️ あなたのイベント予定 ⭐️</caption>
       <tr>
-        <th>【 neme 】</th>
+        <th>【 author 】</th>
         <th>【 title 】</th>
         <th>【 date/time 】</th>
         <th>【 edit-page 】</th>
@@ -26,7 +28,7 @@
           <td><%= "#{event.user.nickname}さん" %></td>
           <td><%= "🚩 #{event.title}" %></td>
           <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
-          <td><%= button_to "編集する", edit_event_path(event), method: :get, class: "event-path" %></td>
+          <td><%= button_to "編集する", edit_event_path(event), method: :get, class: "edit-path" %></td>
         </tr>
       <% end %>
     <% elsif current_artist && current_artist.events.present? %>
@@ -35,7 +37,7 @@
           <td><%= "#{event.artist.artistname}さん" %></td>
           <td><%= "🚩 #{event.title}" %></td>
           <td><%= event.start_time.strftime("%m/%d %H:%M ~ ") %></td>
-          <td><%= button_to "編集する", edit_event_path(event.id), method: :get, class: "event-path" %></td>
+          <td><%= button_to "編集する", edit_event_path(event.id), method: :get, class: "edit-path" %></td>
         </tr>
       <% end %>
     <% else %>

@@ -1,27 +1,43 @@
-<h1>編集画面</h1>
-
-<%= render 'events/error_messages' %>
-<p id="notice"><%= notice %></p>
-
+<%# ヘッダー部分 %>
+  <%= render 'event_header' %>
+<%# エラーメッセージの出力 %>
+  <%= render 'events/error_messages' %>
+<%# イベント編集フォーム %>
+<div class="event-form">
 <%= form_with(model: @event, local: true) do |f| %>
-
-  <div class="title">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="time">
-    <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
-  </div>
-
-  <div class="content">
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-  </div>
-
-  <div class="submit">
-    <%= f.submit %>
-  </div>
-  <%= link_to '← トップへ戻る', root_path %>
+  <div class="event-edit">イベント編集画面</div>
+<%# event-title %>
+<ul class="event-field">
+  <ul class="event-text">
+    <li><i class="fas fa-flag"></i></li>
+    <li><%= f.text_field :title, class:"event-title", placeholder:"【 titleの変更 】", autofocus: true %></li>
+  </ul>
+</ul>
+<%# date/time %>
+<ul class="event-field">
+  <ul class="event-text">
+    <li><i class="fas fa-calendar-check"></i></li>
+    <li><%= f.datetime_field :start_time, class:"datetime", placeholder:"【 date/timeの変更 】", autofocus: true %></li>
+  </ul>
+</ul>
+<%# contents %>
+<ul class="event-field">
+  <ul class="event-text">
+    <li><i class="fas fa-pencil-alt"></i></li>
+    <li><%= f.text_area :content, class:"content", placeholder:"【 contentsの変更 】", autofocus: true %></li>
+  </ul>
+</ul>
+<%# 編集ボタン %>
+  <ul class="event-btn">
+    <li><%= f.submit "編集する", class:"create-btn" %></li>
+<%# 削除ボタン %>
+    <li class="event-delete">
+      <%= link_to '削除する', event_path(@event), class:"delete-btn", method: :delete, data: { confirm: "このイベントを削除しますか？？" } %>
+    </li>
+<%# 戻るボタン %>
+    <li class="event-return"><%= link_to 'トップへ戻る', root_path, class:"event-return-submit" %></li>
+  </ul>
 <% end %>
+</div>
+<%#= カレンダーを表示 %>
+<%= render 'simple_calendar/toppage_calendar' %>

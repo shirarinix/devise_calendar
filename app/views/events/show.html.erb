@@ -1,26 +1,37 @@
-<% if current_user %>
-  [ログイン者]<%= current_user.nickname %><br>
-<% else %>
-  [ログイン者]<%= current_artist.artistname %><br>
-<% end %>
-
-<h1>詳細画面</h1>
+<%# ヘッダー部分 %>
+  <%= render 'event_header' %>
+<%# イベント作成フォーム %>
+<div class="event-form">
+  <div class="show-title">イベント詳細画面</div>
   <p id="notice"><%= notice %></p>
-<p>
-  <strong>【タイトル】</strong>
-  <%= @event.title %>
-</p>
-<p>
-  <strong>【開催日（時間）】</strong>
-  <%= @event.start_time.strftime ("%m/%d %H:%M ~") %>
-</p>
-<p>
-  <strong>【イベント内容】</strong>
-  <%= @event.content %>
-</p>
+<%# event-title %>
+<ul class="show-text">
+  <li class="text-title"><i class="fab fa-font-awesome-flag"></i>title</li>
+  <div class="show-content">
+    <%= @event.title %>
+  </div>
+</ul>
+<%# date/time %>
+<ul class="show-text">
+  <li class="text-title"><i class="fas fa-calendar-times"></i>date/time</li>
+  <div class="show-content">
+    <%= @event.start_time.strftime("%m/%d %H:%M ~") %>
+  </div>
+</ul>
+<%# contents %>
+<ul class="show-text">
+  <li class="text-title-contents"><i class="fas fa-sticky-note"></i>contents</li>
+  <div class="show-contents">
+    <%= safe_join(@event.content.split("\n"),tag(:br)) %>
+  </div>
+</ul>
+<%# フッター部分 %>
+  <%= render 'event_footer' %>
+</div>
+<%# カレンダーの表示 %>
+<%= render 'simple_calendar/events_calendar' %>
 
 <%# if @event.user_id? %>
-  <%= render 'event_footer' %>
 <%# else %>
   <%#= render 'event_footer' %>
 <%# end %>

@@ -21,7 +21,7 @@
   text-align: center;
   border: ridge;
   border-radius: 5px;
-  background-color: palegreen;
+  background-color: lightgreen;
 }
 
 .sign-up {
@@ -35,15 +35,22 @@
 }
 
 .signup-btn {
-  /* border: ridge; */
+  margin: 15px;
+  border-radius: 5px;
+  background-color: lightblue;
+  transition: 0.5s;
+}
+
+.signup-btn:hover {
+  background-color: lightgoldenrodyellow;
+}
+
+.login-btn {
   margin: 15px;
   border-radius: 5px;
   background-color: lightblue;
 }
 
-.login-btn {
-  /* border: ridge; */
-  margin: 15px;
-  border-radius: 5px;
-  background-color: lightblue;
+.login-btn:hover {
+  background-color: lightgoldenrodyellow;
 }

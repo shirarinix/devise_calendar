@@ -18,6 +18,7 @@ class EventsController < ApplicationController
       flash[:notice] = 'イベントを作成しました'
       redirect_to event_path(@event)
     else
+      flash[:notice] = 'イベントが作成出来ませんでした'
       render 'new'
     end
   end
@@ -53,7 +54,7 @@ class EventsController < ApplicationController
       flash[:notice] = 'イベントを編集しました'
       redirect_to events_path(@event)
     else
-      flash[:notice] = 'イベント編集に失敗しました'
+      flash[:notice] = 'イベントの編集に失敗しました'
       render 'edit'
     end
   end

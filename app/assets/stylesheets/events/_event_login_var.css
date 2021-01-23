@@ -40,6 +40,11 @@
   border-style: solid;
   border-color: blue;
   background-color: palegreen;
+  transition: 0.5s;
+}
+
+.user-name:hover {
+  background-color: lightblue;
 }
 
 .artist-name {
@@ -49,6 +54,11 @@
   border-style: solid;
   border-color: blue;
   background-color: palegreen;
+  transition: 0.5s;
+}
+
+.artist-name:hover {
+  background-color: lightblue;
 }
 
 .log-out {
@@ -58,4 +68,9 @@
   border-style: solid;
   border-color: blue;
   background-color: palegreen;
+  transition: 0.5s;
+}
+
+.log-out:hover {
+  background-color: lightblue;
 }
