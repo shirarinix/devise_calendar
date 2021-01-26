@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @users = @user.followings.order('create_at DESC')
     @users = @user.artist_followings.order('create_at DESC')
+    @events = @user.events
     render 'user_following'
   end
 
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
     # @artist = Artist.find(params[:id])
     @users = @user.followers.order('create_at DESC')
     @users = @user.artist_followers.order('create_at DESC')
-    # @artists = @artist.user_followed_ids.order("create_at DESC")
+    @events = @user.events
     render 'user_follower'
   end
 end

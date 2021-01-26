@@ -6,7 +6,7 @@
 
 .icon-lists {
   height: 35vh;
-  min-width: 35vw;
+  min-width: 30vw;
   overflow: scroll;
   border-radius: 10px;
   border-style: ridge;

@@ -1,38 +1,38 @@
-[ログイン者]
-<% if current_user %>
-  <%= current_user.nickname %>
-<% else %>
-  <%= current_artist.artistname %>
-<% end %><br>
-<br>
-
-<p id="flash"><%= flash[:notice] %></p>
-
+<%# ヘッダー部分 %>
+  <%= render 'events/event_header' %>
+<%# ユーザーの表示 %>
 <ul class="user-form">
-  <li>
-    <% if @user.user_image.attached? %>
-      <%= image_tag @user.user_image, size:'50', class:"user-icon" %>
-    <% else %>
-      <i class="far fa-grin-alt fa-3x"></i>
-    <% end %>
-    <%= @user.nickname %>さんのページ！！
-  </li>
-  <li>
-    <%= render 'bookmarks/user_follow_form', artist: @artist %>
-  </li>
+  <div class="user-info">
+    <li class="user-list">
+      <% if @user.user_image.attached? %>
+        <%= image_tag @user.user_image, size:'75', class:"user-icon" %>
+      <% else %>
+        <i class="far fa-grin-alt fa-3x"></i>
+      <% end %>
+        <div class="name"><%= "#{@user.nickname}さんのページ" %></div>
+    </li>
+    <li class="follow-lists">
+      <%= render 'bookmarks/user_follow_form', user: @user %>
+    </li>
+  </div>
+<%# プロフィールの表示 %>
+  <ul  class="profile-lists">
+    <div class="profile-title">★ profile ★</div>
+    <li class="profile-list">gender 🚻
+      <div class="profile"></div>
+      <div class="profile"><%= @user.sex %></div>
+    </li>
+    <li class="profile-list">birthday 🎂
+      <div class="profile"><%= @user.birthday.strftime("%Y年 %m月 %d日") %></div>
+    </li>
+    <li class="profile-list">e-mail 📩
+      <div class="profile"><%= @user.email %></div>
+    </li>
+  </ul>
 </ul>
-
-<ul class= "user-profile">
-  <li>★profile★</li>
-  <li> 誕生日🎂 <%= @user.birthday %></li>
-  <li> E-mail✉️ <%= @user.email %></li>
-</ul>
-
-<%= link_to "← トップへ戻る", root_path %>
-  ⑴.<%= @user.followings.count %>
-  ⑵.<%= @user.artist_followings.select("follow_id").count %>
-  ⑶.<%= @user.followers.count %>
-  ⑷.<%= @user.artist_followers.select("followed_id").count %>
-  ⑷.<%#= @artist.user_followed_ids.select("followed_id").count %>
-
+<%# 戻るボタン %>
+<li class="event-return">
+  <%= link_to 'トップへ戻る', root_path, class:"event-return-submit" %>
+</li>
+<%# カレンダーの表示 %>
 <%= render 'simple_calendar/events_calendar' %>

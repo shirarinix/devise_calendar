@@ -1,16 +1,55 @@
 .user-icon {
   border-radius: 100px;
 }
-.user-form{
+
+.user-form {
   display: flex;
-  list-style: none;
-  align-items: flex-end;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
 }
-.user-profile {
-  display: flex;
+
+.profile-lists {
+  margin: auto;
+  padding: auto;
+}
+
+.profile-list {
+  position: relative;
+  list-style-type: none!important;/*ポチ消す*/
   padding: 10px;
-  list-style: none;
+  margin-bottom: 10px;
+  line-height: 1;
+  background: #dbebf8;
+  vertical-align: middle;
+  color: #505050;
+  border-radius: 15px;/*左側の角丸く*/
+  display: flex;
+  align-items: center;
+}
+
+.profile-list:before { 
+  display:inline-block; 
+  vertical-align: middle;
+  /*以下白丸つくる*/
+  content:'';
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-title {
+  font-size: large;
+  font-weight: bold;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 15px;
   text-align: center;
-  justify-content: space-around;
+  background-color: lightgrey;
+}
+
+.profile {
+  padding: 0 10px 0 10px;
+  margin: 0 10px 0 10px;
 }
