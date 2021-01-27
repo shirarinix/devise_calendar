@@ -122,15 +122,16 @@
 }
 
 .artist-errors {
+  display: block;
   margin: auto;
   text-align: center;
   font-weight: bold;
-  padding: 10px;
   font-size: small;
   color: crimson;
 }
 
 .artist-explanation {
+  margin: 5px;
   color: black;
 }
 
