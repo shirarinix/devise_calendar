@@ -37,9 +37,10 @@
 }
 
 .follow-var {
+  padding: 0 110px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: solid 1px #eee;
 }
 
@@ -71,9 +72,10 @@
 }
 
 .follow-list {
+  padding: 0 100px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   font-weight: bolder;
   border-bottom: solid 1px #eee;
 }
@@ -82,7 +84,7 @@
   background-color: #d4f0fd;
 }
 
-.follow-user {
+.following {
   font-size: 15px;
   margin-top: 5px;
 }

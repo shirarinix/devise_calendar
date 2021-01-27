@@ -11,9 +11,12 @@
   color: purple;
   font-size: large;
   font-weight: bold;
-  padding: 10px;
   margin-left: 20px;
-  margin-right: 5px;
+  margin-right: 20px;
+}
+
+.fa-calendar-alt {
+  margin: 0 5px;
 }
 
 .notice {
@@ -41,8 +44,6 @@
 
 .user-name {
   padding: 3px;
-  margin-left: 5px;
-  margin-right: 20px;
   font-size: small;
   border-radius: 10px;
   border: solid 2px blue;
@@ -56,8 +57,6 @@
 
 .artist-name {
   padding: 3px;
-  margin-left: 5px;
-  margin-right: 20px;
   font-size: small;
   border-radius: 10px;
   border: solid 2px blue;
@@ -71,7 +70,6 @@
 
 .log-out {
   padding: 3px;
-  margin-left: 20px;
   font-size: small;
   border-radius: 10px;
   border: solid 2px blue;
@@ -107,10 +105,9 @@
 }
 
 .return-btn {
-  text-decoration: none;
-  margin: 10px;
-  margin-right: 20px;
   padding: 3px;
+  margin: 10px 20px 10px 20px;
+  text-decoration: none;
   font-size: small;
   border-radius: 10px;
   border: solid 2px blue;

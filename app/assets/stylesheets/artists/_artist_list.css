@@ -9,6 +9,11 @@
   align-items: flex-end;
 }
 
+.artist-info {
+  margin: auto;
+  padding: auto;
+}
+
 .artist-path {
   margin: 5px;
   margin-bottom: 0px;
@@ -24,4 +29,9 @@
 
 .artist-icon {
   border-radius: 100px;
+}
+
+.name {
+  margin: 10px;
+  font-weight: bold;
 }

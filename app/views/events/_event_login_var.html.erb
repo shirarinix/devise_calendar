@@ -14,6 +14,8 @@
   </li>
   <li class="login-form">
     <div class="user-name"><%= link_to "#{current_user.nickname}さん", "#", class: "login-name" %></div>
+  </li>
+  <li>
     <div class="log-out"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn" %></div>
   </li>
   <% else %>
@@ -30,6 +32,8 @@
   </li>
   <li class="login-form">
     <div class="artist-name"><%= link_to "#{current_artist.artistname}さん", "#", class: "login-name" %></div>
+  </li>
+  <li>
     <div class="log-out"><%= link_to "ログアウト", destroy_artist_session_path, method: :delete, class: "logout-btn" %></div>
   </li>
   <% end %>

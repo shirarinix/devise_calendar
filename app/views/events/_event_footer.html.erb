@@ -11,7 +11,7 @@
     <%= link_to '削除する', event_path(@event), class:"delete-btn", method: :delete, data: { confirm: '本当に削除してよろしいですか？？' } %>
   </li>
   <li class="event-return">
-    <%= link_to 'uトップへ戻る', root_path, class:"event-return-submit" %>
+    <%#= link_to 'uトップへ戻る', root_path, class:"event-return-submit" %>
   </li>
 <% elsif current_artist && current_artist.id == @event.artist_id %>
   <li class="path-list">
@@ -24,13 +24,13 @@
     <%= link_to '削除する', event_path(@event), class:"delete-btn", method: :delete, data: { confirm: '本当に削除してよろしいですか？？' } %>
   </li>
   <li class="event-return">
-    <%= link_to 'aトップへ戻る', root_path, class:"event-return-submit" %>
+    <%#= link_to 'aトップへ戻る', root_path, class:"event-return-submit" %>
   </li>
 </ul>
 <% else %>
 <div class="caution-var">※※※<span class="caution-point">イベントの編集は出来ません！！</span>※※※
   <li class="event-return">
-    <%= link_to 'vトップへ戻る', root_path, class:"event-return-submit" %>
+    <%#= link_to 'vトップへ戻る', root_path, class:"event-return-submit" %>
   </li>
 </div>
 <% end %>

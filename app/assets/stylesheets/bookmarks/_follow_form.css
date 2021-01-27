@@ -9,7 +9,7 @@
 .follow-btn:hover {
   color: crimson;
   font-weight: bold;
-  background-color: lightpink;
+  background-color: lightblue;
 }
 
 .unfollow-btn {
@@ -23,7 +23,7 @@
 .unfollow-btn:hover {
   color: crimson;
   font-weight: bold;
-  background-color: lightblue;
+  background-color: lightpink;
 }
 
 .count-form {

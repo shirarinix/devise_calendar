@@ -5,19 +5,19 @@
 <%# ユーザーログインのフォーム %>
 <div class="user-login-form">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="user-log-in">ログイン</div>
+  <div class="user-log-in">ユーザーログイン</div>
 <%# e-mail %>
   <div class="form-text">【e-mail】</div>
-  <ul class="user-field">
-    <li><i class="fas fa-envelope-square"></i></li>
-    <li><%= f.email_field :email, class:"user-email", placeholder:"【PC・携帯どちらかを入力】", autofocus: true %></li>
-  </ul>
+  <li class="user-field">
+    <i class="fas fa-envelope-square fa-fw" aria-hidden="true"></i>
+    <%= f.email_field :email, class:"user-email", placeholder:"【PC・携帯どちらかを入力】", autofocus: true %></li>
+  </li>
 <%# password %>
   <div class="form-text">【password】</div>
-  <ul class="user-field">
-    <li><i class="fa fa-lock"></i></li>
-    <li><%= f.password_field :password, class:"user-password", placeholder:"【6文字以上・半角英数字で入力】", autofocus: true %></li>
-  </ul>
+  <li class="user-field">
+    <i class="fa fa-lock fa-fw" aria-hidden="true"></i>
+    <%= f.password_field :password, class:"user-password", placeholder:"【6文字以上・半角英数字で入力】", autofocus: true %>
+  </li>
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <% f.check_box :remember_me %>

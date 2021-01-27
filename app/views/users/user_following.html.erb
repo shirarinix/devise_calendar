@@ -13,16 +13,16 @@
 </ul>
 <%# フォロー一覧の表示 %>
 <ul class="follow-var">
-  <li class="follow-title">【 フォロワー 】</li>
+  <li class="follow-title">【 フォロー 】</li>
   <li class="back-path">
     <%= link_to '← 前のページに戻る', user_path(@user), class:"back-path" %>
   </li>
 </ul>
-<%# ユーザーフォロー %>
+<%# ユーザーのフォロー %>
 <div class="follow-lists">
 <% @user.followings.each do |user| %>
   <ul class="follow-list">
-    <li class="follow-user">
+    <li class="following">
       <% if user.user_image.attached? %>
         <%= image_tag user.user_image, size:'30', class:"user-icon" %>
       <% else %>
@@ -37,10 +37,9 @@
     </li>
   </ul>
 <% end %>
-<%# アーティストフォロー %>
 <% @user.artist_followings.each do |artist| %>
   <ul class="follow-list">
-    <li class="follow-user">
+    <li class="following">
       <% if artist.artist_image.attached? %>
         <%= image_tag artist.artist_image, size:'30', class:"artist-icon" %>
       <% else %>

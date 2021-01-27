@@ -9,14 +9,14 @@
       <% else %>
         <i class="far fa-grin-alt fa-3x"></i>
       <% end %>
-        <div class="name"><%= "#{@user.nickname}さんのページ" %></div>
+      <div class="name"><%= "#{@user.nickname}さんのページ" %></div>
     </li>
     <li class="follow-lists">
       <%= render 'bookmarks/user_follow_form', user: @user %>
     </li>
   </div>
 <%# プロフィールの表示 %>
-  <ul  class="profile-lists">
+  <ul class="profile-lists">
     <div class="profile-title">★ profile ★</div>
     <li class="profile-list">gender 🚻
       <div class="profile"></div>
@@ -30,9 +30,5 @@
     </li>
   </ul>
 </ul>
-<%# 戻るボタン %>
-<li class="event-return">
-  <%= link_to 'トップへ戻る', root_path, class:"event-return-submit" %>
-</li>
 <%# カレンダーの表示 %>
 <%= render 'simple_calendar/events_calendar' %>

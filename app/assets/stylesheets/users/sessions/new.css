@@ -2,10 +2,7 @@
   border: ridge;
   display: block;
   text-align: center;
-  margin: auto;
-  margin-top: auto;
-  width: 50vh;
-  height: 35vh;
+  margin: 0 130px;
   padding: 20px;
 }
 

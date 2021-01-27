@@ -11,18 +11,18 @@
     <div class="name"><%= "#{@user.nickname}さんのページ" %></div>
   </li>
 </ul>
-<%# フォロー一覧の表示 %>
+<%# フォロワー一覧の表示 %>
 <ul class="follow-var">
   <li class="follow-title">【 フォロワー 】</li>
   <li class="back-path">
     <%= link_to '← 前のページに戻る', user_path(@user), class:"back-path" %>
   </li>
 </ul>
-<%# ユーザーフォロワー %>
+<%# ユーザーのフォロワー %>
 <div class="follow-lists">
 <% @user.followers.each do |user| %>
   <ul class="follow-list">
-    <li class="follow-user">
+    <li class="followingr">
       <% if user.user_image.attached? %>
         <%= image_tag user.user_image, size:'30', class:"user-icon" %>
       <% else %>
@@ -37,10 +37,9 @@
     </li>
   </ul>
 <% end %>
-<%# アーティストフォロワー %>
 <% @user.artist_followers.each do |artist| %>
   <ul class="follow-list">
-    <li class="follow-user">
+    <li class="following">
       <% if artist.artist_image.attached? %>
         <%= image_tag artist.artist_image, size:'30', class:"artist-icon" %>
       <% else %>
@@ -57,13 +56,13 @@
 <% end %>
 </div>
 
-<% @user.followers.each do |user| %>
-  <%= user.nickname %>
-<% end %>
+<%# @user.followers.each do |user| %>
+  <%#= user.nickname %>
+<%# end %>
 
-<% @user.artist_followers.each do |artist| %>
-  <%= artist.artistname %>
-<% end %>
+<%# @user.artist_followers.each do |artist| %>
+  <%#= artist.artistname %>
+<%# end %>
 
 <%# カレンダーの表示 %>
 <%= render 'simple_calendar/events_calendar' %>

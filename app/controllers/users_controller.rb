@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def follower
     @user  = User.find(params[:id])
-    # @artist = Artist.find(params[:id])
     @users = @user.followers.order('create_at DESC')
     @users = @user.artist_followers.order('create_at DESC')
     @events = @user.events

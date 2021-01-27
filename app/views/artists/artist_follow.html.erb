@@ -1,18 +1,69 @@
-<p>フォロー一覧</p>
+<%# ヘッダー部分 %>
+  <%= render 'events/event_header' %>
+<%# ユーザーの表示 %>
+<ul class="artist-form">
+  <li class="artist-list">
+    <% if @artist.artist_image.attached? %>
+      <%= image_tag @artist.artist_image, size:'75', class:"artist-icon" %>
+    <% else %>
+      <i class="far fa-grin-alt fa-3x"></i>
+    <% end %>
+    <div class="name"><%= "#{@artist.artistname}さんのページ" %></div>
+  </li>
+</ul>
+<%# フォロー一覧の表示 %>
+<ul class="follow-var">
+  <li class="follow-title">【 フォロー 】</li>
+  <li class="back-path">
+    <%= link_to '← 前のページに戻る', artist_path(@artist), class:"back-path" %>
+  </li>
+</ul>
+<%# アーティストのフォロー %>
+<div class="follow-lists">
+<% @artist.follow_ids.each do |artist| %>
+  <ul class="follow-list">
+    <li class="following">
+      <% if artist.artist_image.attached? %>
+        <%= image_tag artist.artist_image, size:'30', class:"artist-icon" %>
+      <% else %>
+        <i class="far fa-grin-alt fa-2x"></i>
+      <% end %>
+      <%= "#{artist.artistname}さん" %>
+    </li>
+    <li class="follow-path">
+      <%= link_to artist_path(artist), class:"follow-path" do %>
+        <i class="fas fa-info-circle"></i>/information
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+<% @artist.user_follow_ids.each do |user| %>
+  <ul class="follow-list">
+    <li class="following">
+      <% if user.user_image.attached? %>
+        <%= image_tag user.user_image, size:'30', class:"user-icon" %>
+      <% else %>
+        <i class="far fa-grin-alt fa-2x"></i>
+      <% end %>
+      <%= "#{user.nickname}さん" %>
+    </li>
+    <li class="follow-path">
+      <%= link_to user_path(user), class:"follow-path" do %>
+        <i class="fas fa-info-circle"></i>/information
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+</div>
 
-<table>
-  <% @artist.follow_ids.each do |artist| %>
-    <tr>
-      <td> <%= artist.artistname %> </td>
-      <td><%= link_to '情報一覧へ', artist_path(artist) %></td>
-    </tr>
-  <% end %>
-  <% @artist.user_follow_ids.each do |user| %>
-    <tr>
-      <td> <%= user.nickname %> </td>
-      <td><%= link_to '情報一覧へ', user_path(user) %></td>
-    </tr>
-  <% end %>
-</table>
-<br>
-<%= link_to '← 前のページへ戻る', artist_path(@artist) %>
+<%# @artist.follow_ids.each do |artist| %>
+  <%#= artist.artistname %>
+<%# end %>
+
+<%# @artist.user_follow_ids.each do |user| %>
+  <%#= user.nickname %>
+<%# end %>
+
+<%# カレンダーの表示 %>
+<%= render 'simple_calendar/events_calendar' %>
+
