@@ -17,7 +17,7 @@
 }
 
 .form-text {
-  margin-top: 6px;
+  margin-top: ５px;
   font-size: small;
   font-weight: bold;
 }
@@ -45,7 +45,6 @@
   padding: 5px;
   color: whitesmoke;
   background: black;
-  /* position: absolute; */
 }
 
 .user-image {
