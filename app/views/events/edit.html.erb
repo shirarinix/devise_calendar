@@ -8,24 +8,24 @@
   <div class="event-edit">イベント編集画面</div>
 <%# event-title %>
 <ul class="event-field">
-  <ul class="event-text">
-    <li><i class="fas fa-flag"></i></li>
-    <li><%= f.text_field :title, class:"event-title", placeholder:"【 titleの変更 】", autofocus: true %></li>
-  </ul>
+  <li class="event-text">
+    <i class="fas fa-flag a-fw" aria-hidden="true"></i>
+    <%= f.text_field :title, class:"event-title", placeholder:"【 titleの変更 】", autofocus: true %>
+  </li>
 </ul>
 <%# date/time %>
 <ul class="event-field">
-  <ul class="event-text">
-    <li><i class="fas fa-calendar-check"></i></li>
-    <li><%= f.datetime_field :start_time, class:"datetime", placeholder:"【 date/timeの変更 】", autofocus: true %></li>
-  </ul>
+  <li class="event-text">
+    <i class="fas fa-calendar-check"></i>
+    <%= f.datetime_field :start_time, class:"datetime", placeholder:"【 date/timeの変更 】", autofocus: true %>
+  </li>
 </ul>
 <%# contents %>
 <ul class="event-field">
-  <ul class="event-text">
-    <li><i class="fas fa-pencil-alt"></i></li>
-    <li><%= f.text_area :content, class:"content", placeholder:"【 contentsの変更 】", autofocus: true %></li>
-  </ul>
+  <li class="event-text">
+    <i class="fas fa-pencil-alt"></i>
+    <%= f.text_area :content, class:"content", placeholder:"【 contentsの変更 】", autofocus: true %>
+  </li>
 </ul>
 <%# 編集ボタン %>
   <ul class="event-btn">

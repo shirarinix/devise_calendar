@@ -3,7 +3,7 @@ class Artist < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  enum sex: ["男性", "女性"]
+  enum sex: { man: 1, woman: 2 }
 
   has_one_attached :artist_image
   # ↓activeとpassive、frontとbackは対。架空の中間テーブル(入口)を定義。class_nameを使ってBookmarkモデルという事を示す。
@@ -27,12 +27,10 @@ class Artist < ApplicationRecord
 
   # フォローしているとtrue、してなければfalseを返す
   def follow_id?(other_artist)
-    # binding.pry
     follow_ids.include?(other_artist)
   end
 
   def user_follow_id?(other_artist)
-    # binding.pry
     user_follow_ids.include?(other_artist)
   end
 

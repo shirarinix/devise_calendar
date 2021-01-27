@@ -8,24 +8,24 @@
   <div class="event-new">イベント作成画面</div>
 <%# event-title %>
 <ul class="event-field">
-  <ul class="event-text">
-    <li><i class="fas fa-flag"></i></li>
-    <li><%= f.text_field :title, class:"event-title", placeholder:"【 titleを入力 】", autofocus: true %></li>
-  </ul>
+  <li class="event-text">
+    <i class="fas fa-flag fa-fw" aria-hidden="true"></i>
+    <%= f.text_field :title, class:"event-title", placeholder:"【 titleを入力 】", autofocus: true %>
+  </li>
 </ul>
 <%# date/time %>
 <ul class="event-field">
-  <ul class="event-text">
-    <li><i class="fas fa-calendar-check"></i></li>
-    <li><%= f.datetime_field :start_time, class:"datetime", placeholder:"【 date/timeを入力 】", autofocus: true %></li>
-  </ul>
+  <li class="event-text">
+    <i class="fas fa-calendar-check fa-fw" aria-hidden="true"></i>
+    <%= f.datetime_field :start_time, class:"datetime", placeholder:"【 date/timeを入力 】", autofocus: true %>
+  </li>
 </ul>
 <%# content %>
 <ul class="event-field">
-  <ul class="event-text">
-    <li><i class="fas fa-pencil-alt"></i></li>
-    <li><%= f.text_area :content, class:"content", placeholder:"【 contentsを入力 】", rows: "7" %></li>
-  </ul>
+  <li class="event-text">
+    <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+    <%= f.text_area :content, class:"content", placeholder:"【 contentsを入力 】", utofocus: true %>
+  </li>
 </ul>
 <%# 作成ボタン %>
   <ul class="event-btn">

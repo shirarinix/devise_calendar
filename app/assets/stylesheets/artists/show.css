@@ -62,9 +62,11 @@ input[name=tabinput] {
 /* tab-content */
 .tab-content {
   padding: 10px;
+  height: 60px;
   font-weight: bold;
   align-items: center;
   border: 1px solid lightgrey;
+  overflow: scroll;
 }
 
 .tab-content div {

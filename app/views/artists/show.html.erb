@@ -18,14 +18,20 @@
 <%# プロフィールの表示 %>
   <ul class="profile-lists">
     <div class="profile-title">★ profile ★</div>
-    <li class="profile-list">gender 🚻
+    <li class="profile-list"><%= "gender 🚻" %>
       <div class="profile"></div>
-      <div class="profile"><%= @artist.sex %></div>
+      <div class="profile">
+        <% if @artist.sex == "man" %>
+          <%= "男性" %>
+        <% else %>
+          <%= "女性" %>
+        <% end %>
+      </div>
     </li>
-    <li class="profile-list">birthday 🎂
+    <li class="profile-list"><%= "birthday 🎂" %>
       <div class="profile"><%= @artist.birthday.strftime("%Y年 %m月 %d日") %></div>
     </li>
-    <li class="profile-list">e-mail 📩
+    <li class="profile-list"><%= "e-mail 📩" %>
       <div class="profile"><%= @artist.email %></div>
     </li>
   </ul>
