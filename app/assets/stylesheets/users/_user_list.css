@@ -1,5 +1,6 @@
 .user-lists {
   margin: 10px;
+  max-height: 50vh;
 }
 
 .user-list {

@@ -5,7 +5,7 @@
 }
 
 .icon-lists {
-  height: 35vh;
+  max-height: 35vh;
   min-width: 30vw;
   overflow: scroll;
   border-radius: 10px;
@@ -140,7 +140,7 @@
 }
 
 .text-push {
-  top: 90px;
+  top: 93px;
   left: 37px;
   color: crimson;
   font-weight: bold;

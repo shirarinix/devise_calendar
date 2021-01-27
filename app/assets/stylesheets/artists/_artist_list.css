@@ -1,5 +1,6 @@
 .artist-lists {
   margin: 10px;
+  min-height: 50vh;
 }
 
 .artist-list {
