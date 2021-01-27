@@ -1,39 +1,35 @@
 <% if current_user %>
-<li class="follow-form">
   <% unless current_user?(@user) %> <%# current_userと@userが一致しなかったらtrueを返す %>
     <% if current_user.following?(@user) %>
       <%= form_for(current_user.active_user_bookmarks.find_by(following_id: @user.id), html: { method: :delete }) do |f| %>
-        <%= f.submit "フォロー解除", class: "btn" %>
+        <%= f.submit "フォロー解除", class: "unfollow-btn" %>
       <% end %>
     <% else %>
       <%= form_for(current_user.active_user_bookmarks.build) do |f| %>
         <div><%= hidden_field_tag :following_id, @user.id %></div>
-        <%= f.submit "フォローする", class: "btn btn-primary" %>
+        <%= f.submit "フォローする", class: "follow-btn" %>
       <% end %>
     <% end %>
   <% end %>
-</li>
 <% else %>
-<li class="follow-form">
   <% unless current_artist?(@user) %>
     <% if current_artist.user_follow_id?(@user) %>
       <%= form_for(current_artist.front_artist_bookmarks.find_by(following_id: @user.id), html: { method: :delete }) do |f| %>
-        <%= f.submit "フォロー解除!!", class: "btn" %>
+        <%= f.submit "フォロー解除", class: "unfollow-btn" %>
       <% end %>
     <% else %>
       <%= form_for(current_artist.front_artist_bookmarks.build) do |f| %>
         <div><%= hidden_field_tag :following_id, @user.id %></div>
-        <%= f.submit "フォローする!!", class: "btn btn-primary" %>
+        <%= f.submit "フォローする", class: "follow-btn" %>
       <% end %>
     <% end %>
   <% end %>
-</li>
 <% end %>
-  <li class="count-form">
-    <%= link_to 'フォロー', following_user_path(@user) %>
-    <%= "#{@user.followings.count + @user.artist_followings.count}人(user)/" %>
-    <%= link_to 'フォロワー',follower_user_path(@user) %>
-    <%= "#{@user.followers.count + @user.artist_followers.count}人(user)" %>
-  </li>
+<div class="count-form">
+  <%= link_to 'フォロー', following_user_path(@user), class:"count-path" %>
+  <%= "#{@user.followings.count + @user.artist_followings.count}人 /" %>
+  <%= link_to 'フォロワー',follower_user_path(@user), class:"count-path" %>
+  <%= "#{@user.followers.count + @user.artist_followers.count}人" %>
+</div>
 
 <%# hidden_field_tag: following_id(第一引数)というパラメータに@user.id(第二引数)の情報を渡している %>

@@ -4,6 +4,17 @@
 <div class="event-form">
   <div class="show-title">イベント詳細画面</div>
   <p id="notice"><%= notice %></p>
+<%# auther %>
+<ul class="show-text">
+  <li class="text-title"><i class="fas fa-user-alt"></i>auther</li>
+  <div class="show-content">
+    <% if @event.user.present? %>
+      <%= "#{@user.nickname}さん" %>
+    <% else %>
+      <%= "#{@artist.artistname}さん" %>
+    <% end %>
+  </div>
+</ul>
 <%# event-title %>
 <ul class="show-text">
   <li class="text-title"><i class="fab fa-font-awesome-flag"></i>title</li>
@@ -30,8 +41,3 @@
 </div>
 <%# カレンダーの表示 %>
 <%= render 'simple_calendar/events_calendar' %>
-
-<%# if @event.user_id? %>
-<%# else %>
-  <%#= render 'event_footer' %>
-<%# end %>

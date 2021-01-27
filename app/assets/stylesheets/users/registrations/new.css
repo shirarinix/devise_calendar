@@ -1,18 +1,15 @@
 .user-account-form {
   border: ridge;
-  display: block;
   text-align: center;
+  justify-content: center;
   margin: auto;
-  margin-top: auto;
-  width: 50vh;
-  height: 70vh;
   padding: 20px;
+  max-width: 70vw;
 }
 
 .user-sign-up {
-  margin-top: 10px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin: auto;
+  width: 50vw;
   color: whitesmoke;
   font-size: large;
   font-weight: bold;
@@ -20,94 +17,86 @@
 }
 
 .form-text {
-  margin-top: 5px;
+  margin-top: 6px;
   font-size: small;
   font-weight: bold;
 }
 
 .user-field {
   display: flex;
-  margin-top: 0px;
   justify-content: center;
 }
 
 .fa-user {
   padding: 5px;
-  margin-top: 1px;
-  color: #f7f3eb;
-  background: #676056;
+  color: whitesmoke;
+  background: black;
 }
 
 .nickname {
   height: 20px;
   width: 35vw;
-  border: ridge;
-  border-color: black;
-  text-align: center;
   font-size: small;
+  text-align: center;
+  border: solid 3px black;
 }
 
 .fa-image {
   padding: 5px;
-  margin-top: 1px;
-  color: #f7f3eb;
-  background: #676056;
+  color: whitesmoke;
+  background: black;
+  /* position: absolute; */
 }
 
 .user-image {
   height: 20px;
-  width: 35vw;
-  border: ridge;
-  border-color: black;
-  font-size: x-small;
+  width: 30vw;
+  padding-left: 5vw;
+  font-size: 10px;
+  text-align: center;
+  border: solid 3px black;
 }
 
 .fa-envelope-square {
   padding: 5px;
-  margin-top: 1px;
-  color: #f7f3eb;
-  background: #676056;
+  color: whitesmoke;
+  background: black;
 }
 
 .user-email {
   height: 20px;
   width: 35vw;
-  text-align: center;
-  border: ridge;
-  border-color: black;
   font-size: small;
+  text-align: center;
+  border: solid 3px black;
 }
 
 .fa-lock {
   padding: 5px;
-  margin-top: 1px;
-  color: #f7f3eb;
-  background: #676056;
+  color: whitesmoke;
+  background: black;
 }
 
 .user-password {
   height: 20px;
   width: 35vw;
-  text-align: center;
-  border: ridge;
-  border-color: black;
   font-size: small;
+  text-align: center;
+  border: solid 3px black;
 }
 
 .fa-birthday-cake {
   padding: 5px;
-  margin-top: 1px;
-  color: #f7f3eb;
-  background: #676056;
+  color: whitesmoke;
+  background: black;
 }
 
 .user-birthday {
   height: 20px;
   width: 35vw;
-  text-align: center;
-  border: ridge;
-  border-color: black;
   font-size: small;
+  text-align: center;
+  border: solid 3px black;
 }
 
 .fa-male {
@@ -115,8 +104,8 @@
   margin-top: 1px;
   margin-left: 10px;
   margin-right: 10px;
-  color: #f7f3eb;
-  background: #676056;
+  color: whitesmoke;
+  background: black;
 }
 
 .fa-female {
@@ -124,8 +113,8 @@
   margin-top: 2px;
   margin-left: 10px;
   margin-right: 10px;
-  color: #f7f3eb;
-  background: #676056;
+  color: whitesmoke;
+  background: black;
 }
 
 .user-gender {
@@ -140,6 +129,7 @@
 }
 
 .signup-actions {
+  margin: auto;
   display: flex;
   justify-content: center;
 }

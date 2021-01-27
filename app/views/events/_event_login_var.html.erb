@@ -1,18 +1,40 @@
 <%# ログインバー %>
 <ul class="log-in-var">
   <% if current_user %>
-    <li class="title">
-      <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
-    </li>
-    <li class="notice"><%= notice %></li>
-    <li class="user-name"><%= link_to "#{current_user.nickname}さん", "#", class: "login-name" %></li>
-    <li class="log-out"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn" %></li>
+  <li class="title">
+    <div class="top-btn">
+      <%= button_to root_path, method: :get, class:"return-btn" do %>
+        <i class="fas fa-home"></i>/home
+      <% end %>
+    </div>
+    <i class="far fa-calendar-alt"></i>bookmark_calendar<i class="far fa-calendar-alt"></i>
+  </li>
+  <li class="notice">
+    <%= notice %>
+  </li>
+  <li class="login-form">
+    <div class="user-name"><%= link_to "#{current_user.nickname}さん", "#", class: "login-name" %></div>
+  </li>
+  <li>
+    <div class="log-out"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn" %></div>
+  </li>
   <% else %>
-    <li class="title">
-      <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
-    </li>
-    <li class="notice"><%= notice %></li>
-    <li class="artist-name"><%= link_to "#{current_artist.artistname}さん", "#", class: "login-name" %></li>
-    <li class="log-out"><%= link_to "ログアウト", destroy_artist_session_path, method: :delete, class: "logout-btn" %></li>
+  <li class="title">
+    <div class="top-btn">
+      <%= button_to root_path, method: :get, class:"return-btn" do %>
+        <i class="fas fa-home"></i>/home
+      <% end %>
+    </div>
+    <i class="far fa-calendar-alt"></i>bookmark_calendar<i class="far fa-calendar-alt"></i>
+  </li>
+  <li class="notice">
+    <%= notice %>
+  </li>
+  <li class="login-form">
+    <div class="artist-name"><%= link_to "#{current_artist.artistname}さん", "#", class: "login-name" %></div>
+  </li>
+  <li>
+    <div class="log-out"><%= link_to "ログアウト", destroy_artist_session_path, method: :delete, class: "logout-btn" %></div>
+  </li>
   <% end %>
 <ul>

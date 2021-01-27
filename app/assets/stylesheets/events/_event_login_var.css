@@ -2,22 +2,31 @@
   display: flex;
   align-items: center;
   background-color: #FFE4C4;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .title {
+  display: flex;
+  align-items: center;
   color: purple;
   font-size: large;
   font-weight: bold;
-  padding: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
+.fa-calendar-alt {
+  margin: 0 5px;
 }
 
 .notice {
-  margin: 10px;
   color: crimson;
+  overflow: scroll;
+}
+
+.login-form {
+  display: flex;
+  justify-content: space-between;
 }
 
 .login-name {
@@ -37,8 +46,7 @@
   padding: 3px;
   font-size: small;
   border-radius: 10px;
-  border-style: solid;
-  border-color: blue;
+  border: solid 2px blue;
   background-color: palegreen;
   transition: 0.5s;
 }
@@ -51,8 +59,7 @@
   padding: 3px;
   font-size: small;
   border-radius: 10px;
-  border-style: solid;
-  border-color: blue;
+  border: solid 2px blue;
   background-color: palegreen;
   transition: 0.5s;
 }
@@ -65,12 +72,49 @@
   padding: 3px;
   font-size: small;
   border-radius: 10px;
-  border-style: solid;
-  border-color: blue;
+  border: solid 2px blue;
   background-color: palegreen;
   transition: 0.5s;
 }
 
 .log-out:hover {
+  background-color: lightblue;
+}
+
+/* .event-return {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: ridge;
+  border-radius: 5px;
+  border-color: black;
+  display: inline-block;
+  background-color: green;
+  text-decoration: none;
+}
+
+.event-return-submit {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: whitesmoke;
+  text-decoration: none;
+} */
+
+.top-btn {
+  color:black;
+  text-decoration: none;
+}
+
+.return-btn {
+  padding: 3px;
+  margin: 10px 20px 10px 20px;
+  text-decoration: none;
+  font-size: small;
+  border-radius: 10px;
+  border: solid 2px blue;
+  background-color: palegreen;
+  transition: 0.5s;
+}
+
+.return-btn:hover {
   background-color: lightblue;
 }

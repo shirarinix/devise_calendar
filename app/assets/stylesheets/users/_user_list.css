@@ -4,8 +4,14 @@
 
 .user-list {
   display: flex;
-  padding: 10px;
+  margin: 10px;
+  padding: 5px;
   align-items: flex-end;
+}
+
+.user-info {
+  margin: auto;
+  padding: auto;
 }
 
 .user-path {
@@ -23,4 +29,81 @@
 
 .user-icon {
   border-radius: 100px;
+}
+
+.name {
+  margin: 10px;
+  font-weight: bold;
+}
+
+.follow-var {
+  padding: 0 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px #eee;
+}
+
+.follow-title {
+  color: crimson;
+  font-weight: bold;
+}
+
+.back-path {
+  margin: 5px;
+  font-size: 15px;
+  color: crimson;
+  text-decoration: none;
+  transition: 0.1s;
+}
+
+.back-path:hover {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  color: crimson;
+  font-weight: bold;
+  background-color: lightgreen;
+}
+
+.follow-lists {
+  max-height: 30vh;
+  overflow: scroll;
+}
+
+.follow-list {
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bolder;
+  border-bottom: solid 1px #eee;
+}
+
+.follow-list:hover {
+  background-color: #d4f0fd;
+}
+
+.following {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.follow-path {
+  margin: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+  transition: 0.1s;
+}
+
+.follow-path:hover {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  color: crimson;
+  font-weight: bold;
+  background-color: lightgreen;
 }

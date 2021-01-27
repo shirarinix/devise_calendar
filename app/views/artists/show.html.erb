@@ -1,72 +1,83 @@
-[ログイン者]
-<% if current_artist %>
-  <%= current_artist.artistname %>
-<% else %>
-  <%= current_user.nickname %>
-<% end %><br>
-<br>
-
-<p id="flash"><%= flash[:notice] %></p>
-
+<%# ヘッダー部分 %>
+  <%= render 'events/event_header' %>
+<%# アーティストの表示 %>
 <ul class="artist-form">
-  <li>
-    <% if @artist.artist_image.attached? %>
-      <%= image_tag @artist.artist_image, size:'50', class:"artist-icon" %>
-    <% else %>
-      <i class="far fa-grin-alt fa-3x"></i>
-    <% end %>
-    <%= @artist.artistname %>さんのページ！！
-  </li>
-  <li>
-    <%= render 'bookmarks/artist_follow_form', artist: @artist %>
-  </li>
-</ul>
-
-<ul class= "artist-profile">
-  <li>★discography★</li>
-  <li class="discography">
-    <%= @artist.discography %>
-  </li>
-  <li class="sns-list">
-    <% if @artist.twitter.present? %>
-      <%= link_to @artist.twitter, target: :_blank do %>
-        <i class="fab fa-twitter fa-2x faa-wrench animated"></i>
+  <div class="artist-info">
+    <li class="artist-list">
+      <% if @artist.artist_image.attached? %>
+        <%= image_tag @artist.artist_image, size:'75', class:"artist-icon" %>
+      <% else %>
+        <i class="far fa-grin-alt fa-3x"></i>
       <% end %>
+      <div class="name"><%= "#{@artist.artistname}さんのページ" %></div>
+    </li>
+    <li class="follow-lists">
+      <%= render 'bookmarks/artist_follow_form', artist: @artist %>
+    </li>
+  </div>
+<%# プロフィールの表示 %>
+  <ul class="profile-lists">
+    <div class="profile-title">★ profile ★</div>
+    <li class="profile-list">gender 🚻
+      <div class="profile"></div>
+      <div class="profile"><%= @artist.sex %></div>
+    </li>
+    <li class="profile-list">birthday 🎂
+      <div class="profile"><%= @artist.birthday.strftime("%Y年 %m月 %d日") %></div>
+    </li>
+    <li class="profile-list">e-mail 📩
+      <div class="profile"><%= @artist.email %></div>
+    </li>
+  </ul>
+</ul>
+<%# ディスコフラフィーの表示 %>
+<input id="discography" type="radio" name="tabinput" checked>
+<input id="sns-links" type="radio" name="tabinput">
+<ul class="tabnav">
+  <li><label class="disco-tab" for="discography">discography</label></li>
+  <li><label class="sns-tab" for="sns-links">sns-links</label></li>
+</ul>
+<div class="tab-content">
+  <div id="disco-content">
+    <%= safe_join(@artist.discography.split("\n"),tag(:br)) %>
+  </div>
+  <div id="sns-content">
+  <ul class= "artist-profile">
+    <li class="sns-list">
+      <% if @artist.twitter.present? %>
+        <%= link_to @artist.twitter, target: :_blank do %>
+          <i class="fab fa-twitter fa-2x faa-wrench animated"></i>
+        <% end %>
         <br><%= "twitter" %>
-    <% else %>
-      <i class="fab fa-twitter-square fa-2x"></i>
-        <br><%= "↑未登録" %>
-    <% end %>
-  </li>
-  <li class="sns-list">
-    <% if @artist.facebook.present? %>
-      <%= link_to @artist.facebook, target: :_blank do %>
-        <i class="fab fa-facebook-square fa-2x faa-horizontal animated"></i>
+      <% else %>
+        <i class="fab fa-twitter-square"></i>
+        <br><%= "twitter" %>
       <% end %>
+    </li>
+    <li class="sns-list">
+      <% if @artist.facebook.present? %>
+        <%= link_to @artist.facebook, target: :_blank do %>
+          <i class="fab fa-facebook-square fa-2x faa-horizontal animated"></i>
+        <% end %>
         <br><%= "facebook" %>
-    <% else %>
-      <i class="fab fa-facebook fa-2x"></i>
-        <br><%= "↑未登録" %>
-    <% end %>
-  </li>
-  <li class="sns-list">
-    <% if @artist.instagram.present? %>
-      <%= link_to @artist.instagram, target: :_blank do %>
-        <i class="fab fa-instagram fa-2x faa-pulse animated"></i>
+      <% else %>
+        <i class="fab fa-facebook"></i>
+        <br><%= "facebook" %>
       <% end %>
+    </li>
+    <li class="sns-list">
+      <% if @artist.instagram.present? %>
+        <%= link_to @artist.instagram, target: :_blank do %>
+          <i class="fab fa-instagram fa-2x faa-pulse animated"></i>
+        <% end %>
         <br><%= "instagram" %>
-    <% else %>
-      <i class="fab fa-instagram-square fa-2x"></i>
-        <br><%= "↑未登録" %>
-    <% end %>
-  </li>
-</ul>
-
-<%= link_to "← トップへ戻る", root_path %>
-  ⑴.<%= @artist.follow_ids.count %>
-  ⑵.<%= @artist.user_follow_ids.select("following_id").count %>
-  ⑶.<%= @artist.followed_ids.count %>
-  ⑷.<%= @artist.user_followed_ids.select("follow_id").count %>
-  ⑷.<%#= @user.artist_followers.select("follow_id").count %>
-
+      <% else %>
+        <i class="fab fa-instagram-square"></i>
+        <br><%= "instagram" %>
+      <% end %>
+    </li>
+  </ul>
+  </div>
+</div>
+<%# カレンダーの表示 %>
 <%= render 'simple_calendar/events_calendar' %>

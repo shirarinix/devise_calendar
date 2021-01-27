@@ -1,37 +1,83 @@
 .artist-icon {
   border-radius: 100px;
 }
-.artist-form{
+
+.artist-form {
   display: flex;
-  list-style: none;
-  align-items: flex-end;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
 }
-.artist-profile {
-  display: flex;
-  padding: 10px;
-  list-style: none;
-  text-align: center;
-  justify-content: space-around;
-}
+
 .discography{
   width: 55vh;
   text-align: left;
   border: 1px solid black;
-  /* background-color: wheat; */
 }
+
 .sns-list{
-  list-style: none;
+  text-align: center;
 }
+
 /*Twitter*/
 .fa-twitter{
   color:#1da1f2;
 }
+
 /*Facebook*/
 .fa-facebook-square{
   color:#3b5998;
 }
+
 /*instagram*/
 .fa-instagram{
   color:#e1306c;
+}
+
+/* tabnav */
+.tabnav {
+  display: flex;
+}
+
+.tabnav li label {
+  display: inline-block;
+  color: #505050;
+  background:  #dbebf8;
+  padding: 3px 10px 0 10px;
+  margin: 0 0 0 10px;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+input[name=tabinput] {
+  display: none;
+}
+
+#discography:checked ~ .tabnav .disco-tab,
+#sns-links:checked ~ .tabnav .sns-tab {
+  color: crimson;
+  background: lightgreen;
+}
+
+/* tab-content */
+.tab-content {
+  padding: 10px;
+  font-weight: bold;
+  align-items: center;
+  border: 1px solid lightgrey;
+}
+
+.tab-content div {
+  display: none;
+}
+
+#discography:checked ~ .tab-content #disco-content,
+#sns-links:checked ~ .tab-content #sns-content {
+  display: block;
+}
+
+.artist-profile {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
 }

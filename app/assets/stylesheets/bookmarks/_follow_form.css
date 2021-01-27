@@ -1,12 +1,46 @@
-/* .follow-form{
-  display: flex;
-  align-items: flex-end;
-  background-color: violet;
-} */
-.btn{
-  border-radius: 100px;
-  background-color: turquoise;
+.follow-btn {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: lightgray;
+  transition: 0.1s;
 }
-.count-form{
-  background-color: wheat;
+
+.follow-btn:hover {
+  color: crimson;
+  font-weight: bold;
+  background-color: lightblue;
+}
+
+.unfollow-btn {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: lightgray;
+  transition: 0.1s;
+}
+
+.unfollow-btn:hover {
+  color: crimson;
+  font-weight: bold;
+  background-color: lightpink;
+}
+
+.count-form {
+  font-weight: bold;
+}
+
+.count-path {
+  margin: 5px;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+  transition: 0.1s;
+}
+
+.count-path:hover {
+  padding: 5px;
+  border-radius: 10px;
+  color: crimson;
+  background-color: lightgreen;
 }
