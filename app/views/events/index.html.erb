@@ -13,9 +13,10 @@
   </ul>
 <%#= イベントの表示 %>
 <div class="event-content">🔻 イベント内容 🔻</div>
-<li class="event-info">
+<ul class="event-info">
+  <li>
   <table class="event-table">
-    <caption class="month-event">⭐️ あなたのイベント予定 ⭐️</caption>
+    <caption class="month-event"><%= "⭐️ イベントスケジュール ⭐" %>️</caption>
       <tr>
         <th>【 author 】</th>
         <th>【 title 】</th>
@@ -49,14 +50,18 @@
       </tr>
     <% end %>
   </table>
+  </li>
 <%#= イベント作成ボタンの表示 %>
-  <%= link_to "/events/new", class: "event-new-btn" do %>
-    <div class="text-event">イベント作成</div>
+  <div class="event-new-path">
+      <%= link_to "/events/new", class: "event-new-btn" do %>
+      <div class="text-event">イベント作成</div>
       <i class="fas fa-flag-checkered fa-5x"></i>
-    <div class="text-push">PUSH</div>
-  <% end %>
-</li>
+      <div class="text-push">PUSH</div>
+      <% end %>
+  </div>
+</ul>
 <% end %>
+
 <%#= カレンダーの表示 %>
 <%= render 'simple_calendar/toppage_calendar' %>
 

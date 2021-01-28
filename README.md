@@ -40,6 +40,7 @@ https://devise-bookmark-calendar.herokuapp.com/
   ・日本語化機能  
   ・画像のプレビュー機能  
   ・テストユーザー機能の実装  
+  ・ フォローした人のイベントタイムライン実装
 
 # ご利用方法
 

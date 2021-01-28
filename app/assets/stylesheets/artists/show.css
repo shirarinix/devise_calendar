@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .discography{
@@ -61,8 +62,8 @@ input[name=tabinput] {
 
 /* tab-content */
 .tab-content {
-  padding: 10px;
-  height: 60px;
+  padding: 20px;
+  height: 100px;
   font-weight: bold;
   align-items: center;
   border: 1px solid lightgrey;
@@ -81,5 +82,14 @@ input[name=tabinput] {
 .artist-profile {
   display: flex;
   text-align: center;
+  margin-top: 20px;
   justify-content: space-around;
+}
+
+.fa-record-vinyl {
+  margin-right: 5px;
+}
+
+.fa-hands-helping {
+  margin-right: 5px;
 }

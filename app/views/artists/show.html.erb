@@ -40,8 +40,16 @@
 <input id="discography" type="radio" name="tabinput" checked>
 <input id="sns-links" type="radio" name="tabinput">
 <ul class="tabnav">
-  <li><label class="disco-tab" for="discography">discography</label></li>
-  <li><label class="sns-tab" for="sns-links">sns-links</label></li>
+  <li>
+    <label class="disco-tab" for="discography">
+      <i class="fas fa-record-vinyl"></i>discography
+    </label>
+  </li>
+  <li>
+    <label class="sns-tab" for="sns-links">
+      <i class="fas fa-hands-helping"></i>follow-me
+    </label>
+  </li>
 </ul>
 <div class="tab-content">
   <div id="disco-content">
@@ -56,7 +64,7 @@
         <% end %>
         <br><%= "twitter" %>
       <% else %>
-        <i class="fab fa-twitter-square"></i>
+        <i class="fab fa-twitter-square fa-lg"></i>
         <br><%= "twitter" %>
       <% end %>
     </li>
@@ -67,7 +75,7 @@
         <% end %>
         <br><%= "facebook" %>
       <% else %>
-        <i class="fab fa-facebook"></i>
+        <i class="fab fa-facebook fa-lg"></i>
         <br><%= "facebook" %>
       <% end %>
     </li>
@@ -78,7 +86,7 @@
         <% end %>
         <br><%= "instagram" %>
       <% else %>
-        <i class="fab fa-instagram-square"></i>
+        <i class="fab fa-instagram-square fa-lg"></i>
         <br><%= "instagram" %>
       <% end %>
     </li>
@@ -86,4 +94,5 @@
   </div>
 </div>
 <%# カレンダーの表示 %>
+<div class="calendar-title"><%= "🔻 #{@artist.artistname}さんのカレンダー 🔻" %></div>
 <%= render 'simple_calendar/events_calendar' %>

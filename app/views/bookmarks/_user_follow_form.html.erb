@@ -27,7 +27,7 @@
 <% end %>
 <div class="count-form">
   <%= link_to 'フォロー', following_user_path(@user), class:"count-path" %>
-  <%= "#{@user.followings.count + @user.artist_followings.count}人 /" %>
+  <%= "#{@user.followings.count + @user.artist_followings.count}人" %>
   <%= link_to 'フォロワー',follower_user_path(@user), class:"count-path" %>
   <%= "#{@user.followers.count + @user.artist_followers.count}人" %>
 </div>
