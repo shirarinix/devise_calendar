@@ -155,16 +155,3 @@
   justify-content: space-around;
 }
 
-.attention-var {
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: center;
-  align-items: center;
-  background-color: lightskyblue;
-}
-
-.attention-point {
-  color: crimson;
-  font-size: large;
-}

@@ -1,4 +1,4 @@
-.log-in-var {
+.log-in-list {
   display: flex;
   align-items: center;
   background-color: #FFE4C4;
@@ -20,6 +20,9 @@
 }
 
 .notice {
+  /* width: 100px; */
+  margin: 5px;
+  /* font-size: small; */
   color: crimson;
   overflow: scroll;
 }
@@ -44,40 +47,44 @@
 
 .user-name {
   padding: 3px;
+  margin: 5px 10px;
   font-size: small;
   border-radius: 10px;
   border: solid 2px blue;
   background-color: palegreen;
-  transition: 0.5s;
 }
 
 .user-name:hover {
+  transition: 0.5s;
   background-color: lightblue;
 }
 
 .artist-name {
   padding: 3px;
+  margin: 5px 10px;
   font-size: small;
   border-radius: 10px;
   border: solid 2px blue;
   background-color: palegreen;
-  transition: 0.5s;
 }
 
 .artist-name:hover {
+  transition: 0.5s;
   background-color: lightblue;
 }
 
 .log-out {
   padding: 3px;
+  margin: 5px 10px;
+  margin-right: 50px;
   font-size: small;
   border-radius: 10px;
   border: solid 2px blue;
   background-color: palegreen;
-  transition: 0.5s;
 }
 
 .log-out:hover {
+  transition: 0.5s;
   background-color: lightblue;
 }
 
@@ -94,9 +101,9 @@
   border-radius: 10px;
   border: solid 2px blue;
   background-color: palegreen;
-  transition: 0.5s;
 }
 
 .return-btn:hover {
+  transition: 0.5s;
   background-color: lightblue;
 }
