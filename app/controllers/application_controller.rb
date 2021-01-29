@@ -18,3 +18,4 @@ class ApplicationController < ActionController::Base
                                                        :instagram, :sex, :birthday, :discography])
   end
 end
+
