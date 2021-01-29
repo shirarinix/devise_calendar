@@ -53,3 +53,10 @@
   font-size: 15px;
   text-decoration: none;
 }
+
+.events-title:hover {
+  padding: 3px;
+  color:crimson;
+  border-radius: 5px;
+  background-color: lightskyblue;
+}

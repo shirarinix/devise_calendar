@@ -33,13 +33,18 @@ bookmark_calendar
 
 # アプリのURL
 
-https://devise-bookmark-calendar.herokuapp.com/
+・https://devise-bookmark-calendar.herokuapp.com/  
+・アプリのログイン方法 → ユーザー側でサインインをお願いします  
+【e-mail】test@gmail.com  
+【password】ab0000  
 
-# 今後の追加実装予定
+# 課題解決の為の追加実装予定
 
   ・日本語化機能  
   ・画像のプレビュー機能  
   ・テストユーザー機能の実装  
+  ・サインアップ画面の統一  
+  ・フォローした人のイベントタイムライン実装
 
 # ご利用方法
 

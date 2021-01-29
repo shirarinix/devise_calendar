@@ -1,6 +1,6 @@
-<%#= カレンダーを表示 %>
+<%#= カレンダーを表示(toppage) %>
 <% if signed_in? && current_user %>
-<div class="calendar-title">🔻 今月のカレンダー 🔻</div>
+<div class="calendar-title"><%= "🔻 #{current_user.nickname}さんのカレンダー 🔻" %></div>
 <%= month_calendar events: current_user.events do |date, event| %>
   <%= date.day %>
     <% event.each do |event| %>
@@ -10,7 +10,7 @@
     <% end %>
   <% end %>
 <% elsif current_artist %>
-<div class="calendar-title">🔻 今月のカレンダー 🔻</div>
+<div class="calendar-title"><%= "🔻 #{current_artist.artistname}さんのカレンダー 🔻" %></div>
 <%= month_calendar events: current_artist.events do |date, event| %>
   <%= date.day %>
     <% event.each do |event| %>
@@ -20,12 +20,7 @@
     <% end %>
   <% end %>
 <% else %>
-<div class="app-title">
-  <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
-</div>
-  <%= render 'event_header' %>
-    <div class="attention-var">※※※ イベント・カレンダーの作成には<span class="attention-point">新規登録/ログイン</span>が必要です ※※※</div>
-  <div class="calendar-title">🔻 今月のカレンダー 🔻</div>
+<%= render 'event_header' %>
 <%= month_calendar events: @events do |date, event| %>
   <%= date.day %>
   <% end %>

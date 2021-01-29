@@ -7,7 +7,7 @@
     <% else %>
       <i class="far fa-grin-alt fa-3x"></i>
     <% end %>
-    <%= button_to "#{artist.artistname}さんのページへ", artist_path(artist), method: :get, class: "artist-path" %>
+    <%= button_to "#{artist.artistname}さんのページ", artist_path(artist), method: :get, class: "artist-path" %>
   </li>
   <% end %>
 </ul>
