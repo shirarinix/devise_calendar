@@ -6,7 +6,7 @@
     <% if @user.user_image.attached? %>
       <%= image_tag @user.user_image, size:'75', class:"user-icon" %>
     <% else %>
-      <i class="far fa-grin-alt fa-3x"></i>
+      <i class="far fa-grin-alt fa-4x"></i>
     <% end %>
     <div class="name"><%= "#{@user.nickname}さんのページ" %></div>
   </li>
@@ -32,7 +32,7 @@
     </li>
     <li class="follow-path">
       <%= link_to user_path(user), class:"follow-path" do %>
-        <i class="fas fa-star"></i>/information
+        <i class="fas fa-star faa-flash animated"></i>/information
       <% end %>
     </li>
   </ul>
@@ -49,7 +49,7 @@
     </li>
     <li class="follow-path">
       <%= link_to artist_path(artist), class:"follow-path" do %>
-        <i class="fas fa-music"></i>/information
+        <i class="fas fa-music faa-pulse animated"></i>/information
       <% end %>
     </li>
   </ul>

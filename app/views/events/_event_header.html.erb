@@ -3,22 +3,35 @@
 <% if signed_in? %>
   <%= render 'events/event_login_var' %>
 <% else %>
-  <div class="sample">
-    <%= image_tag 'top_image.jpg' %>
-    <div class="top-title">
-      <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
-    </div>
-    <ul class="sign-in-form">
-      <div class="user-sign-in">☆ユーザー サインイン☆
-        <li class="signup-btn"><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
-        <li class="login-btn"><%= link_to 'ログイン', new_user_session_path, class: "log-in" %></li>
-      </div>
-      <div class="artist-sign-in">♫アーティスト サインイン♫
-        <li class="signup-btn"><%= link_to "新規登録", new_artist_registration_path, class: "sign-up" %></li>
-        <li class="login-btn"><%= link_to "ログイン", new_artist_session_path, class: "log-in" %></li>
-      </div>
-    </ul>
+<div class="top">
+  <ul class="sign-in-form">
+    <%# userサインイン %>
+    <li class="form">
+      <label for="label1"><i class="fas fa-chevron-down"></i>☆ユーザー会員の方はこちらから☆<i class="fas fa-chevron-down"></i></label>
+        <input type="checkbox" id="label1" class="css-click" />
+      <ul class="show"><%# 隠している中身 %>
+        <li class="sign-up-btn"><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
+        <li class="log-in-btn"><%= link_to 'ログイン', new_user_session_path, class: "log-in" %></li>
+      </ul>
+    </li>
+    <%# artistサインイン %>
+    <li class="form">
+      <label for="label2"><i class="fas fa-chevron-down"></i>♫アーティスト会員の方はこちらから♫<i class="fas fa-chevron-down"></i></label>
+        <input type="checkbox" id="label2" class="css-click" />
+      <ul class="show"><%# 隠している中身 %>
+        <li class="sign-up-btn"><%= link_to "新規登録", new_artist_registration_path, class: "sign-up" %></li>
+        <li class="log-in-btn"><%= link_to "ログイン", new_artist_session_path, class: "log-in" %></li>
+      </ul>
+    </li>
+  </ul>
+<%# イメージ写真 %>
+  <%= image_tag 'top_image.jpg' %>
+<%# タイトル %>
+  <div class="top-title">
+    <i class="far fa-calendar-alt"></i><span class="top-name">bookmark_calendar</span><i class="far fa-calendar-alt"></i>
   </div>
-    <div class="attention-var">※※※ イベント・カレンダーの作成には<span class="attention-point">新規登録/ログイン</span>が必要です ※※※</div>
+</div>
+<%# アテンションの表示 %>
+  <div class="attention-var">※※※ イベント・カレンダーの作成には<span class="attention-point">新規登録/ログイン</span>が必要です ※※※</div>
   <div class="calendar-title">🔻 今月のカレンダー 🔻</div>
 <% end %>

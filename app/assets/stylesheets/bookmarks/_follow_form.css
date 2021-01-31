@@ -3,10 +3,10 @@
   padding: 5px;
   border-radius: 10px;
   background-color: lightgray;
-  transition: 0.1s;
 }
 
 .follow-btn:hover {
+  transition: 0.1s;
   color: crimson;
   font-weight: bold;
   background-color: lightblue;
@@ -17,10 +17,10 @@
   padding: 5px;
   border-radius: 10px;
   background-color: lightgray;
-  transition: 0.1s;
 }
 
 .unfollow-btn:hover {
+  transition: 0.1s;
   color: crimson;
   font-weight: bold;
   background-color: lightpink;
