@@ -30,7 +30,6 @@
   margin-right: 10px;
 }
 
-
 .app-title {
   margin: 10px;
   padding: 10px;
@@ -89,11 +88,12 @@
 }
 
 
-.fa-chevron-down {
+/* .fa-chevron-down {
   color: #eaeaea;
   margin-left: 10px;
   margin-right: 10px;
-}
+  position: absolute;
+} */
 
 /*フォーム全体*/
 .sign-in-form {
@@ -112,8 +112,8 @@
   display: block;
   opacity: 0.7;
   margin: 0;
-  height: 20px;
-  padding-top : 2px;
+  /* height: 20px; */
+  padding: 7px;
   /* padding-bottom : 7px; */
   font-size: 13px;
   cursor :pointer;
