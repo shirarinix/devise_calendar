@@ -1,4 +1,5 @@
 .top {
+  width: 100vw;
   height: 100%;
   position: relative;/*相対配置*/
   background-color: lightblue;
@@ -39,14 +40,14 @@
 }
 
 .sign-up {
-  padding: 5px;
+  padding: 7px;
   display: block;
   color: crimson;
   text-decoration: none;
 }
 
 .log-in {
-  padding: 5px;
+  padding: 7px;
   display: block;
   color: crimson;
   text-decoration: none;
@@ -110,17 +111,18 @@
 .form label {
   display: block;
   opacity: 0.7;
-  padding : 5px;
+  padding : 7px;
   font-size: 13px;
   cursor :pointer;
   transition: all 0.5s;
-  width: 50vw;
+  /* width: 50vw; */
   text-align: center;
   background-color: lightblue;
 }
 
 /*ラベルホバー時*/
 .form label:hover {
+  opacity: 1;
   background :lightskyblue;
 }
 
