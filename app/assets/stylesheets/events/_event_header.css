@@ -111,11 +111,11 @@
 .form label {
   display: block;
   opacity: 0.7;
-  padding : 7px;
+  padding-top : 7px;
+  padding-bottom : 7px;
   font-size: 13px;
   cursor :pointer;
   transition: all 0.5s;
-  /* width: 50vw; */
   text-align: center;
   background-color: lightblue;
 }
