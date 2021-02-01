@@ -18,9 +18,11 @@
 <%# プロフィールの表示 %>
   <ul class="profile-lists">
     <div class="profile-title">★ profile ★</div>
-    <li class="profile-list"><%= "gender 🚻" %>
-      <div class="profile"></div>
-      <div class="profile">
+    <li class="profile-list">
+      <div class="profile-text">
+        <%= "gender 🚻" %>
+      </div>
+      <div class="profile-sex">
         <% if @user.sex == "man" %>
           <%= "男性" %>
         <% else %>
@@ -28,11 +30,21 @@
         <% end %>
       </div>
     </li>
-    <li class="profile-list"><%= "birthday 🎂" %>
-      <div class="profile"><%= @user.birthday.strftime("%Y年 %m月 %d日") %></div>
+    <li class="profile-list">
+      <div class="profile-text">
+        <%= "birthday 🎂" %>
+      </div>
+      <div class="profile-birthday">
+        <%= @user.birthday.strftime("%Y年 %m月 %d日") %>
+      </div>
     </li>
-    <li class="profile-list"><%= "e-mail 📩" %>
-      <div class="profile"><%= @user.email %></div>
+    <li class="profile-list">
+      <div class="profile-text">
+        <%= "hobby 🎪" %>
+      </div>
+      <div class="profile-hobby">
+        <%= @user.hobby %>
+      </div>
     </li>
   </ul>
 </ul>

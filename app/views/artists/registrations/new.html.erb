@@ -40,6 +40,12 @@
     <i class="fa fa-lock fa-fw" aria-hidden="true"></i>
     <%= f.password_field :password_confirmation, class:"artist-password", placeholder:"【もう一度同じpasswordを入力】", autofocus: true %>
   </li>
+<%# hobby %>
+  <div class="form-text">【hobby】</div>
+  <li class="artist-field">
+    <i class="fas fa-crown fa-fw" aria-hidden="true"></i>
+    <%= f.text_field :hobby, class:"artist-hobby", placeholder:"【hobbyを入力】", autofocus: true %>
+  </li>
 <%# birthday %>
   <div class="form-text">【birthday】</div>
   <li class="artist-field">

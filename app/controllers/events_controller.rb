@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if @event.valid? && @event.save
       flash[:notice] = 'イベントを作成しました'
-      redirect_to event_path(@event)
+      redirect_to root_path
     else
       flash[:notice] = 'イベントが作成出来ませんでした'
       render 'new'
@@ -52,7 +52,7 @@ class EventsController < ApplicationController
     @event.update(event_params)
     if @event.valid? && @event.save
       flash[:notice] = 'イベントを編集しました'
-      redirect_to events_path(@event)
+      redirect_to root_path
     else
       flash[:notice] = 'イベントの編集に失敗しました'
       render 'edit'

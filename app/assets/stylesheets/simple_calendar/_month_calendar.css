@@ -55,7 +55,8 @@
 }
 
 .events-title:hover {
-  padding: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   color:crimson;
   border-radius: 5px;
   background-color: lightskyblue;

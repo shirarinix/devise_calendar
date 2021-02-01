@@ -5,12 +5,12 @@
 }
 
 .top img {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   }
 
 .top-title {
-  top: 15%;
+  top: 17%;
   left: 50%;
   margin:auto;
   display: block;
@@ -110,7 +110,7 @@
 .form label {
   display: block;
   opacity: 0.7;
-  padding : 3px;
+  padding : 5px;
   font-size: 13px;
   cursor :pointer;
   transition: all 0.5s;
@@ -147,5 +147,11 @@
 .css-click:checked + .show {
   height: auto;
   opacity: 0.7;
+  background: #eaeaea;
+}
+
+.css-click:checked + .show:hover {
+  height: auto;
+  opacity: 1;
   background: #eaeaea;
 }
