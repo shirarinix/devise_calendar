@@ -7,7 +7,7 @@
   <ul class="sign-in-form">
     <%# userサインイン %>
     <li class="form">
-      <label for="label1"><i class="fas fa-chevron-down"></i>☆ユーザー会員の方はこちら☆<i class="fas fa-chevron-down"></i></label>
+      <label for="label"><i class="fas fa-chevron-down"></i>☆ユーザー会員の方はこちら☆<i class="fas fa-chevron-down"></i></label>
         <input type="checkbox" id="label1" class="css-click" />
       <ul class="show"><%# 隠している中身 %>
         <li class="sign-up-btn"><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
@@ -16,7 +16,7 @@
     </li>
     <%# artistサインイン %>
     <li class="form">
-      <label for="label2"><i class="fas fa-chevron-down"></i>♫アーティスト会員の方はこちら♫<i class="fas fa-chevron-down"></i></label>
+      <label for="label"><i class="fas fa-chevron-down"></i>♫アーティスト会員の方はこちら♫<i class="fas fa-chevron-down"></i></label>
         <input type="checkbox" id="label2" class="css-click" />
       <ul class="show"><%# 隠している中身 %>
         <li class="sign-up-btn"><%= link_to "新規登録", new_artist_registration_path, class: "sign-up" %></li>
