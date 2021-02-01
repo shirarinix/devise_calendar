@@ -11,7 +11,7 @@
   }
 
 .top-title {
-  top: 17%;
+  top: 20%;
   left: 50%;
   margin:auto;
   display: block;
@@ -87,17 +87,9 @@
   font-size: large;
 }
 
-
-/* .fa-chevron-down {
-  color: #eaeaea;
-  margin-left: 10px;
-  margin-right: 10px;
-  position: absolute;
-} */
-
 /*フォーム全体*/
 .sign-in-form {
-  /* margin: 0; */
+  margin: 0;
   display: flex;
   justify-content: center;
   position: absolute;
@@ -112,15 +104,13 @@
   display: block;
   opacity: 0.7;
   margin: 0;
-  /* height: 20px; */
-  padding: 7px;
-  /* padding-bottom : 7px; */
+  padding-top: 7px;
+  padding-bottom : 7px;
   font-size: 13px;
   cursor :pointer;
   transition: all 0.5s;
   text-align: center;
   background-color: lightblue;
-  /* border-bottom: solid 1px black; */
 }
 
 /*ラベルホバー時*/
