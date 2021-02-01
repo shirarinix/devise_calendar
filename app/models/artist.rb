@@ -11,14 +11,12 @@ class Artist < ApplicationRecord
   has_many :passive_artist_bookmarks, class_name: 'Bookmark', foreign_key: 'follow_id', dependent: :destroy #:followed_id(FK :follow_id)
   has_many :front_artist_bookmarks, class_name: 'Bookmark', foreign_key: 'followed_id', dependent: :destroy #:following_id(FK :followed_id)
   has_many :back_user_bookmarks, class_name: 'Bookmark', foreign_key: 'follow_id', dependent: :destroy #:follower_id(FK :follow_id)
-  # has_many :back_artist_bookmarks, class_name: "Bookmark", foreign_key: "following_id", dependent: :destroy #:following_id(FK :followed_id)
 
   # ↓架空のフォロー、フォロワーモデルを定義(出口)。throughで中間テーブルを経由している事を示す。sourceでアクセスできるようにする。
   has_many :followed_ids, through: :passive_artist_bookmarks, source: :followed # フォローした人
   has_many :follow_ids, through: :active_artist_bookmarks, source: :follow # フォローされた人
   has_many :user_followed_ids, through: :back_user_bookmarks, source: :follower # フォローした人
   has_many :user_follow_ids, through: :front_artist_bookmarks, source: :following # フォローされた人
-  # has_many :user_followed_ids, through: :back_artist_bookmarks, source: :followed # フォローした人
 
   has_many :events, dependent: :destroy
 

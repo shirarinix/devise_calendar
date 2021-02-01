@@ -11,14 +11,12 @@ class User < ApplicationRecord
   has_many :passive_user_bookmarks, class_name: 'Bookmark', foreign_key: 'following_id', dependent: :destroy #:follower_id(FK :following_id)
   has_many :front_user_bookmarks, class_name: 'Bookmark', foreign_key: 'follower_id', dependent: :destroy #:followed_id(FK :following_id)
   has_many :back_artist_bookmarks, class_name: 'Bookmark', foreign_key: 'following_id', dependent: :destroy #:followed_id(FK :following_id)
-  # has_many :back_user_bookmarks, class_name: "Bookmark", foreign_key: "follow_id", dependent: :destroy #:follow_id(FK :follower_id)
 
   # ↓架空のフォロー、フォロワーモデルを定義(出口)付け。throughで中間テーブルを経由している事を示す。sourceでアクセスできるようにする。
   has_many :followers, through: :passive_user_bookmarks, source: :follower # フォローした人
   has_many :followings, through: :active_user_bookmarks, source: :following # フォローされた人
   has_many :artist_followers, through: :back_artist_bookmarks, source: :followed # フォローした人
   has_many :artist_followings, through: :front_user_bookmarks, source: :follow # フォローされた人
-  # has_many :artist_followers, through: :back_user_bookmarks, source: :follower # フォローした人
 
   has_many :events, dependent: :destroy
 

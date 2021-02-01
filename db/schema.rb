@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 2020_12_30_123023) do
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "artistname", null: false
     t.integer "sex", null: false
-    t.string "hobby", null: false
     t.date "birthday", null: false
-    t.string "discography"
+    t.string "hobby"
+    t.text "discography"
     t.string "twitter"
     t.string "facebook"
     t.string "instagram"
@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(version: 2020_12_30_123023) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.integer "sex", null: false
-    t.string "hobby", null: false
     t.date "birthday", null: false
+    t.string "hobby"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

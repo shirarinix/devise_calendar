@@ -25,22 +25,6 @@ class BookmarksController < ApplicationController
 
   private
 
-  # def find_user
-  #   @user = User.find(params[:following_id])
-  # end
-
-  # def find_artist
-  #   @artist = Artist.find(params[:follow_id])
-  # end
-
-  # def user_status
-  #   @user = User.find(params[:following_id])
-  # end
-
-  # def artist_status
-  #   @artist = Artist.find(params[:follow_id])
-  # end
-
   # ログイン者がユーザー側をお気に入り登録(フォロー)する時のメッソド
   def bookmark_user
     if params[:following_id].present?

@@ -15,19 +15,17 @@
 }
 
 .profile-list {
-  position: relative;
-  list-style-type: none!important;/*ポチ消す*/
-  padding: 10px;
+  padding: 10px 30px;
   margin-bottom: 10px;
   line-height: 1;
+  border-radius: 15px;
+  color: #505050;
   background: #dbebf8;
   vertical-align: middle;
-  color: #505050;
-  border-radius: 15px;/*左側の角丸く*/
   display: flex;
   align-items: center;
-  /* max-width: 50vw; */
   position: relative;
+  list-style-type: none!important;/*ポチ消す*/
 }
 
 .profile-list:before { 
@@ -39,8 +37,6 @@
   height: 20px;
   background: #fff;
   border-radius: 50%;
-  margin-left: 5px;
-  margin-right: 5px;
   position: absolute;
 }
 

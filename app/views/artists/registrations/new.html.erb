@@ -15,7 +15,7 @@
     <%= f.text_field :artistname, class:"artistname", placeholder:"【artistnameを入力】"%></li>
   </li>
 <%# pohto %>
-  <div class="form-text">【pohto】</div>
+  <div class="form-text">【pohto】※任意入力※</div>
   <li class="artist-field">
     <i class="fas fa-image fa-fw" aria-hidden="true"></i>
     <%= f.file_field :artist_image, class:"artist-image", autofocus: true %>
@@ -41,7 +41,7 @@
     <%= f.password_field :password_confirmation, class:"artist-password", placeholder:"【もう一度同じpasswordを入力】", autofocus: true %>
   </li>
 <%# hobby %>
-  <div class="form-text">【hobby】</div>
+  <div class="form-text">【hobby】※任意入力※</div>
   <li class="artist-field">
     <i class="fas fa-crown fa-fw" aria-hidden="true"></i>
     <%= f.text_field :hobby, class:"artist-hobby", placeholder:"【hobbyを入力】", autofocus: true %>

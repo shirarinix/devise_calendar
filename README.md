@@ -89,8 +89,8 @@ https://i.gyazo.com/7f6c14ca2e50e22350c5a0c30d430123.png
 | -------- | ------- | ----------- |
 | nickname | string  | null: false |
 | sex      | integer | null: false |
-| hobby    | string  | null: false |
 | birthday | date    | null: false |
+| hobby    | string  |             |
 | email    | string  | null: false |
 | password | string  | null: false |
 
@@ -112,8 +112,9 @@ https://i.gyazo.com/7f6c14ca2e50e22350c5a0c30d430123.png
 | ----------- | ------- | ----------- |
 | artistname  | string  | null: false |
 | sex         | integer | null: false |
-| hobby       | string  | null: false |
-| discography | date    |             |
+| birthday    | date    | null: false |
+| hobby       | string  |             |
+| discography | text    |             |
 | twitter     | string  |             |
 | facebook    | string  |             |
 | instagram   | string  |             |
@@ -138,7 +139,7 @@ https://i.gyazo.com/7f6c14ca2e50e22350c5a0c30d430123.png
 | ----------- | --------- | ------------------------------ |
 | title       | string    | null: false                    |
 | content     | text      | null: false                    |
-| start_time  | date_time | null: false                    |
+| start_time  | datetime  | null: false                    |
 | user_id     | integer   | null: false, foreign_key: true |
 | artist_id   | integer   | null: false, foreign_key: true |
 

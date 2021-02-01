@@ -6,9 +6,9 @@ class DeviseCreateArtists < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string  :artistname,         null: false
       t.integer :sex,                null: false
-      t.string  :hobby,              null: false
       t.date    :birthday,           null: false
-      t.string  :discography
+      t.string  :hobby
+      t.text    :discography
       t.string  :twitter
       t.string  :facebook
       t.string  :instagram

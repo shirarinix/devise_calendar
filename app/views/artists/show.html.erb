@@ -43,7 +43,11 @@
         <%= "hobby 🎪" %>
       </div>
       <div class="profile-hobby">
-        <%= @artist.hobby %>
+        <% if @artist.hobby.present? %>
+          <%= @artist.hobby %>
+        <% else %>
+          <%= "探索中....." %>
+        <% end %>
       </div>
     </li>
   </ul>
