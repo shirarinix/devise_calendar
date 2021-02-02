@@ -28,7 +28,10 @@
   </li>
 </ul>
 <% else %>
-<div class="caution-var">※※※<span class="caution-point">イベントの編集は出来ません！！</span>※※※
+<div class="caution-var">
+  <i class="fas fa-exclamation-triangle fa-fw"></i>
+    <span class="caution-point">このイベントの編集は出来ません</span>
+  <i class="fas fa-exclamation-triangle fa-fw"></i>
   <li class="event-return">
     <%= link_to 'トップへ戻る', root_path, class:"event-return-submit" %>
   </li>
