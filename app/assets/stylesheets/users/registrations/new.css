@@ -140,6 +140,13 @@
   font-size: small;
 }
 
+.optional {
+  padding: 3px;
+  margin-bottom: 2px;
+  color: whitesmoke;
+  background-color: crimson;
+}
+
 .signup-actions {
   margin: auto;
   display: flex;

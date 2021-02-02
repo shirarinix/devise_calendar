@@ -15,7 +15,7 @@
     <%= f.text_field :artistname, class:"artistname", placeholder:"【artistnameを入力】"%></li>
   </li>
 <%# pohto %>
-  <div class="form-text">【pohto】※任意入力※</div>
+  <div class="form-text">【icon-pohto】<span class="optional">※任意※</span></div>
   <li class="artist-field">
     <i class="fas fa-image fa-fw" aria-hidden="true"></i>
     <%= f.file_field :artist_image, class:"artist-image", autofocus: true %>
@@ -41,7 +41,7 @@
     <%= f.password_field :password_confirmation, class:"artist-password", placeholder:"【もう一度同じpasswordを入力】", autofocus: true %>
   </li>
 <%# hobby %>
-  <div class="form-text">【hobby】※任意入力※</div>
+  <div class="form-text">【hobby】<span class="optional">※任意※</span></div>
   <li class="artist-field">
     <i class="fas fa-crown fa-fw" aria-hidden="true"></i>
     <%= f.text_field :hobby, class:"artist-hobby", placeholder:"【hobbyを入力】", autofocus: true %>
@@ -61,13 +61,13 @@
     <li><%= f.radio_button :sex, :woman, class:"artist-gender" %></li>
   </ul>
 <%# discography %>
-  <div class="artist-optional">【discography】--- 任意 ---</div>
+  <div class="artist-optional">【discography】--- optional ---</div>
   <li class="discography-field">
     <i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>
     <%= f.text_area :discography, class:"artist-discography", placeholder:"【200字以内でdiscographyを入力】", autofocus: true %>
   </li>
 <%# sns-link %>
-  <div class="artist-optional">【sns-link】--- 任意 ---</div>
+  <div class="artist-optional">【sns-link】--- optional ---</div>
   <li class="sns-field">
     <i class="fab fa-twitter-square fa-fw" aria-hidden="true"></i>
     <%= f.text_field :twitter, placeholder: "--- twitter-url ---", class: "sns-link" %>
