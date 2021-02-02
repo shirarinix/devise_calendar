@@ -2,7 +2,8 @@
   border: ridge;
   display: block;
   text-align: center;
-  margin: 0 130px;
+  margin: auto;
+  width: 50vw;
   padding: 20px;
 }
 
