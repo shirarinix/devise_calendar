@@ -80,6 +80,13 @@
   text-align: center;
   align-items: center;
   background-color: lightblue;
+  display: flex;
+  justify-content: center;
+}
+
+.attention-text {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .attention-point {
