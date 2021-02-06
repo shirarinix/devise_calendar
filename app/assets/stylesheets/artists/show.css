@@ -34,12 +34,12 @@
   color:#e1306c;
 }
 
-/* tabnav */
-.tabnav {
+/* tab-navのCSS設定 */
+.tab-nav {
   display: flex;
 }
 
-.tabnav li label {
+.tab-nav-item {
   display: inline-block;
   color: #505050;
   background:  #dbebf8;
@@ -50,34 +50,26 @@
   text-decoration: none;
 }
 
-input[name=tabinput] {
-  display: none;
-}
-
-#discography:checked ~ .tabnav .disco-tab,
-#sns-links:checked ~ .tabnav .sns-tab {
+.tab-nav-item.is-active {
   color: crimson;
   background: lightgreen;
 }
+/* ここまで */
 
-/* tab-content */
-.tab-content {
+/*tab-contentのCSS設定 */
+.tab-contents {
   padding: 20px;
   height: 100px;
   font-weight: bold;
   align-items: center;
   border: 1px solid lightgrey;
   overflow: scroll;
+  font-display: none;
 }
-
-.tab-content div {
+.tab-content-item {
   display: none;
 }
-
-#discography:checked ~ .tab-content #disco-content,
-#sns-links:checked ~ .tab-content #sns-content {
-  display: block;
-}
+/* ここまで */
 
 .artist-profile {
   display: flex;
