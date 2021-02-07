@@ -53,62 +53,57 @@
   </ul>
 </ul>
 <%# ディスコフラフィーの表示 %>
-<%# <input id="discography" type="radio" name="tabinput" checked> %>
-<%# <input id="sns-links" type="radio" name="tabinput"> %>
 <div class="tab" id="js-tab">
- <ul class="tab-nav">
-  <li class="tab-nav-item is-active" data-nav="0">
-    <%# <label class="tab is-active" data-nav="0" for="discography"> %>
+  <ul class="tab-nav">
+    <li class="tab-nav-item is-active" data-nav="0">
       <i class="fas fa-record-vinyl"></i>discography
-    <%# </label> %>
-  </li>
-  <li class="tab-nav-item" data-nav="1">
-      <i class="fas fa-hands-helping"></i>follow-me
-
-  </li>
- </ul>
- <div class="tab-contents">
-  <div class="tab-content-item" data-content="0">
-    <%= safe_join(@artist.discography.split("\n"),tag(:br)) %>
+    </li>
+    <li class="tab-nav-item" data-nav="1">
+      <i class="fas fa-hands-helping"></i>sns-link
+    </li>
+  </ul>
+  <div class="tab-contents">
+    <div class="tab-content-item" data-content="0">
+      <%= safe_join(@artist.discography.split("\n"),tag(:br)) %>
+    </div>
+    <div class="tab-content-item" data-content="1">
+    <ul class= "artist-profile">
+      <li class="sns-list">
+        <% if @artist.twitter.present? %>
+          <%= link_to @artist.twitter, target: :_blank do %>
+            <i class="fab fa-twitter fa-2x faa-wrench animated"></i>
+          <% end %>
+          <br><%= "twitter" %>
+        <% else %>
+          <i class="fab fa-twitter-square fa-lg"></i>
+          <br><%= "twitter" %>
+        <% end %>
+      </li>
+      <li class="sns-list">
+        <% if @artist.facebook.present? %>
+          <%= link_to @artist.facebook, target: :_blank do %>
+            <i class="fab fa-facebook-square fa-2x faa-horizontal animated"></i>
+          <% end %>
+          <br><%= "facebook" %>
+        <% else %>
+          <i class="fab fa-facebook fa-lg"></i>
+          <br><%= "facebook" %>
+        <% end %>
+      </li>
+      <li class="sns-list">
+        <% if @artist.instagram.present? %>
+          <%= link_to @artist.instagram, target: :_blank do %>
+            <i class="fab fa-instagram fa-2x faa-pulse animated"></i>
+          <% end %>
+          <br><%= "instagram" %>
+        <% else %>
+          <i class="fab fa-instagram-square fa-lg"></i>
+          <br><%= "instagram" %>
+        <% end %>
+      </li>
+    </ul>
+    </div>
   </div>
-  <div class="tab-content-item" data-content="1">
-   <ul class= "artist-profile">
-    <li class="sns-list">
-      <% if @artist.twitter.present? %>
-        <%= link_to @artist.twitter, target: :_blank do %>
-          <i class="fab fa-twitter fa-2x faa-wrench animated"></i>
-        <% end %>
-        <br><%= "twitter" %>
-      <% else %>
-        <i class="fab fa-twitter-square fa-lg"></i>
-        <br><%= "twitter" %>
-      <% end %>
-    </li>
-    <li class="sns-list">
-      <% if @artist.facebook.present? %>
-        <%= link_to @artist.facebook, target: :_blank do %>
-          <i class="fab fa-facebook-square fa-2x faa-horizontal animated"></i>
-        <% end %>
-        <br><%= "facebook" %>
-      <% else %>
-        <i class="fab fa-facebook fa-lg"></i>
-        <br><%= "facebook" %>
-      <% end %>
-    </li>
-    <li class="sns-list">
-      <% if @artist.instagram.present? %>
-        <%= link_to @artist.instagram, target: :_blank do %>
-          <i class="fab fa-instagram fa-2x faa-pulse animated"></i>
-        <% end %>
-        <br><%= "instagram" %>
-      <% else %>
-        <i class="fab fa-instagram-square fa-lg"></i>
-        <br><%= "instagram" %>
-      <% end %>
-    </li>
-   </ul>
-  </div>
- </div>
 </div>
 <%# カレンダーの表示 %>
 <div class="calendar-title"><%= "🔻 #{@artist.artistname}さんのカレンダー 🔻" %></div>

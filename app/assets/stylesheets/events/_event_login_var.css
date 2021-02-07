@@ -1,14 +1,14 @@
 .log-in-list {
   display: flex;
   align-items: center;
-  background-color: #FFE4C4;
   justify-content: space-between;
+  background-color: lemonchiffon;
+  box-shadow: 0px 3px 3px lightgray;
 }
 
 .title {
   display: flex;
   align-items: center;
-  color: purple;
   font-size: large;
   font-weight: bold;
   margin-left: 20px;

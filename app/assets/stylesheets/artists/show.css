@@ -38,9 +38,7 @@
 .tab-nav {
   display: flex;
 }
-
 .tab-nav-item {
-  display: inline-block;
   color: #505050;
   background:  #dbebf8;
   padding: 3px 10px 0 10px;
@@ -49,14 +47,18 @@
   cursor: pointer;
   text-decoration: none;
 }
-
 .tab-nav-item.is-active {
   color: crimson;
   background: lightgreen;
 }
-/* ここまで */
-
-/*tab-contentのCSS設定 */
+/* ポインター・イベントのCSS設定 */
+.fa-record-vinyl {
+  pointer-events: none;
+}
+.fa-hands-helping {
+  pointer-events: none;
+}
+/* tab-contentのCSS設定 */
 .tab-contents {
   padding: 20px;
   height: 100px;
@@ -79,9 +81,11 @@
 }
 
 .fa-record-vinyl {
+  color: #505050;
   margin-right: 5px;
 }
 
 .fa-hands-helping {
+  color: #505050;
   margin-right: 5px;
 }
