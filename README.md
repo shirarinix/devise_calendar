@@ -53,21 +53,20 @@ bookmark_calendar
 
 # ご利用方法と各機能の説明
 
-①トップページからユーザー、アーティストのどちらかで新規登録が出来る仕様になっています。  
-[https://i.gyazo.com/bf1b6c7c0de318e926304b01259bd6f1.png  
-②イベント作成のボタンからイベントの作成(追加)が可能になっており、カレンダーにもイベントが追加される仕様になっております。  
-https://i.gyazo.com/78e0195648b6af0f5915a7c944c5847d.png  
+①トップページからユーザー(ユーザー)会員、アーティスト会員のどちらかで新規登録が出来る仕様になっております。【アプリ内ではユーザーはファン会員という仕様になっておりますのでご注意下さい！！】  
+[![Image from Gyazo](https://i.gyazo.com/bf1b6c7c0de318e926304b01259bd6f1.png)](https://gyazo.com/bf1b6c7c0de318e926304b01259bd6f1)  
+②イベント作成ボタンからイベントの作成(追加)が可能になっており、カレンダーにイベントが反映される仕様になっております。  
+[![Image from Gyazo](https://i.gyazo.com/78e0195648b6af0f5915a7c944c5847d.png)](https://gyazo.com/78e0195648b6af0f5915a7c944c5847d)  
 ③作成されたイベント内容は詳細の閲覧・編集・削除がそれぞれ出来る仕様になっております。  
-https://i.gyazo.com/279182942e02f6dbdd16849a10905ce7.png  
+[![Image from Gyazo](https://i.gyazo.com/279182942e02f6dbdd16849a10905ce7.png)](https://gyazo.com/279182942e02f6dbdd16849a10905ce7)  
 ④作成されたイベント内容は他のユーザー(アーティスト)からは編集・削除が出来ない仕様になっております。  
-https://i.gyazo.com/40258c7c1f708591716bca61c23163fb.png  
-⑤ユーザー(アーティスト)のリストからプロフィール・スケジュールが閲覧出来る仕様になっております。  
-https://i.gyazo.com/57fc42fb85f040203f48fb86203c823c.png  
+[![Image from Gyazo](https://i.gyazo.com/40258c7c1f708591716bca61c23163fb.png)](https://gyazo.com/40258c7c1f708591716bca61c23163fb)  
+⑤ユーザー(アーティスト)のリストからプロフィール・カレンダーが閲覧出来る仕様になっております。  
+[![Image from Gyazo](https://i.gyazo.com/57fc42fb85f040203f48fb86203c823c.png)](https://gyazo.com/57fc42fb85f040203f48fb86203c823c)  
 ⑥ユーザー(アーティスト)からそれぞれフォロー・フォロー解除が出来る仕様になっております。  
-https://i.gyazo.com/1a4001d60546512601e8cb65001d163a.png  
-⑦フォロー・フォロワー画面からそれぞれのユーザー(アーティスト)の一覧が見れる仕様なっております。
-https://i.gyazo.com/7f6c14ca2e50e22350c5a0c30d430123.png  
-[![Image from Gyazo](https://i.gyazo.com/bf1b6c7c0de318e926304b01259bd6f1.png)](https://gyazo.com/bf1b6c7c0de318e926304b01259bd6f1)
+[![Image from Gyazo](https://i.gyazo.com/1a4001d60546512601e8cb65001d163a.png)](https://gyazo.com/1a4001d60546512601e8cb65001d163a)  
+⑦フォロー・フォロワー画面からそれぞれのユーザー(アーティスト)の一覧が見れる仕様なっております。  
+[![Image from Gyazo](https://i.gyazo.com/7f6c14ca2e50e22350c5a0c30d430123.png)](https://gyazo.com/7f6c14ca2e50e22350c5a0c30d430123)
 
 # 工夫したポイント
 
