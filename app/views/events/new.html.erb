@@ -1,9 +1,9 @@
 <%# ヘッダー部分 %>
   <%= render 'event_header' %>
-<%# エラーメッセージの出力 %>
-  <%= render 'events/error_messages' %>
 <%# イベント作成フォーム %>
 <div class="event-form">
+<%# エラーメッセージの出力 %>
+  <%= render 'events/error_messages' %>
 <%= form_with(model: @event, local: true) do |f| %>
   <div class="event-new">イベント作成画面</div>
 <%# event-title %>

@@ -128,8 +128,8 @@
 }
 
 .event-delete {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
   border: ridge;
   border-radius: 5px;
   border-color: black;
@@ -147,6 +147,7 @@
 .delete-btn {
   padding-left: 10px;
   padding-right: 10px;
+  font-size: large;
   color: whitesmoke;
   text-decoration: none;
 }

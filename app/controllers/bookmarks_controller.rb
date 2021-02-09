@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   def create
     if current_user
       if bookmark_user.save
-        flash[:notice] = '↓フォローをしました'
+        flash[:notice] = '↓フォローしました'
         redirect_to [@user, @artist]
       end
     elsif bookmark_artist.save
@@ -14,11 +14,11 @@ class BookmarksController < ApplicationController
   def destroy
     if current_user
       bookmark_user_release.destroy
-      flash[:notice] = '↓フォローを解除しました'
+      flash[:notice] = '↓フォロー解除しました'
       redirect_to [@user, @artist]
     else
       bookmark_artist_release.destroy
-      flash[:notice] = '↓フォローを解除しました'
+      flash[:notice] = '↓フォロー解除しました'
       redirect_to [@user, @artist]
     end
   end
