@@ -52,6 +52,10 @@
   border-bottom-right-radius: 5px;
 }
 
+.event-title:hover {
+  background-color: #d4f0fd;
+}
+
 .event-title::placeholder {
   color: grey;
 }
@@ -73,6 +77,10 @@
   border:solid 3px black;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.datetime:hover {
+  background-color: #d4f0fd;
 }
 
 .event-datetime::placeholder {
@@ -97,6 +105,10 @@
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.content:hover {
+  background-color: #d4f0fd;
 }
 
 .content::placeholder {

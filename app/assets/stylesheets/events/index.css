@@ -96,6 +96,11 @@
   text-decoration: none;
 }
 
+.edit-path:hover {
+  transition: 0.1s;
+  background-color: palegreen;
+}
+
 .edit-path:active {
   -webkit-transform: translateY(3px);
   transform: translateY(3px);/*下に動く*/
@@ -140,6 +145,11 @@
   border-radius: 10%;
   text-decoration: none;
   background-color: lightgrey;
+}
+
+.fa-flag-checkered:hover {
+  transition: 0.1s;
+  background-color: rgb(172, 170, 170);
 }
 
 .text-push {

@@ -27,6 +27,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .artist-image {
@@ -35,6 +36,7 @@
   font-size: 10px;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .artist-email {
@@ -43,6 +45,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .artist-password {
@@ -51,6 +54,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .artist-hobby {
@@ -59,6 +63,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .artist-birthday {
@@ -67,6 +72,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .artist-gender {
@@ -163,7 +169,7 @@
 }
 
 .fa-compact-disc {
-  padding: 5px;
+  padding: 5px 2px 5px 5px;
   color: whitesmoke;
   background: black;
 }
@@ -201,6 +207,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .sns-field {

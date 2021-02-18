@@ -39,6 +39,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .fa-image {
@@ -53,6 +54,7 @@
   font-size: 10px;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .fa-envelope-square {
@@ -67,6 +69,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .fa-lock {
@@ -81,6 +84,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .fa-crown {
@@ -95,6 +99,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .fa-birthday-cake {
@@ -109,6 +114,7 @@
   font-size: small;
   text-align: center;
   border: solid 3px black;
+  border-left: none;
 }
 
 .fa-male {

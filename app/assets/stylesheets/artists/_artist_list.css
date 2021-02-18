@@ -28,6 +28,11 @@
   text-decoration: none;
 }
 
+.artist-path:hover {
+  transition: 0.1s;
+  background-color: palegreen;
+}
+
 .artist-icon {
   border-radius: 100px;
 }

@@ -28,6 +28,11 @@
   text-decoration: none;
 }
 
+.user-path:hover {
+  transition: 0.1s;
+  background-color: palegreen;
+}
+
 .user-icon {
   border-radius: 100px;
 }
