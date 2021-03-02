@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: devise_calendar_production
-  username: devise_calendar
-  password: <%= ENV['DEVISE_CALENDAR_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
