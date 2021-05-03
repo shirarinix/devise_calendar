@@ -1,43 +1,94 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+
+<%# タイトル %>
+<div class="app-title">
+  <i class="far fa-calendar-alt"></i> bookmark_calendar <i class="far fa-calendar-alt"></i>
+</div>
+
+<%# ユーザーアカウントフォーム %>
+<div class="user-account-form">
+  <%#= resource_name.to_s.humanize %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<%# エラーメッセージの出力 %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <div class="user-sign-up">編集画面</div>
+<%# ↓ここから %>
+
+<%# nickname %>
+  <div class="form-text">【nickname】</div>
+  <li class="user-field">
+    <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+    <%= f.text_field :nickname, class:"nickname", placeholder:"【nicknameを入力】", autofocus: true %>
+  </li>
+<%# pohto %>
+  <div class="form-text">【icon-pohto】<span class="optional">※任意※</span></div>
+  <li class="user-field">
+    <i class="fas fa-image fa-fw" aria-hidden="true"></i>
+    <%= f.file_field :user_image, class:"user-image", autofocus: true %>
+  </li>
+<%# e-mail %>
+  <div class="form-text">【e-mail】</div>
+  <li class="user-field">
+    <i class="fas fa-envelope-square fa-fw" aria-hidden="true"></i>
+    <%= f.email_field :email, class:"user-email", placeholder:"【PC・携帯どちらかを入力】", autofocus: true, autocomplete: "email" %>
+  </li>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+<%# password %>
+  <div class="form-text">【password】<br>
+    <i>(※パスワードを入力して下さい※)</i>
+  </div>
+  <li class="user-field">
+    <i class="fa fa-lock fa-fw" aria-hidden="true"></i>
+    <%= f.password_field :password, class:"user-password", placeholder:"【新しいpasswordか現在のpasswordを入力】", autofocus: true, autocomplete: "new-password" %><br>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
+  </li>
+<%# current-password %>
+  <div class="form-text">【current-password】<br>
+    <i>(※変更するには現在のパスワードが必要です※)</i>
   </div>
+  <li class="user-field">
+    <i class="fa fa-lock fa-fw" aria-hidden="true"></i>
+    <%= f.password_field :current_password, class:"user-password", placeholder:"【現在のパスワード】", autofocus: true, autocomplete: "current-password" %>
+  </li>
+<%# hobby %>
+  <div class="form-text">【hobby】<span class="optional">※任意※</span></div>
+  <li class="user-field">
+    <i class="fas fa-crown fa-fw" aria-hidden="true"></i>
+    <%= f.text_field :hobby, class:"user-hobby", placeholder:"【hobbyを入力】", autofocus: true %>
+  </li>
+<%# birthday %>
+  <div class="form-text">【birthday】</div>
+  <li class="user-field">
+    <i class="fas fa-birthday-cake fa-fw" aria-hidden="true"></i>
+    <%= f.date_field :birthday, class:"user-birthday", placeholder:"【birthdayを入力】", autofocus: true %>
+  </li>
+<%# gender %>
+  <div class="form-text">【gender】</div>
+  <ul class="user-field">
+    <li><i class="fas fa-male"></i></li>
+    <li><%= f.radio_button :sex, :man, class:"user-gender" %></li>
+    <li><i class="fas fa-female"></i></li>
+    <li><%= f.radio_button :sex, :woman, class:"user-gender" %></li>
+  </ul>
+<%# ↑ここまで %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+<%# 送信ボタン %>
+  <ul class="signup-actions">
+    <li><%= f.submit "編集する", class:"signup-submit" %></li>
 <% end %>
+<%# 前のページへ戻るボタン %>
+    <li class="signup-return">
+      <%= link_to "戻る", root_path, class:"signup-return-submit" %>
+    </li>
+  </ul>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <div class="account-delete-form"> ----- アカウント削除 ----- </div>
+  <li class="account-delete-field">※このアカウントを削除する ➡︎
+    <%= button_to "アカウント削除", registration_path(resource_name), class:"account-delete", data: { confirm: "本当に削除してよろしいですか？" }, method: :delete %>
+  </li>
+</div>

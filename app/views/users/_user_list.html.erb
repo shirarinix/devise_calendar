@@ -1,5 +1,6 @@
 <%#= ユーザーリストを表示 %>
 <ul class="user-lists">【ファン会員】
+  <%= link_to "プロフィール編集へ", edit_user_registration_path(@users), class: "profile-edit", method: :get %>
   <% @users.each do |user| %>
     <li class="user-list" >
       <% if user.user_image.attached? %>

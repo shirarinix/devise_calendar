@@ -159,6 +159,33 @@
   justify-content: center;
 }
 
+.account-delete-form {
+  margin: auto;
+  margin-top: 30px;
+  width: 50vw;
+  color: whitesmoke;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: blue;
+}
+
+.account-delete-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+
+.account-delete {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+  border: ridge;
+  border-color: black;
+  color: whitesmoke;
+  background-color: rebeccapurple;
+}
+
 .signup-submit {
   padding-left: 20px;
   padding-right: 20px;
