@@ -64,7 +64,6 @@ bookmark_calendar
 【password】ab0000
 
 # 使用技術（開発環境）
-
 - 言語：Html/Css/Ruby/javascript/
 - フレームワーク：Ruby on Rails
 - DB：mysql
