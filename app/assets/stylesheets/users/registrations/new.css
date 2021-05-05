@@ -150,6 +150,13 @@
   padding: 3px;
   margin-bottom: 2px;
   color: whitesmoke;
+  background-color: blue;
+}
+
+.profile-optional {
+  padding: 3px;
+  margin-bottom: 2px;
+  color: whitesmoke;
   background-color: crimson;
 }
 
@@ -158,7 +165,7 @@
   display: flex;
   justify-content: center;
 }
-
+/* アカウント削除ボタン */
 .account-delete-form {
   margin: auto;
   margin-top: 30px;
@@ -185,7 +192,7 @@
   color: whitesmoke;
   background-color: rebeccapurple;
 }
-
+/* ここまで */
 .signup-submit {
   padding-left: 20px;
   padding-right: 20px;

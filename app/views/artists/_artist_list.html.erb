@@ -1,5 +1,8 @@
 <%#= アーティストリストを表示 %>
 <ul class="artist-lists">【アーティスト会員】
+  <% if current_artist %>
+    <%= link_to "プロフィール編集へ", edit_artist_registration_path(@artists), class: "profile-edit", method: :get %>
+  <% end %>
   <% @artists.each do |artist| %>
   <li class="artist-list">
     <% if artist.artist_image.attached? %>
